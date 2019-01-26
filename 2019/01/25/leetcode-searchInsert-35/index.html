@@ -5,15 +5,21 @@
   
 
   
-  <title>归档: 2019 | 何嘉晨的博客</title>
+  <title>leetcode-searchInsert-35(java) | 何嘉晨的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="何嘉晨的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-searchInsert-35(java)">
+<meta property="og:url" content="http://yoursite.com/2019/01/25/leetcode-searchInsert-35/index.html">
 <meta property="og:site_name" content="何嘉晨的博客">
+<meta property="og:description" content="这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/01/25/leetcode-searchInsert-35/img/access.png">
+<meta property="og:updated_time" content="2019-01-25T03:26:39.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何嘉晨的博客">
+<meta name="twitter:title" content="leetcode-searchInsert-35(java)">
+<meta name="twitter:description" content="这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/25/leetcode-searchInsert-35/img/access.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -58,97 +64,79 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/26/addTwoNumbers-2/" class="archive-article-date">
-  <time datetime="2019-01-26T03:31:15.000Z" itemprop="datePublished">1月 26</time>
+        <section id="main"><article id="post-leetcode-searchInsert-35" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/25/leetcode-searchInsert-35/" class="article-date">
+  <time datetime="2019-01-25T03:16:28.000Z" itemprop="datePublished">2019-01-25</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/26/addTwoNumbers-2/">addTwoNumbers_2(java)</a>
+    <h1 class="article-title" itemprop="name">
+      leetcode-searchInsert-35(java)
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/25/leetcode-searchInsert-35/" class="archive-article-date">
-  <time datetime="2019-01-25T03:16:28.000Z" itemprop="datePublished">1月 25</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/25/leetcode-searchInsert-35/">leetcode-searchInsert-35(java)</a>
-    </h1>
-  
+        <p>这是该题的地址：<a href="#https://leetcode-cn.com/problems/search-insert-position/">https://leetcode-cn.com/problems/search-insert-position/</a></p>
+<p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。<a id="more"></a></p>
+<p>示例 1:</p>
+<p>输入: [1,3,5,6], 5<br>输出: 2<br>示例 2:</p>
+<p>输入: [1,3,5,6], 2<br>输出: 1<br>示例 3:</p>
+<p>输入: [1,3,5,6], 7<br>输出: 4<br>示例 4:</p>
+<p>输入: [1,3,5,6], 0<br>输出: 0</p>
+<p>我的思路：</p>
+<p>从数组第一个数i=0开始遍历。将val和nums[]的值进行比较。假如值超过了或者相等了。那么就将i返回。如果遍历完了都没有返回 就将数组的长度返回</p>
+<pre><code>public int searchInsert(int[] nums, int target) {
+       for(int i=0;i&lt;nums.length;i++){
+           if(target==nums[i] || target&lt;nums[i]){
+               return i;
+           }
+       }
+       return nums.length;
+   }
+</code></pre><p>最终的速度：</p>
+<p><img src="/2019/01/25/leetcode-searchInsert-35/img/access.png" alt=""></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/24/hello-hexo/" class="archive-article-date">
-  <time datetime="2019-01-24T12:35:01.000Z" itemprop="datePublished">1月 24</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/24/hello-hexo/">hello-hexo</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/24/leetcode-removeElement-27/" class="archive-article-date">
-  <time datetime="2019-01-24T12:33:41.000Z" itemprop="datePublished">1月 24</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/25/leetcode-searchInsert-35/" data-id="cjrcxlbh2000ddsv65x0v4no3" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/24/leetcode-removeElement-27/">leetcode-removeElement-27(java)</a>
-    </h1>
-  
-
-    </header>
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/26/addTwoNumbers-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          addTwoNumbers_2(java)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/01/24/hello-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hello-hexo</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
