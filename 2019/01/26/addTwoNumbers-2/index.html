@@ -7,19 +7,19 @@
   
   <title>addTwoNumbers_2(java) | 何嘉晨的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是该题的地址：https://leetcode-cn.com/problems/add-two-numbers/ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。 示例： 输入：(2">
+  <meta name="description" content="这是该题的地址：https://leetcode-cn.com/problems/add-two-numbers/ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。您可以假设除了数字 0 之外，这两个数都不会以 0 开头。">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="addTwoNumbers_2(java)">
 <meta property="og:url" content="http://yoursite.com/2019/01/26/addTwoNumbers-2/index.html">
 <meta property="og:site_name" content="何嘉晨的博客">
-<meta property="og:description" content="这是该题的地址：https://leetcode-cn.com/problems/add-two-numbers/ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。 示例： 输入：(2">
+<meta property="og:description" content="这是该题的地址：https://leetcode-cn.com/problems/add-two-numbers/ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。您可以假设除了数字 0 之外，这两个数都不会以 0 开头。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/01/26/addTwoNumbers-2/img/access.png">
-<meta property="og:updated_time" content="2019-01-26T03:43:40.770Z">
+<meta property="og:updated_time" content="2019-01-26T14:21:28.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="addTwoNumbers_2(java)">
-<meta name="twitter:description" content="这是该题的地址：https://leetcode-cn.com/problems/add-two-numbers/ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。 示例： 输入：(2">
+<meta name="twitter:description" content="这是该题的地址：https://leetcode-cn.com/problems/add-two-numbers/ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。您可以假设除了数字 0 之外，这两个数都不会以 0 开头。">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/26/addTwoNumbers-2/img/access.png">
   
   
@@ -92,10 +92,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这是该题的地址：<a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-two-numbers/</a></p>
-<p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
-<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
-<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p>示例：</p>
+<p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<br>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。<br>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。<br><a id="more"></a><br>示例：</p>
 <p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
 <p>我的思路：</p>
 <p>链表是倒序的 所以我们可以从个位开始相加。 然后用一个int flag 来代表进位+1。 有一个firstnode 和一个 endnode 用于判断链表的第一个和最后一个节点。 当一条链为空时，将它与另一条链相等。 这样循环就不用很快跳出了。最后判断最后一位是否有进位，来新增一个节点。最后返回first节点的next。</p>
@@ -135,11 +132,14 @@
         return firstNo.next;
     }
 </code></pre><p>我的结果：<br><img src="/2019/01/26/addTwoNumbers-2/img/access.png" alt=""></p>
+<p>官方解答：</p>
+<p>官方题解地址：<br><a href="https://leetcode-cn.com/problems/add-two-numbers/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-two-numbers/solution/</a></p>
+<p>我的反思：看了官方题解之后，我觉得我的和他的思路差不多。不过他是每次都新增一个，而我则是在原有的节点上进行修改 然后最后再考虑新增。<br>不过不知道为什么他的比我快哈哈~可能是官方的代码更加简洁吧。以后我的代码也要越来越简洁！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/26/addTwoNumbers-2/" data-id="cjrcxlbfw0003dsv6crgmi10w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/26/addTwoNumbers-2/" data-id="cjrdkd7js00011gv60f1uhmnd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>

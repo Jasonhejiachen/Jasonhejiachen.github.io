@@ -87,54 +87,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这是该题的地址：<a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-two-numbers/</a></p>
-<p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
-<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
-<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p>示例：</p>
-<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
-<p>我的思路：</p>
-<p>链表是倒序的 所以我们可以从个位开始相加。 然后用一个int flag 来代表进位+1。 有一个firstnode 和一个 endnode 用于判断链表的第一个和最后一个节点。 当一条链为空时，将它与另一条链相等。 这样循环就不用很快跳出了。最后判断最后一位是否有进位，来新增一个节点。最后返回first节点的next。</p>
-<pre><code>public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int flag =0;
-        ListNode firstNo = new ListNode(0);
-        firstNo.next = l1;
-        ListNode EndNode = new ListNode(0);
-        while(l1!=null||l2!=null){
-            int sum;
-            if(l1==null){
-                l1=l2;
-            }else if(l2==null){
-                l2=l1;
-            }
-            if(l1==l2){
-                sum = l1.val +flag;
-            }else{
-                sum = l1.val + l2.val +flag;
-            }
-            flag=0;
-            if(sum&gt;=10){
-                sum-=10;
-                flag++;
-            }
-            l1.val = sum;
-            l2.val = sum;
-            EndNode.next = l1;
-            EndNode = l1;
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-        if(flag!=0){
-            EndNode.next = new ListNode(1);
-        }
-
-        return firstNo.next;
-    }
-</code></pre><p>我的结果：<br><img src="/2019/01/26/addTwoNumbers-2/img/access.png" alt=""></p>
-
+<p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<br>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。<br>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。<br></p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/26/addTwoNumbers-2/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/26/addTwoNumbers-2/" data-id="cjrcxlbfw0003dsv6crgmi10w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/26/addTwoNumbers-2/" data-id="cjrdkd7js00011gv60f1uhmnd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
@@ -178,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/25/leetcode-searchInsert-35/" data-id="cjrcxlbh2000ddsv65x0v4no3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/25/leetcode-searchInsert-35/" data-id="cjrdkd7k400071gv6n6c2yflf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/24/hello-hexo/" data-id="cjrcxlb9x0001dsv6g2qecdvk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/24/hello-hexo/" data-id="cjrdkd7jy00031gv6d071j17r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/24/leetcode-removeElement-27/" data-id="cjrcxlbfu0002dsv6fkzicxc8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/24/leetcode-removeElement-27/" data-id="cjrdkd7k700091gv6w29ak7as" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
