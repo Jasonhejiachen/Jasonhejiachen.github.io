@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ ###我的思路：一开始我的思路也是使用类似于“滑动窗口”，但是应该是用到了双循环。所以，超时了不行。很难受，最后看了一下题目的解法。使用“滑动数组”。用int i , j 分别表示窗口的左右边[i,j)。创建一个hashs">
+  <meta name="description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lengthOfLongestSubstring_3(java)">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/lengthOfLongestSubstring-3/index.html">
 <meta property="og:site_name" content="何嘉晨的博客">
-<meta property="og:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ ###我的思路：一开始我的思路也是使用类似于“滑动窗口”，但是应该是用到了双循环。所以，超时了不行。很难受，最后看了一下题目的解法。使用“滑动数组”。用int i , j 分别表示窗口的左右边[i,j)。创建一个hashs">
+<meta property="og:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-28T14:43:39.327Z">
+<meta property="og:updated_time" content="2019-01-28T14:50:45.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lengthOfLongestSubstring_3(java)">
-<meta name="twitter:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ ###我的思路：一开始我的思路也是使用类似于“滑动窗口”，但是应该是用到了双循环。所以，超时了不行。很难受，最后看了一下题目的解法。使用“滑动数组”。用int i , j 分别表示窗口的左右边[i,j)。创建一个hashs">
+<meta name="twitter:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
 
 
 
@@ -412,7 +412,7 @@
                 
               
 
-              <time title="创建时间：2019-01-28 22:12:04 / 修改时间：22:43:39" itemprop="dateCreated datePublished" datetime="2019-01-28T22:12:04+08:00">2019-01-28</time>
+              <time title="创建时间：2019-01-28 22:12:04 / 修改时间：22:50:45" itemprop="dateCreated datePublished" datetime="2019-01-28T22:12:04+08:00">2019-01-28</time>
             
 
             
@@ -477,7 +477,11 @@
 
       
         <p>这是本题的地址：<a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/</a></p>
-<p>###我的思路：<br>一开始我的思路也是使用类似于“滑动窗口”，但是应该是用到了双循环。所以，超时了不行。很难受，最后看了一下题目的解法。使用“滑动数组”。用int i , j 分别表示窗口的左右边[i,j)。创建一个hashset，用于储存字符。然后通过遍历，每当不相同时，通过判断，给maxlength 赋值给 i-j的长度。 每当有相同的时候，把hashset 里面和 s.charAt(i)相等的字符删除。然后把i往右边移动一位。</p>
+<p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。<br><a id="more"></a><br>示例 1:<br>输入: “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。<br>示例 2:</p>
+<p>输入: “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。<br>示例 3:</p>
+<p>输入: “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。</p>
+<p>请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
+<h3 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h3><p>一开始我的思路也是使用类似于“滑动窗口”，但是应该是用到了双循环。所以，超时了不行。很难受，最后看了一下题目的解法。使用“滑动数组”。用int i , j 分别表示窗口的左右边[i,j)。创建一个hashset，用于储存字符。然后通过遍历，每当不相同时，通过判断，给maxlength 赋值给 i-j的长度。 每当有相同的时候，把hashset 里面和 s.charAt(i)相等的字符删除。然后把i往右边移动一位。</p>
 <pre><code>public int lengthOfLongestSubstring(String s) {
         int maxlength = 0;
         int i=0,j=0;
@@ -709,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#优化："><span class="nav-number">1.</span> <span class="nav-text">优化：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的思路："><span class="nav-number">1.</span> <span class="nav-text">我的思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化："><span class="nav-number">2.</span> <span class="nav-text">优化：</span></a></li></ol></div>
             
 
           </div>
