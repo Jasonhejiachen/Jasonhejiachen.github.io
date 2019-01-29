@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[String、StringBuilder、StringBuffer源码笔记]]></title>
+    <url>%2F2019%2F01%2F29%2FStringStringBuilderStringBuffer%2FStringStringBuilderStringBuffer%2F</url>
+    <content type="text"><![CDATA[String、StringBuilder、StringBuffer 源码笔记https://blog.csdn.net/QH_JAVA/article/details/46382265]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[countAndSay_38(java)]]></title>
+    <url>%2F2019%2F01%2F29%2FcountAndSay-38%2F</url>
+    <content type="text"><![CDATA[这是该题的地址https://leetcode-cn.com/problems/count-and-say/ 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下： 123451. 12. 113. 214. 12115. 111221 1 被读作 &quot;one 1&quot; (&quot;一个一&quot;) , 即 11。11 被读作 &quot;two 1s&quot; (&quot;两个一&quot;）, 即 21。21 被读作 &quot;one 2&quot;, “one 1&quot; （&quot;一个二&quot; , &quot;一个一&quot;) , 即 1211。 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。 注意：整数顺序将表示为一个字符串。 示例 1: 12输入: 1输出: &quot;1&quot; 示例 2: 12输入: 4输出: &quot;1211&quot; 我的思路因为题目给了整数n,所以我们应该进行遍历，直到为n的时候输出字符串。 在遍历中，我设定了3个遍历。一个是int sum （用来保存当前字符出现的数量） string now （现在这个字符是怎么样的 例如：11，21 ） string newstr （用来保存字符串的主体 几个now加起来 就是newstr） 通过遍历当前str的值。生成 now 和 newstr。 123456789101112131415161718192021222324252627public String countAndSay(int n) &#123; int i=1; String str = &quot;1&quot;; String now ; String newstr ; int sum; while(i&lt;n)&#123; sum = 1; now = &quot;&quot;; newstr = &quot;&quot;; for(int j=0;j&lt;str.length();j++)&#123; if(j==0)&#123; now = &quot;&quot;+sum+str.charAt(j); &#125; else if(str.charAt(j)==str.charAt(j-1))&#123; sum++; now = &quot;&quot;+ sum+str.charAt(j); &#125; else&#123; sum = 1; newstr = newstr + now; now = &quot;&quot;+sum+str.charAt(j); &#125; &#125; str = newstr + now; i++; &#125; return str; &#125; 这是我的结果：.jpg) 虽然通过了 但是我觉得很慢，这时候我看了看别人的代码，我觉得我们的时间复杂度差不多啊….. 之后我就发现他们用的是stringbuilder 而我用的是string 所以我对我的代码进行了改版： 使用Stringbuilder12345678910111213141516171819202122232425public String countAndSay2(int n) &#123; int i=1; StringBuilder str = new StringBuilder("1"); int sum; while(i&lt;n)&#123; sum = 1; StringBuilder now = new StringBuilder(); StringBuilder newstr = new StringBuilder(); for(int j=0;j&lt;str.length();j++)&#123; if(j==0)&#123; now = new StringBuilder(""+sum+str.charAt(j)); &#125; else if(str.charAt(j)==str.charAt(j-1))&#123; sum++; now = new StringBuilder(""+ sum+str.charAt(j)); &#125; else&#123; sum = 1; newstr = newstr.append(now); now = new StringBuilder(""+sum+str.charAt(j)); &#125; &#125; str = newstr.append(now); i++; &#125; return str.toString();&#125; 结果：]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[lengthOfLongestSubstring_3(java)]]></title>
     <url>%2F2019%2F01%2F28%2FlengthOfLongestSubstring-3%2F</url>
     <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/ 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。示例 1:输入: “abcabcbb”输出: 3解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。示例 2: 输入: “bbbbb”输出: 1解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。示例 3: 输入: “pwwkew”输出: 3解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。 请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。 我的思路：一开始我的思路也是使用类似于“滑动窗口”，但是应该是用到了双循环。所以，超时了不行。很难受，最后看了一下题目的解法。使用“滑动数组”。用int i , j 分别表示窗口的左右边[i,j)。创建一个hashset，用于储存字符。然后通过遍历，每当不相同时，通过判断，给maxlength 赋值给 i-j的长度。 每当有相同的时候，把hashset 里面和 s.charAt(i)相等的字符删除。然后把i往右边移动一位。 public int lengthOfLongestSubstring(String s) { int maxlength = 0; int i=0,j=0; HashSet hs = new HashSet(); while(i&lt;s.length()&amp;&amp;j&lt;s.length()){ if(!hs.contains(s.charAt(j))){ hs.add(s.charAt(j++)); int value = j-i; maxlength = maxlength&gt;value?maxlength:value; }else{ hs.remove(s.charAt(i++)); } } return maxlength; } 优化：答案中的优化时这样的。使用了hashmap()，遍历时，当不相等，判断sum和j-i+1的长度，（因为i j是2个字符了，所以需要+1长度）。然后给hashmap put一个值 key是当前的字符 value是j+1 代表当前这个字符现在在字符串中的哪个位置。 每当相等时，从hashmap里将这个字符拿出来。对比它和i哪个比较大。如果。然后将值赋给i。相当于i（左边界）右移到了第一个相同字符处。这样就形成了一个“滑动窗口拉”！ public int lengthOfLongestSubstring2(String s) { int sum =0; HashMap&lt;Character,Integer&gt; hm = new HashMap(); for(int i=0,j=0;j&lt;s.length();j++){ if(hm.containsKey(s.charAt(j))){ i = hm.get(s.charAt(j))&gt;i?hm.get(s.charAt(j)):i; } sum = sum&gt;j-i+1?sum:j-i+1; hm.put(s.charAt(j),j+1); } return sum; }]]></content>
