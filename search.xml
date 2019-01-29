@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[String、StringBuilder、StringBuffer源码笔记]]></title>
-    <url>%2F2019%2F01%2F29%2FStringStringBuilderStringBuffer%2FStringStringBuilderStringBuffer%2F</url>
-    <content type="text"><![CDATA[String、StringBuilder、StringBuffer 源码笔记https://blog.csdn.net/QH_JAVA/article/details/46382265]]></content>
+    <title><![CDATA[清理：终结处理和垃圾回收]]></title>
+    <url>%2F2019%2F01%2F29%2F%E6%B8%85%E7%90%86%EF%BC%9A%E7%BB%88%E7%BB%93%E5%A4%84%E7%90%86%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%2F</url>
+    <content type="text"><![CDATA[清理：终结处理和垃圾回收垃圾回收的三个要点 1、对象可能不被垃圾回收 2、垃圾回收并不等于“析构” 3、垃圾回收只和内存有关 java 中允许调用finalize方法，这个方法却不能作为通用的清理方法。因为程序没有濒临储存空间用完，那么就不需要释放内存。因为垃圾回收也是需要开销的，如果不用它，那么这部分开销就省下来了。那么finalize方法在什么时候可以调用呢：在通过某种创建对象方式以外的方式为对象分配了储存空间，但是java一切皆为对象。。。this is special！ *java中有一种“本地方法”，它是一种在java中调用的非java代码，在jdk1.5时是只支持c/c++的，它可能会调用c的函数来分配对象，也可能调用任何其他语言。so，这些都需要特定的储存释放方法来释放。这时候finalize就有用武之地了。 垃圾回收机制1、引用计数这是一种很简单但是很慢的垃圾回收技术，每个对象都有一个引用计数器，当有引用链接到对象时，引用计数+1，当引用离开作用域或被置为null，引用计数就会-1，当引用计数=0的时候就回回收对象。 缺陷：当对象之前存在循环引用，引用计数不为0时但又要被回收的时候，这样对于垃圾回收工作量非常大。引用计数常用来说明垃圾收集的工作方式，没有被应用于任何java虚拟机实现。 2、自适应垃圾回收技术：停止-复制暂停程序的运行，将当前堆所有存活的对象复制到另一个堆，没有被复制的都会被垃圾回收。当对象被复制到新的堆中的时候，它们时一个挨着一个的。所以新堆抱持紧凑排列，以后的分配空间也很简单。 缺点： –1 效率低，需要有两个堆。维护比实际需要多一倍的空间。 某些java虚拟机的处理方式：按需从内存中分配较大块的内存，复制动作发生在他们里面。 –2 程序进入稳定状态之后可能只会产生少量的垃圾，但是如果用这个还是会将内存从一处复制到另外一处。 3、自适应垃圾回收技术：标记-清扫基于上一份放的问题2，产生了新的垃圾回收机制：标记-清扫。遍历所有的引用，找出活对象并标记，在全部标记完成之后，才会进行清扫工作。把没有标记的对象都进行垃圾回收。这样下来，剩下的空间是不连续的。 小总结java虚拟机会进行监视，如果所有对象都稳定，垃圾回收效率降低的话。就使用“标记-清扫”方式，当碎片过多就会使用“停止-复制”，这就是“自适应”垃圾回收机制。 LAST最后 java虚拟机中有许多附加技术用以提升速度，叫做just in time “即时”编译器技术。 当需要装载某些类的时候（通常是为该类创建第一个对象），编译器先找到.class文件。然后将该类的字节码装入内存。之后会有两种做法： 1、让即时编辑器编译所有代码。 这种方式有两种缺陷：一、加载动作散落在整个程序生命周期内，累加起来要花更多时间。二、增加可执行代码的长度，降低了程序速度。 2、让即时编辑器载必要时候才编译。 也称为惰性评估。这样不会被执行的代码也不会倍jit编译。在java HotSpot技术中采用了此操作。代码每次被执行都会做一些优化。执行的越多跑的越快。]]></content>
+      <categories>
+        <category>ThinkinJava</category>
+      </categories>
       <tags>
-        <tag>java</tag>
+        <tag>ThinkinJava</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[countAndSay_38(java)]]></title>
     <url>%2F2019%2F01%2F29%2FcountAndSay-38%2F</url>
-    <content type="text"><![CDATA[这是该题的地址https://leetcode-cn.com/problems/count-and-say/ 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下： 123451. 12. 113. 214. 12115. 111221 1 被读作 &quot;one 1&quot; (&quot;一个一&quot;) , 即 11。11 被读作 &quot;two 1s&quot; (&quot;两个一&quot;）, 即 21。21 被读作 &quot;one 2&quot;, “one 1&quot; （&quot;一个二&quot; , &quot;一个一&quot;) , 即 1211。 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。 注意：整数顺序将表示为一个字符串。 示例 1: 12输入: 1输出: &quot;1&quot; 示例 2: 12输入: 4输出: &quot;1211&quot; 我的思路因为题目给了整数n,所以我们应该进行遍历，直到为n的时候输出字符串。 在遍历中，我设定了3个遍历。一个是int sum （用来保存当前字符出现的数量） string now （现在这个字符是怎么样的 例如：11，21 ） string newstr （用来保存字符串的主体 几个now加起来 就是newstr） 通过遍历当前str的值。生成 now 和 newstr。 123456789101112131415161718192021222324252627public String countAndSay(int n) &#123; int i=1; String str = &quot;1&quot;; String now ; String newstr ; int sum; while(i&lt;n)&#123; sum = 1; now = &quot;&quot;; newstr = &quot;&quot;; for(int j=0;j&lt;str.length();j++)&#123; if(j==0)&#123; now = &quot;&quot;+sum+str.charAt(j); &#125; else if(str.charAt(j)==str.charAt(j-1))&#123; sum++; now = &quot;&quot;+ sum+str.charAt(j); &#125; else&#123; sum = 1; newstr = newstr + now; now = &quot;&quot;+sum+str.charAt(j); &#125; &#125; str = newstr + now; i++; &#125; return str; &#125; 这是我的结果：.jpg) 虽然通过了 但是我觉得很慢，这时候我看了看别人的代码，我觉得我们的时间复杂度差不多啊….. 之后我就发现他们用的是stringbuilder 而我用的是string 所以我对我的代码进行了改版： 使用Stringbuilder12345678910111213141516171819202122232425public String countAndSay2(int n) &#123; int i=1; StringBuilder str = new StringBuilder("1"); int sum; while(i&lt;n)&#123; sum = 1; StringBuilder now = new StringBuilder(); StringBuilder newstr = new StringBuilder(); for(int j=0;j&lt;str.length();j++)&#123; if(j==0)&#123; now = new StringBuilder(""+sum+str.charAt(j)); &#125; else if(str.charAt(j)==str.charAt(j-1))&#123; sum++; now = new StringBuilder(""+ sum+str.charAt(j)); &#125; else&#123; sum = 1; newstr = newstr.append(now); now = new StringBuilder(""+sum+str.charAt(j)); &#125; &#125; str = newstr.append(now); i++; &#125; return str.toString();&#125; 结果：]]></content>
+    <content type="text"><![CDATA[这是该题的地址https://leetcode-cn.com/problems/count-and-say/ 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下： 123451. 12. 113. 214. 12115. 111221 1 被读作 &quot;one 1&quot; (&quot;一个一&quot;) , 即 11。11 被读作 &quot;two 1s&quot; (&quot;两个一&quot;）, 即 21。21 被读作 &quot;one 2&quot;, “one 1&quot; （&quot;一个二&quot; , &quot;一个一&quot;) , 即 1211。 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。 注意：整数顺序将表示为一个字符串。 示例 1: 12输入: 1输出: &quot;1&quot; 示例 2: 12输入: 4输出: &quot;1211&quot; 我的思路因为题目给了整数n,所以我们应该进行遍历，直到为n的时候输出字符串。 在遍历中，我设定了3个遍历。一个是int sum （用来保存当前字符出现的数量） string now （现在这个字符是怎么样的 例如：11，21 ） string newstr （用来保存字符串的主体 几个now加起来 就是newstr） 通过遍历当前str的值。生成 now 和 newstr。 123456789101112131415161718192021222324252627public String countAndSay(int n) &#123; int i=1; String str = &quot;1&quot;; String now ; String newstr ; int sum; while(i&lt;n)&#123; sum = 1; now = &quot;&quot;; newstr = &quot;&quot;; for(int j=0;j&lt;str.length();j++)&#123; if(j==0)&#123; now = &quot;&quot;+sum+str.charAt(j); &#125; else if(str.charAt(j)==str.charAt(j-1))&#123; sum++; now = &quot;&quot;+ sum+str.charAt(j); &#125; else&#123; sum = 1; newstr = newstr + now; now = &quot;&quot;+sum+str.charAt(j); &#125; &#125; str = newstr + now; i++; &#125; return str; &#125; 这是我的结果： 虽然通过了 但是我觉得很慢，这时候我看了看别人的代码，我觉得我们的时间复杂度差不多啊….. 之后我就发现他们用的是stringbuilder 而我用的是string 所以我对我的代码进行了改版： 使用Stringbuilder12345678910111213141516171819202122232425public String countAndSay2(int n) &#123; int i=1; StringBuilder str = new StringBuilder("1"); int sum; while(i&lt;n)&#123; sum = 1; StringBuilder now = new StringBuilder(); StringBuilder newstr = new StringBuilder(); for(int j=0;j&lt;str.length();j++)&#123; if(j==0)&#123; now = new StringBuilder(""+sum+str.charAt(j)); &#125; else if(str.charAt(j)==str.charAt(j-1))&#123; sum++; now = new StringBuilder(""+ sum+str.charAt(j)); &#125; else&#123; sum = 1; newstr = newstr.append(now); now = new StringBuilder(""+sum+str.charAt(j)); &#125; &#125; str = newstr.append(now); i++; &#125; return str.toString();&#125; 结果：]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
       <tags>
         <tag>leetcode</tag>
       </tags>
@@ -65,6 +71,12 @@
     <title><![CDATA[leetcode-searchInsert-35(java)]]></title>
     <url>%2F2019%2F01%2F25%2Fleetcode-searchInsert-35%2F</url>
     <content type="text"><![CDATA[这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。 示例 1: 输入: [1,3,5,6], 5输出: 2示例 2: 输入: [1,3,5,6], 2输出: 1示例 3: 输入: [1,3,5,6], 7输出: 4示例 4: 输入: [1,3,5,6], 0输出: 0 我的思路： 从数组第一个数i=0开始遍历。将val和nums[]的值进行比较。假如值超过了或者相等了。那么就将i返回。如果遍历完了都没有返回 就将数组的长度返回 public int searchInsert(int[] nums, int target) { for(int i=0;i&lt;nums.length;i++){ if(target==nums[i] || target&lt;nums[i]){ return i; } } return nums.length; } 最终的速度：]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[hello-hexo]]></title>
