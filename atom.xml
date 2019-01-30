@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-29T15:07:02.635Z</updated>
+  <updated>2019-01-30T15:10:10.402Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>longestPalindrome_5</title>
+    <link href="http://yoursite.com/2019/01/30/longestPalindrome-5/"/>
+    <id>http://yoursite.com/2019/01/30/longestPalindrome-5/</id>
+    <published>2019-01-30T06:35:54.000Z</published>
+    <updated>2019-01-30T15:10:10.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></p><p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p><a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"babad"</span></span><br><span class="line">输出: <span class="string">"bab"</span></span><br><span class="line">注意: <span class="string">"aba"</span> 也是一个有效答案。</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"cbbd"</span></span><br><span class="line">输出: <span class="string">"bb"</span></span><br></pre></td></tr></table></figure><h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>有一个String sum =”” 来保存最大的回文。</p><p>有第一个for(int i=0)循环遍历整个字符串。然后第二个字符串由j=i 开始，判断这i j之间是否是回文。如果是，那么j-i+1(加1是因为j和i相同时，也是有一个字符的)是否大于sum的长度。如果大于，那么他们就是最大的回文。</p><p>那么用于判断ij之间是否为回文的方法我是这样做的：先判断当前i j的字符是否相同，如果相同则判断 i j 是否相等或相邻，如果是那么就返回true。如果不是那么进行 i+1 和 j-1的递归。若果i j的字符不相同，则返回false；这样是暴力解法。时间复杂度 n3次方。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String sum = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;s.length();j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Panduan(i,j,s))&#123;</span><br><span class="line">                <span class="keyword">if</span>(j-i+<span class="number">1</span>&gt;sum.length())&#123;</span><br><span class="line">                    sum = s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">Panduan</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s.charAt(a)==s.charAt(b))&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==b||a==b-<span class="number">1</span>||a-<span class="number">1</span>==b)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Panduan(++a,--b,s);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="我的结果："><a href="#我的结果：" class="headerlink" title="我的结果："></a>我的结果：</h2><p><img src="/2019/01/30/longestPalindrome-5/img/access.png" alt=""></p><p>特别的慢：这也是暴力解法的问题所在！</p><p>在官方的解答中：有动态规划和中心扩展算法这两个。等我看懂了再补充上来！~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/longest-palindromic-substring/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/longest-palindromic-substring/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给定一个字符串 &lt;code&gt;s&lt;/code&gt;，找到 &lt;code&gt;s&lt;/code&gt; 中最长的回文子串。你可以假设 &lt;code&gt;s&lt;/code&gt; 的最大长度为 1000。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>清理：终结处理和垃圾回收</title>

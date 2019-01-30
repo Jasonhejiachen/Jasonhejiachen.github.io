@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="清理：终结处理和垃圾回收垃圾回收的三个要点 1、对象可能不被垃圾回收 2、垃圾回收并不等于“析构” 3、垃圾回收只和内存有关">
-<meta name="keywords" content="ThinkinJava">
+  <meta name="description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="清理：终结处理和垃圾回收">
-<meta property="og:url" content="http://yoursite.com/2019/01/29/清理：终结处理和垃圾回收/index.html">
+<meta property="og:title" content="longestPalindrome_5">
+<meta property="og:url" content="http://yoursite.com/2019/01/30/longestPalindrome-5/index.html">
 <meta property="og:site_name" content="何嘉晨的博客">
-<meta property="og:description" content="清理：终结处理和垃圾回收垃圾回收的三个要点 1、对象可能不被垃圾回收 2、垃圾回收并不等于“析构” 3、垃圾回收只和内存有关">
+<meta property="og:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-29T15:07:02.635Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/30/longestPalindrome-5/img/access.png">
+<meta property="og:updated_time" content="2019-01-30T15:10:10.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清理：终结处理和垃圾回收">
-<meta name="twitter:description" content="清理：终结处理和垃圾回收垃圾回收的三个要点 1、对象可能不被垃圾回收 2、垃圾回收并不等于“析构” 3、垃圾回收只和内存有关">
+<meta name="twitter:title" content="longestPalindrome_5">
+<meta name="twitter:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/30/longestPalindrome-5/img/access.png">
 
 
 
@@ -116,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/29/清理：终结处理和垃圾回收/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/30/longestPalindrome-5/">
 
 
 
@@ -126,7 +128,7 @@
   };
 </script>
 
-  <title>清理：终结处理和垃圾回收 | 何嘉晨的博客</title>
+  <title>longestPalindrome_5 | 何嘉晨的博客</title>
   
 
 
@@ -371,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/清理：终结处理和垃圾回收/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/longestPalindrome-5/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="何嘉晨">
@@ -388,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">清理：终结处理和垃圾回收
+          <h1 class="post-title" itemprop="name headline">longestPalindrome_5
 
               
             
@@ -414,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2019-01-29 23:04:53 / 修改时间：23:07:02" itemprop="dateCreated datePublished" datetime="2019-01-29T23:04:53+08:00">2019-01-29</time>
+              <time title="创建时间：2019-01-30 14:35:54 / 修改时间：23:10:10" itemprop="dateCreated datePublished" datetime="2019-01-30T14:35:54+08:00">2019-01-30</time>
             
 
             
@@ -436,7 +438,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ThinkinJava/" itemprop="url" rel="index"><span itemprop="name">ThinkinJava</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
 
                 
                 
@@ -478,25 +480,20 @@
       
 
       
-        <h2 id="清理：终结处理和垃圾回收"><a href="#清理：终结处理和垃圾回收" class="headerlink" title="清理：终结处理和垃圾回收"></a>清理：终结处理和垃圾回收</h2><p>垃圾回收的三个要点</p>
-<p>1、对象可能不被垃圾回收</p>
-<p>2、垃圾回收并不等于“析构”</p>
-<p>3、垃圾回收只和内存有关</p>
+        <p>这是本题的地址：<a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></p>
+<p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p>
 <a id="more"></a>
-<p>java 中允许调用finalize方法，这个方法却不能作为通用的清理方法。因为程序没有濒临储存空间用完，那么就不需要释放内存。因为垃圾回收也是需要开销的，如果不用它，那么这部分开销就省下来了。那么finalize方法在什么时候可以调用呢：在通过某种创建对象方式以外的方式为对象分配了储存空间，但是java一切皆为对象。。。this is special！ *java中有一种“本地方法”，它是一种在java中调用的非java代码，在jdk1.5时是只支持c/c++的，它可能会调用c的函数来分配对象，也可能调用任何其他语言。so，这些都需要特定的储存释放方法来释放。这时候finalize就有用武之地了。</p>
-<h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><h5 id="1、引用计数"><a href="#1、引用计数" class="headerlink" title="1、引用计数"></a>1、引用计数</h5><p>这是一种很简单但是很慢的垃圾回收技术，每个对象都有一个引用计数器，当有引用链接到对象时，引用计数+1，当引用离开作用域或被置为null，引用计数就会-1，当引用计数=0的时候就回回收对象。</p>
-<p>缺陷：当对象之前存在循环引用，引用计数不为0时但又要被回收的时候，这样对于垃圾回收工作量非常大。引用计数常用来说明垃圾收集的工作方式，没有被应用于任何java虚拟机实现。</p>
-<h5 id="2、自适应垃圾回收技术：停止-复制"><a href="#2、自适应垃圾回收技术：停止-复制" class="headerlink" title="2、自适应垃圾回收技术：停止-复制"></a>2、自适应垃圾回收技术：停止-复制</h5><p>暂停程序的运行，将当前堆所有存活的对象复制到另一个堆，没有被复制的都会被垃圾回收。当对象被复制到新的堆中的时候，它们时一个挨着一个的。所以新堆抱持紧凑排列，以后的分配空间也很简单。</p>
-<p>缺点：</p>
-<p>–1 效率低，需要有两个堆。维护比实际需要多一倍的空间。 某些java虚拟机的处理方式：按需从内存中分配较大块的内存，复制动作发生在他们里面。</p>
-<p>–2 程序进入稳定状态之后可能只会产生少量的垃圾，但是如果用这个还是会将内存从一处复制到另外一处。</p>
-<h5 id="3、自适应垃圾回收技术：标记-清扫"><a href="#3、自适应垃圾回收技术：标记-清扫" class="headerlink" title="3、自适应垃圾回收技术：标记-清扫"></a>3、自适应垃圾回收技术：标记-清扫</h5><p>基于上一份放的问题2，产生了新的垃圾回收机制：标记-清扫。遍历所有的引用，找出活对象并标记，在全部标记完成之后，才会进行清扫工作。把没有标记的对象都进行垃圾回收。这样下来，剩下的空间是不连续的。</p>
-<h4 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h4><p>java虚拟机会进行监视，如果所有对象都稳定，垃圾回收效率降低的话。就使用“标记-清扫”方式，当碎片过多就会使用“停止-复制”，这就是“自适应”垃圾回收机制。</p>
-<h2 id="LAST"><a href="#LAST" class="headerlink" title="LAST"></a>LAST</h2><p>最后 java虚拟机中有许多附加技术用以提升速度，叫做just in time “即时”编译器技术。 当需要装载某些类的时候（通常是为该类创建第一个对象），编译器先找到.class文件。然后将该类的字节码装入内存。之后会有两种做法：</p>
-<p>1、让即时编辑器编译所有代码。</p>
-<p>这种方式有两种缺陷：一、加载动作散落在整个程序生命周期内，累加起来要花更多时间。二、增加可执行代码的长度，降低了程序速度。</p>
-<p>2、让即时编辑器载必要时候才编译。</p>
-<p>也称为惰性评估。这样不会被执行的代码也不会倍jit编译。在java HotSpot技术中采用了此操作。代码每次被执行都会做一些优化。执行的越多跑的越快。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"babad"</span></span><br><span class="line">输出: <span class="string">"bab"</span></span><br><span class="line">注意: <span class="string">"aba"</span> 也是一个有效答案。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"cbbd"</span></span><br><span class="line">输出: <span class="string">"bb"</span></span><br></pre></td></tr></table></figure>
+<h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>有一个String sum =”” 来保存最大的回文。</p>
+<p>有第一个for(int i=0)循环遍历整个字符串。然后第二个字符串由j=i 开始，判断这i j之间是否是回文。如果是，那么j-i+1(加1是因为j和i相同时，也是有一个字符的)是否大于sum的长度。如果大于，那么他们就是最大的回文。</p>
+<p>那么用于判断ij之间是否为回文的方法我是这样做的：先判断当前i j的字符是否相同，如果相同则判断 i j 是否相等或相邻，如果是那么就返回true。如果不是那么进行 i+1 和 j-1的递归。若果i j的字符不相同，则返回false；这样是暴力解法。时间复杂度 n3次方。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String sum = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;s.length();j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Panduan(i,j,s))&#123;</span><br><span class="line">                <span class="keyword">if</span>(j-i+<span class="number">1</span>&gt;sum.length())&#123;</span><br><span class="line">                    sum = s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">Panduan</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s.charAt(a)==s.charAt(b))&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==b||a==b-<span class="number">1</span>||a-<span class="number">1</span>==b)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Panduan(++a,--b,s);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="我的结果："><a href="#我的结果：" class="headerlink" title="我的结果："></a>我的结果：</h2><p><img src="/2019/01/30/longestPalindrome-5/img/access.png" alt=""></p>
+<p>特别的慢：这也是暴力解法的问题所在！</p>
+<p>在官方的解答中：有动态规划和中心扩展算法这两个。等我看懂了再补充上来！~</p>
 
       
     </div>
@@ -531,7 +528,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ThinkinJava/" rel="tag"># ThinkinJava</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -544,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/29/countAndSay-38/" rel="next" title="countAndSay_38(java)">
-                <i class="fa fa-chevron-left"></i> countAndSay_38(java)
+              <a href="/2019/01/29/清理：终结处理和垃圾回收/" rel="next" title="清理：终结处理和垃圾回收">
+                <i class="fa fa-chevron-left"></i> 清理：终结处理和垃圾回收
               </a>
             
           </div>
@@ -553,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/30/longestPalindrome-5/" rel="prev" title="longestPalindrome_5">
-                longestPalindrome_5 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -742,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#清理：终结处理和垃圾回收"><span class="nav-number">1.</span> <span class="nav-text">清理：终结处理和垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收机制"><span class="nav-number">1.1.</span> <span class="nav-text">垃圾回收机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、引用计数"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1、引用计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、自适应垃圾回收技术：停止-复制"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2、自适应垃圾回收技术：停止-复制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、自适应垃圾回收技术：标记-清扫"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3、自适应垃圾回收技术：标记-清扫</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小总结"><span class="nav-number">1.1.1.</span> <span class="nav-text">小总结</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#LAST"><span class="nav-number">2.</span> <span class="nav-text">LAST</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路："><span class="nav-number">1.</span> <span class="nav-text">我的思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的结果："><span class="nav-number">2.</span> <span class="nav-text">我的结果：</span></a></li></ol></div>
             
 
           </div>
