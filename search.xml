@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[climbStairs-70(java)]]></title>
+    <url>%2F2019%2F02%2F01%2FclimbStairs-70%2F</url>
+    <content type="text"><![CDATA[这是本题的地址https://leetcode-cn.com/problems/climbing-stairs/ 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ 注意：给定 n 是一个正整数。 示例 1： 12345输入： 2输出： 2解释： 有两种方法可以爬到楼顶。1. 1 阶 + 1 阶2. 2 阶 示例 2： 123456输入： 3输出： 3解释： 有三种方法可以爬到楼顶。1. 1 阶 + 1 阶 + 1 阶2. 1 阶 + 2 阶3. 2 阶 + 1 阶 我的思路：其实这个仔细的看一下就会发现和哪个斐波那契数列第n项问题很像。主要的递归式就是 f[n] = f[n-1]+f[n-2]。 通过这个式子我们就可以得出第n个梯子有多少种变化啦~最后返回数组的n-1即可。 1234567891011121314public int climbStairs(int n) &#123; if(n==1)&#123; return 1; &#125;else if(n==2)&#123; return 2; &#125; int[] foot = new int[n]; foot[0] = 1; foot[1] = 2; for(int i=2;i&lt;n;i++)&#123; foot[i] = foot[i-1]+foot[i-2]; &#125; return foot[n-1];&#125; 我的结果]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[maxSubArray-53]]></title>
+    <url>%2F2019%2F02%2F01%2FmaxSubArray-53%2F</url>
+    <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/maximum-subarray/ 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 示例: 123输入: [-2,1,-3,4,-1,2,1,-5,4],输出: 6解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。 我的思路1、暴力： 循环遍历当前数组的每个节点，设定一个int sum值来记录最长的子字符串的长度。 123456789101112public int maxSubArray(int[] nums) &#123; int n = nums.length; int sum=nums[0]; for(int i=0;i&lt;n;i++)&#123; int sum1 =0; for(int j=i;j&gt;=0;j--)&#123; sum1 += nums[j]; sum = sum&gt;sum1?sum:sum1; &#125; &#125; return sum;&#125; 缺点： 慢。能不用就不用 2、动态规划： 进行一次遍历： 每当前面的子序之和为负值时，也就证明了有没有前面的数字都是无所谓的，这时候，就可以重新记录子序和了~。然后将这些进行比较，最大的就返回出来。 12345678910111213public int maxSubArray2(int[] nums) &#123; int max= nums[0]; int sum=0; for(int i=0;i&lt;nums.length;i++)&#123; if(sum&gt;0 )&#123; sum+=nums[i]; &#125;else&#123; sum=nums[i]; &#125; max = Math.max(sum,max); &#125; return max;&#125;]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[longestPalindrome_5]]></title>
     <url>%2F2019%2F01%2F30%2FlongestPalindrome-5%2F</url>
     <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。 示例 1： 123输入: "babad"输出: "bab"注意: "aba" 也是一个有效答案。 示例 2： 12输入: "cbbd"输出: "bb" 我的思路：有一个String sum =”” 来保存最大的回文。 有第一个for(int i=0)循环遍历整个字符串。然后第二个字符串由j=i 开始，判断这i j之间是否是回文。如果是，那么j-i+1(加1是因为j和i相同时，也是有一个字符的)是否大于sum的长度。如果大于，那么他们就是最大的回文。 那么用于判断ij之间是否为回文的方法我是这样做的：先判断当前i j的字符是否相同，如果相同则判断 i j 是否相等或相邻，如果是那么就返回true。如果不是那么进行 i+1 和 j-1的递归。若果i j的字符不相同，则返回false；这样是暴力解法。时间复杂度 n3次方。 123456789101112131415161718192021222324public String longestPalindrome(String s) &#123; String sum = ""; for(int i=0;i&lt;s.length();i++)&#123; for(int j=i;j&lt;s.length();j++)&#123; if(Panduan(i,j,s))&#123; if(j-i+1&gt;sum.length())&#123; sum = s.substring(i,j+1); &#125; &#125; &#125; &#125; return sum;&#125;boolean Panduan(int a,int b,String s)&#123; if(s.charAt(a)==s.charAt(b))&#123; if(a==b||a==b-1||a-1==b)&#123; return true; &#125; return Panduan(++a,--b,s); &#125;else&#123; return false; &#125;&#125; 我的结果： 特别的慢：这也是暴力解法的问题所在！ 在官方的解答中：有动态规划和中心扩展算法这两个。等我看懂了再补充上来！~]]></content>
