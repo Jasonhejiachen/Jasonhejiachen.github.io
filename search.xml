@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[weekgame_122]]></title>
+    <url>%2F2019%2F02%2F03%2Fweekgame-122%2F</url>
+    <content type="text"><![CDATA[这是该题的地址：https://leetcode-cn.com/contest/weekly-contest-122/problems/sum-of-even-numbers-after-queries/ 给出一个整数数组 A 和一个查询数组 queries。 对于第 i 次查询，有 val = queries[i][0], index = queries[i][1]，我们会把 val 加到 A[index] 上。然后，第 i 次查询的答案是 A中偶数值的和。 （此处给定的 index = queries[i][1] 是从 0 开始的索引，每次查询都会永久修改数组 A。） 返回所有查询的答案。你的答案应当以数组 answer 给出，answer[i] 为第 i 次查询的答案。 示例： 12345678输入：A = [1,2,3,4], queries = [[1,0],[-3,1],[-4,0],[2,3]]输出：[8,6,2,4]解释：开始时，数组为 [1,2,3,4]。将 1 加到 A[0] 上之后，数组为 [2,2,3,4]，偶数值之和为 2 + 2 + 4 = 8。将 -3 加到 A[1] 上之后，数组为 [2,-1,3,4]，偶数值之和为 2 + 4 = 6。将 -4 加到 A[0] 上之后，数组为 [-2,-1,3,4]，偶数值之和为 -2 + 4 = 2。将 2 加到 A[3] 上之后，数组为 [-2,-1,3,6]，偶数值之和为 -2 + 6 = 4。 提示： 1 &lt;= A.length &lt;= 10000 -10000 &lt;= A[i] &lt;= 10000 1 &lt;= queries.length &lt;= 10000 -10000 &lt;= queries[i][0] &lt;= 10000 0 &lt;= queries[i][1] &lt; A.length 我的思路根据题目，我们可以得知，answer的长度为i 而i的值则是queries的长度。那么我们可以通过遍历queries数组。然后对数组A进行操作。之后通过遍历数组A 找出偶数，并相加求出和。然后得出一个值，放进anwser数组里。 1234567891011121314public int[] sumEvenAfterQueries(int[] A, int[][] queries) &#123; int [] answer = new int[queries.length]; for(int i=0;i&lt;queries.length;i++)&#123; A[queries[i][1]] += queries[i][0]; int sum =0; for(int j=0;j&lt;A.length;j++)&#123; if(A[j]%2==0)&#123; sum+=A[j]; &#125; &#125; answer[i] = sum; &#125; return answer;&#125; 缺点：使用了暴力破解。时间复杂度增高。 官方思路感觉官方的思路比较聪明，通过先找出A数组中的偶数和。然后再通过添加的操作判断当前数是否还是偶数。这样的话只需要通过单个循环就可以实现了。 https://leetcode-cn.com/articles/sum-of-even-numbers-after-queries/]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[climbStairs-70(java)]]></title>
     <url>%2F2019%2F02%2F01%2FclimbStairs-70%2F</url>
     <content type="text"><![CDATA[这是本题的地址https://leetcode-cn.com/problems/climbing-stairs/ 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ 注意：给定 n 是一个正整数。 示例 1： 12345输入： 2输出： 2解释： 有两种方法可以爬到楼顶。1. 1 阶 + 1 阶2. 2 阶 示例 2： 123456输入： 3输出： 3解释： 有三种方法可以爬到楼顶。1. 1 阶 + 1 阶 + 1 阶2. 1 阶 + 2 阶3. 2 阶 + 1 阶 我的思路：其实这个仔细的看一下就会发现和哪个斐波那契数列第n项问题很像。主要的递归式就是 f[n] = f[n-1]+f[n-2]。 通过这个式子我们就可以得出第n个梯子有多少种变化啦~最后返回数组的n-1即可。 1234567891011121314public int climbStairs(int n) &#123; if(n==1)&#123; return 1; &#125;else if(n==2)&#123; return 2; &#125; int[] foot = new int[n]; foot[0] = 1; foot[1] = 2; for(int i=2;i&lt;n;i++)&#123; foot[i] = foot[i-1]+foot[i-2]; &#125; return foot[n-1];&#125; 我的结果]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
       <tags>
         <tag>leetcode</tag>
       </tags>
@@ -12,6 +26,9 @@
     <title><![CDATA[maxSubArray-53]]></title>
     <url>%2F2019%2F02%2F01%2FmaxSubArray-53%2F</url>
     <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/maximum-subarray/ 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 示例: 123输入: [-2,1,-3,4,-1,2,1,-5,4],输出: 6解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。 我的思路1、暴力： 循环遍历当前数组的每个节点，设定一个int sum值来记录最长的子字符串的长度。 123456789101112public int maxSubArray(int[] nums) &#123; int n = nums.length; int sum=nums[0]; for(int i=0;i&lt;n;i++)&#123; int sum1 =0; for(int j=i;j&gt;=0;j--)&#123; sum1 += nums[j]; sum = sum&gt;sum1?sum:sum1; &#125; &#125; return sum;&#125; 缺点： 慢。能不用就不用 2、动态规划： 进行一次遍历： 每当前面的子序之和为负值时，也就证明了有没有前面的数字都是无所谓的，这时候，就可以重新记录子序和了~。然后将这些进行比较，最大的就返回出来。 12345678910111213public int maxSubArray2(int[] nums) &#123; int max= nums[0]; int sum=0; for(int i=0;i&lt;nums.length;i++)&#123; if(sum&gt;0 )&#123; sum+=nums[i]; &#125;else&#123; sum=nums[i]; &#125; max = Math.max(sum,max); &#125; return max;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
       <tags>
         <tag>leetcode</tag>
       </tags>
