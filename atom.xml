@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-03T15:07:27.923Z</updated>
+  <updated>2019-02-07T03:12:26.979Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lengthOfLastWord_58(java)</title>
+    <link href="http://yoursite.com/2019/02/07/lengthOfLastWord-58/"/>
+    <id>http://yoursite.com/2019/02/07/lengthOfLastWord-58/</id>
+    <published>2019-02-07T02:47:38.000Z</published>
+    <updated>2019-02-07T03:12:26.979Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/length-of-last-word/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/length-of-last-word/</a></p><p>给定一个仅包含大小写字母和空格 <code>&#39; &#39;</code> 的字符串，返回其最后一个单词的长度。</p><p>如果不存在最后一个单词，请返回 0 。</p><p><strong>说明：</strong>一个单词是指由字母组成，但不包含任何空格的字符串。</p><a id="more"></a><p><strong>示例:</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"Hello World"</span></span><br><span class="line">输出: <span class="number">5</span></span><br></pre></td></tr></table></figure><h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>一开始想着用lastindexof来做，但是不行。因为假如是”a   b    “ 这样的字符串。用lastindexof是行不通的。那么我们就用for循环开始遍历整个字符串。获取字符的长度。每当是’ ‘的时候，就将长度值设为0。lastlength用于记录上个字符的长度。length记录当前字符的长度。当length为0时 说明 ‘ ’符后面没有字符了。这时候就需要返回lastlength</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> lastlength=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.charAt(i)==<span class="string">' '</span>)&#123;</span><br><span class="line">            lastlength = length==<span class="number">0</span>?lastlength:length;</span><br><span class="line">            length = <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            length++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length==<span class="number">0</span>?lastlength:length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="官方思路"><a href="#官方思路" class="headerlink" title="官方思路"></a>官方思路</h2><p>没有，让我们来看看别人的做法是怎么样的</p><p>看了一下范例，发现其实大多数都是用for循环的。它们从最后开始往回找，这样循环的遍历就少多了。但既然都是用for循环。就不列出来了。有一个蛮有意思的：</p><p>他的做法是用trim去掉首尾的 “ “空格符，通过寻找剩下的” “空格符。如果没有就返回整体的长度。如果有就判断是否有字符串，没有就返回0。最后再返回原长度-i-1。 i就是倒数的” “空格符的位置。那么减去它就相当于减掉了前面的长度。再-1就是把” “空格符所占的1个位置给减掉了~。 </p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord2</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    s = s.trim();</span><br><span class="line">    <span class="keyword">int</span> i = s.lastIndexOf(<span class="string">" "</span>);</span><br><span class="line">    <span class="keyword">if</span> (i == -<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> s.length();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i == s.length()-<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length()-i-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/length-of-last-word/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/length-of-last-word/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给定一个仅包含大小写字母和空格 &lt;code&gt;&amp;#39; &amp;#39;&lt;/code&gt; 的字符串，返回其最后一个单词的长度。&lt;/p&gt;
+&lt;p&gt;如果不存在最后一个单词，请返回 0 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;一个单词是指由字母组成，但不包含任何空格的字符串。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>weekgame_122</title>
