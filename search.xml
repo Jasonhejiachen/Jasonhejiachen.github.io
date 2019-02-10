@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[plusOne_66(java)]]></title>
+    <url>%2F2019%2F02%2F10%2FplusOne-66%2F</url>
+    <content type="text"><![CDATA[这是本题的地址https://leetcode-cn.com/problems/plus-one/ 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。 最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。 你可以假设除了整数 0 之外，这个整数不会以零开头。 示例 1: 123输入: [1,2,3]输出: [1,2,4]解释: 输入数组表示数字 123。 示例 2: 123输入: [4,3,2,1]输出: [4,3,2,2]解释: 输入数组表示数字 4321。 我的思路这道题我觉得同 题有一点点类似，但是一个是链表一个是数组 我的做法是这样的。从数组最后一个数字进行遍历，将其+1。若果超过了10。那么当前的数就要%10。并且flag=1。 通过flag来查看是否需要添加一位最新的数。如需要 就用for循环新建一个数组。如不需要就直接返回当前数组。 123456789101112131415161718192021public int[] plusOne(int[] digits) &#123; int flag =0; for(int i=digits.length-1;i&gt;=0;i--)&#123; digits[i]+=1; if(digits[i]&gt;=10)&#123; flag =1; digits[i] = digits[i]%10; &#125;else&#123; flag =0; &#125; if(flag==0)&#123;break;&#125; &#125; int[] a = new int[digits.length+1]; if(flag==1)&#123; a[0] = 1; for(int i=1;i&lt;=digits.length;i++)&#123; a[i] = digits[i-1]; &#125; &#125; return flag==1?a:digits;&#125; 时间复杂度为 ：O(n) n为数组的长度。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[lengthOfLastWord_58(java)]]></title>
     <url>%2F2019%2F02%2F07%2FlengthOfLastWord-58%2F</url>
     <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/length-of-last-word/ 给定一个仅包含大小写字母和空格 &#39; &#39; 的字符串，返回其最后一个单词的长度。 如果不存在最后一个单词，请返回 0 。 说明：一个单词是指由字母组成，但不包含任何空格的字符串。 示例: 12输入: "Hello World"输出: 5 我的思路：一开始想着用lastindexof来做，但是不行。因为假如是”a b “ 这样的字符串。用lastindexof是行不通的。那么我们就用for循环开始遍历整个字符串。获取字符的长度。每当是’ ‘的时候，就将长度值设为0。lastlength用于记录上个字符的长度。length记录当前字符的长度。当length为0时 说明 ‘ ’符后面没有字符了。这时候就需要返回lastlength 12345678910111213public int lengthOfLastWord(String s) &#123; int length=0; int lastlength=0; for(int i=0;i&lt;s.length();i++)&#123; if(s.charAt(i)==' ')&#123; lastlength = length==0?lastlength:length; length = 0; &#125;else&#123; length++; &#125; &#125; return length==0?lastlength:length;&#125; 官方思路没有，让我们来看看别人的做法是怎么样的 看了一下范例，发现其实大多数都是用for循环的。它们从最后开始往回找，这样循环的遍历就少多了。但既然都是用for循环。就不列出来了。有一个蛮有意思的： 他的做法是用trim去掉首尾的 “ “空格符，通过寻找剩下的” “空格符。如果没有就返回整体的长度。如果有就判断是否有字符串，没有就返回0。最后再返回原长度-i-1。 i就是倒数的” “空格符的位置。那么减去它就相当于减掉了前面的长度。再-1就是把” “空格符所占的1个位置给减掉了~。 123456789101112public int lengthOfLastWord2(String s) &#123; s = s.trim(); int i = s.lastIndexOf(" "); if (i == -1)&#123; return s.length(); &#125; if (i == s.length()-1)&#123; return 0; &#125;else &#123; return s.length()-i-1; &#125;&#125;]]></content>
