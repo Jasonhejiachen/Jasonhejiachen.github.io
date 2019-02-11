@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="我终于开始了我的hexo博客之旅。非常的开心。希望我能够一直坚持下去！！！！！">
+  <meta name="description" content="这是本题的地址:https://leetcode-cn.com/problems/unique-paths/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？">
+<meta name="keywords" content="leetcode,动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello-hexo">
-<meta property="og:url" content="http://yoursite.com/2019/01/24/hello-hexo/index.html">
+<meta property="og:title" content="uniquePaths_62(java)">
+<meta property="og:url" content="http://yoursite.com/2019/02/11/uniquePaths-62/index.html">
 <meta property="og:site_name" content="何嘉晨的博客">
-<meta property="og:description" content="我终于开始了我的hexo博客之旅。非常的开心。希望我能够一直坚持下去！！！！！">
+<meta property="og:description" content="这是本题的地址:https://leetcode-cn.com/problems/unique-paths/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-24T12:35:48.847Z">
+<meta property="og:updated_time" content="2019-02-11T03:09:49.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello-hexo">
-<meta name="twitter:description" content="我终于开始了我的hexo博客之旅。非常的开心。希望我能够一直坚持下去！！！！！">
+<meta name="twitter:title" content="uniquePaths_62(java)">
+<meta name="twitter:description" content="这是本题的地址:https://leetcode-cn.com/problems/unique-paths/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？">
 
 
 
@@ -115,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/24/hello-hexo/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/11/uniquePaths-62/">
 
 
 
@@ -125,7 +126,7 @@
   };
 </script>
 
-  <title>hello-hexo | 何嘉晨的博客</title>
+  <title>uniquePaths_62(java) | 何嘉晨的博客</title>
   
 
 
@@ -370,7 +371,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/hello-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/uniquePaths-62/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="何嘉晨">
@@ -387,7 +388,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hello-hexo
+          <h1 class="post-title" itemprop="name headline">uniquePaths_62(java)
 
               
             
@@ -413,7 +414,7 @@
                 
               
 
-              <time title="创建时间：2019-01-24 20:35:01 / 修改时间：20:35:48" itemprop="dateCreated datePublished" datetime="2019-01-24T20:35:01+08:00">2019-01-24</time>
+              <time title="创建时间：2019-02-11 10:33:52 / 修改时间：11:09:49" itemprop="dateCreated datePublished" datetime="2019-02-11T10:33:52+08:00">2019-02-11</time>
             
 
             
@@ -423,6 +424,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -459,7 +478,20 @@
       
 
       
-        <p>我终于开始了我的hexo博客之旅。非常的开心。希望我能够一直坚持下去！！！！！</p>
+        <p>这是本题的地址:<a href="https://leetcode-cn.com/problems/unique-paths/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/unique-paths/</a></p>
+<p>一个机器人位于一个 <em>m x n</em> 网格的左上角 （起始点在下图中标记为“Start” ）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。</p>
+<p>问总共有多少条不同的路径？</p>
+<a id="more"></a>
+<p>例如，上图是一个7 x 3 的网格。有多少可能的路径？</p>
+<p><strong>说明：*</strong>m<em> 和 </em>n* 的值均不超过 100。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: m = <span class="number">3</span>, n = <span class="number">2</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释:</span><br><span class="line">从左上角开始，总共有 <span class="number">3</span> 条路径可以到达右下角。</span><br><span class="line"><span class="number">1</span>. 向右 -&gt; 向右 -&gt; 向下</span><br><span class="line"><span class="number">2</span>. 向右 -&gt; 向下 -&gt; 向右</span><br><span class="line"><span class="number">3</span>. 向下 -&gt; 向右 -&gt; 向右</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: m = <span class="number">7</span>, n = <span class="number">3</span></span><br><span class="line">输出: <span class="number">28</span></span><br></pre></td></tr></table></figure>
+<h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题我是想着使用动态规划来做的，这个与之前动态规划不同的是 他是一个二维数组。这样的话最优解opt的数组也是一个二维数组。且题目中说明每次只能向下或向右移动一步。这样的话，递归式应该是这样：opt [n] [m] = opt[n-1] [m] + opt[n] [m-1]。得到了递归式，我们就可以开始进行操作了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">0</span>||n==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span>[][] opt = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">0</span>||j==<span class="number">0</span>)&#123;</span><br><span class="line">                opt[i][j]=<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                opt[i][j] = opt[i][j-<span class="number">1</span>]+opt[i-<span class="number">1</span>][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> opt[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我感觉不太好，因为要使用两个for 但是好像必须这样，因为是一个二维数组。时间复杂度：O(n^2)。</p>
 
       
     </div>
@@ -492,6 +524,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+        </div>
+      
 
       
       
@@ -501,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/24/leetcode-removeElement-27/" rel="next" title="leetcode-removeElement-27(java)">
-                <i class="fa fa-chevron-left"></i> leetcode-removeElement-27(java)
+              <a href="/2019/02/10/plusOne-66/" rel="next" title="plusOne_66(java)">
+                <i class="fa fa-chevron-left"></i> plusOne_66(java)
               </a>
             
           </div>
@@ -510,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/25/leetcode-searchInsert-35/" rel="prev" title="leetcode-searchInsert-35(java)">
-                leetcode-searchInsert-35(java) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,8 +594,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -681,6 +726,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路"><span class="nav-number">1.</span> <span class="nav-text">我的思路</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

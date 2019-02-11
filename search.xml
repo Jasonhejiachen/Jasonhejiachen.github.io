@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[uniquePaths_62(java)]]></title>
+    <url>%2F2019%2F02%2F11%2FuniquePaths-62%2F</url>
+    <content type="text"><![CDATA[这是本题的地址:https://leetcode-cn.com/problems/unique-paths/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？ 例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：*m 和 n* 的值均不超过 100。 示例 1: 1234567输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右 示例 2: 12输入: m = 7, n = 3输出: 28 我的思路这题我是想着使用动态规划来做的，这个与之前动态规划不同的是 他是一个二维数组。这样的话最优解opt的数组也是一个二维数组。且题目中说明每次只能向下或向右移动一步。这样的话，递归式应该是这样：opt [n] [m] = opt[n-1] [m] + opt[n] [m-1]。得到了递归式，我们就可以开始进行操作了。 12345678910111213141516public int uniquePaths(int m, int n) &#123; if(m==0||n==0)&#123; return 0; &#125; int[][] opt = new int[m][n]; for(int i=0;i&lt;m;i++)&#123; for(int j=0;j&lt;n;j++)&#123; if(i==0||j==0)&#123; opt[i][j]=1; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; return opt[m-1][n-1];&#125; 我感觉不太好，因为要使用两个for 但是好像必须这样，因为是一个二维数组。时间复杂度：O(n^2)。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[plusOne_66(java)]]></title>
     <url>%2F2019%2F02%2F10%2FplusOne-66%2F</url>
     <content type="text"><![CDATA[这是本题的地址https://leetcode-cn.com/problems/plus-one/ 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。 最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。 你可以假设除了整数 0 之外，这个整数不会以零开头。 示例 1: 123输入: [1,2,3]输出: [1,2,4]解释: 输入数组表示数字 123。 示例 2: 123输入: [4,3,2,1]输出: [4,3,2,2]解释: 输入数组表示数字 4321。 我的思路这道题我觉得同 addTwoNumbers-2-两数之和 题有一点点类似，但是一个是链表一个是数组 我的做法是这样的。从数组最后一个数字进行遍历，将其+1。若果超过了10。那么当前的数就要%10。并且flag=1。 通过flag来查看是否需要添加一位最新的数。如需要 就用for循环新建一个数组。如不需要就直接返回当前数组。 123456789101112131415161718192021public int[] plusOne(int[] digits) &#123; int flag =0; for(int i=digits.length-1;i&gt;=0;i--)&#123; digits[i]+=1; if(digits[i]&gt;=10)&#123; flag =1; digits[i] = digits[i]%10; &#125;else&#123; flag =0; &#125; if(flag==0)&#123;break;&#125; &#125; int[] a = new int[digits.length+1]; if(flag==1)&#123; a[0] = 1; for(int i=1;i&lt;=digits.length;i++)&#123; a[i] = digits[i-1]; &#125; &#125; return flag==1?a:digits;&#125; 时间复杂度为 ：O(n) n为数组的长度。]]></content>
@@ -42,6 +54,7 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -53,6 +66,7 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -64,6 +78,7 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
