@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[uniquePathsWithObstacles_63]]></title>
+    <url>%2F2019%2F02%2F12%2FuniquePathsWithObstacles-63%2F</url>
+    <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/unique-paths-ii/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？ 网格中的障碍物和空位置分别用 1 和 0 来表示。 说明：*m 和 n* 的值均不超过 100。 示例 1: 123456789101112输入:[ [0,0,0], [0,1,0], [0,0,0]]输出: 2解释:3x3 网格的正中间有一个障碍物。从左上角到右下角一共有 2 条不同的路径：1. 向右 -&gt; 向右 -&gt; 向下 -&gt; 向下2. 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右 我的思路这道题和uniquePaths-62 类似。但是增加了一个障碍的条件。我的做法其实和之前的差不多，但是增加了一些关于遇到“障碍”时的判断。这道题也是使用动态规划~，有一个问题在于假如传入的是空的数组。获取第二维的长度的时候会报错。 1234567891011121314151617181920212223public int uniquePathsWithObstacles(int[][] obstacleGrid) &#123; int n = obstacleGrid.length; int m = obstacleGrid[0].length; int[][] opt = new int[n][m]; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; if(obstacleGrid[i][j]==1)&#123; opt[i][j] = 0; &#125;else&#123; if(i==0&amp;&amp;j==0)&#123; opt[i][j] =1; &#125;else if(i==0)&#123; opt[i][j] = opt[i][j-1]; &#125;else if(j==0)&#123; opt[i][j] = opt[i-1][j]; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; &#125; return opt[n-1][m-1];&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[uniquePaths_62(java)]]></title>
     <url>%2F2019%2F02%2F11%2FuniquePaths-62%2F</url>
     <content type="text"><![CDATA[这是本题的地址:https://leetcode-cn.com/problems/unique-paths/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？ 例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：*m 和 n* 的值均不超过 100。 示例 1: 1234567输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右 示例 2: 12输入: m = 7, n = 3输出: 28 我的思路这题我是想着使用动态规划来做的，这个与之前动态规划不同的是 他是一个二维数组。这样的话最优解opt的数组也是一个二维数组。且题目中说明每次只能向下或向右移动一步。这样的话，递归式应该是这样：opt [n] [m] = opt[n-1] [m] + opt[n] [m-1]。得到了递归式，我们就可以开始进行操作了。 12345678910111213141516public int uniquePaths(int m, int n) &#123; if(m==0||n==0)&#123; return 0; &#125; int[][] opt = new int[m][n]; for(int i=0;i&lt;m;i++)&#123; for(int j=0;j&lt;n;j++)&#123; if(i==0||j==0)&#123; opt[i][j]=1; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; return opt[m-1][n-1];&#125; 我感觉不太好，因为要使用两个for 但是好像必须这样，因为是一个二维数组。时间复杂度：O(n^2)。]]></content>
