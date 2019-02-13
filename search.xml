@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[numDecodings_91]]></title>
+    <url>%2F2019%2F02%2F13%2FnumDecodings-91%2F</url>
+    <content type="text"><![CDATA[终于，感觉这道题不是那么的水了~ 这是本题的地址：https://leetcode-cn.com/problems/decode-ways/ 一条包含字母 A-Z 的消息通过以下方式进行了编码： 1234'A' -&gt; 1'B' -&gt; 2...'Z' -&gt; 26 给定一个只包含数字的非空字符串，请计算解码方法的总数。 示例 1: 123输入: "12"输出: 2解释: 它可以解码为 "AB"（1 2）或者 "L"（12）。 示例 2: 123输入: "226"输出: 3解释: 它可以解码为 "BZ" (2 26), "VF" (22 6), 或者 "BBF" (2 2 6) 。 我的思路这道题是真的挺多坑的。让我头大得很。从题目中的A B ….Z 这个其实可以不用管。这道题也是采用动态规划来做，因为他是从1-26的数字，所以最多只会有2个数字连在一起。不会出现3个数字连在一起的情况。所以而且我们可以发现 12345678910例如字符串："123"。opt[0] = 1; 也就是字符串"1"处的最优解码是1opt[1] = 2; 也就是字符串"2"处的最优解码是2, 他的解码方式是 1 2和 12 其实这时候还不是很好看出递归式。opt[3] = 3; 为什么呢 其实这个我们可以拆解出来。123 可以拆解为：1 2 312 31 23三种。这时候我们可以发现一些有意思的东西，假如把 3 拿出来 1 2和12 这两个不就是opt[1]的值吗？把 23 拿出来剩下的 1 不就是opt[0]的值吗。 这时候我们就可以得出我们的递归式 ： opt[n] = opt[n-1]+opt[n-2] 突然发现这样的递归式不是很常见吗哈哈~ 得到了递归式 其实还有一个很重要的坑那就是：当有一个值为0的时候，我们会发现题目中没有给出0。但是却有10 和 20 这两个符合解码的数。但假如是0开头的是不能解码的。所以我们就要对0这个字符进行判断。如果是有0出现，假如出现了不能解码的情况，那整个字符串都不能解码。 123456789101112131415161718192021222324252627282930public int numDecodings(String s) &#123; int n = s.length(); int[] opt = new int[n]; opt[0] = s.charAt(0)=='0'?0:1; for(int i=1;i&lt;n;i++)&#123; int sum =Integer.parseInt(s.substring(i-1,i+1)); if(s.charAt(i)=='0')&#123; if(sum&lt;10||sum&gt;26)&#123; opt[i] = 0; &#125;else&#123; if(i&lt;2)&#123; opt[i] = opt[i-1]; &#125;else&#123; opt[i] = opt[i-2]; &#125; &#125; &#125;else&#123; if(sum&lt;=26&amp;&amp;sum&gt;=10)&#123; if(i&lt;2)&#123; opt[i] = opt[i-1] + 1; &#125;else&#123; opt[i] = opt[i-1] + opt[i-2]; &#125; &#125; else&#123; opt[i] = opt[i-1]; &#125; &#125; &#125; return opt[n-1];&#125; 我的反思虽然用上了动态规划 但是我觉得里面的if else 也还是有点多….. 别人的速度虽然比我快一点，但是看起来我们的时间复杂度都是O(n)呀。。。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[minPathSum_64]]></title>
+    <url>%2F2019%2F02%2F13%2FminPathSum-64%2F</url>
+    <content type="text"><![CDATA[这是本题的地址https://leetcode-cn.com/problems/minimum-path-sum/ 给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。 说明：每次只能向下或者向右移动一步。 示例: 12345678输入:[ [1,3,1], [1,5,1], [4,2,1]]输出: 7解释: 因为路径 1→3→1→1→1 的总和最小。 我的思路感觉62 63 64 都是连续的题目 都是使用动态规划来做这道题。都是一些很简单的动态规划。 从题目中我们可以了解递归式： 1opt[i][j] = (opt[i-1][j]&lt;opt[i][j-1]?opt[i-1][j]:opt[i][j-1]) + grid[i][j]; 通过使用这个递归式最终我们可以得出我们想要的结果 12345678910111213141516171819202122public int minPathSum(int[][] grid) &#123; if(grid==null || grid.length==0 ||(grid.length==1&amp;&amp;grid[0].length==0))&#123; return 0; &#125; int n = grid.length; int m = grid[0].length; int[][] opt = new int[n][m]; for(int i = 0;i&lt;n;i++)&#123; for(int j =0;j&lt;m;j++)&#123; if (i == 0 &amp;&amp; j == 0) &#123; opt[i][j] = grid[i][j]; &#125;else if(i == 0)&#123; opt[i][j] = grid[i][j]+opt[i][j-1]; &#125;else if(j == 0)&#123; opt[i][j] = grid[i][j]+opt[i-1][j]; &#125;else&#123; opt[i][j] = (opt[i-1][j]&lt;opt[i][j-1]?opt[i-1][j]:opt[i][j-1]) + grid[i][j]; &#125; &#125; &#125; return opt[n-1][m-1];&#125; 我的反思最终跑出来的速度比别人的慢很多，但是我看了下别人的范例代码。我觉得我们的代码好像都是一样的呀？有的人也用递归来做，也不知道是不是更好一些。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[uniquePathsWithObstacles_63]]></title>
     <url>%2F2019%2F02%2F12%2FuniquePathsWithObstacles-63%2F</url>
-    <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/unique-paths-ii/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？ 网格中的障碍物和空位置分别用 1 和 0 来表示。 说明：*m 和 n* 的值均不超过 100。 示例 1: 123456789101112输入:[ [0,0,0], [0,1,0], [0,0,0]]输出: 2解释:3x3 网格的正中间有一个障碍物。从左上角到右下角一共有 2 条不同的路径：1. 向右 -&gt; 向右 -&gt; 向下 -&gt; 向下2. 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右 我的思路这道题和uniquePaths-62 类似。但是增加了一个障碍的条件。我的做法其实和之前的差不多，但是增加了一些关于遇到“障碍”时的判断。这道题也是使用动态规划~，有一个问题在于假如传入的是空的数组。获取第二维的长度的时候会报错。 1234567891011121314151617181920212223public int uniquePathsWithObstacles(int[][] obstacleGrid) &#123; int n = obstacleGrid.length; int m = obstacleGrid[0].length; int[][] opt = new int[n][m]; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; if(obstacleGrid[i][j]==1)&#123; opt[i][j] = 0; &#125;else&#123; if(i==0&amp;&amp;j==0)&#123; opt[i][j] =1; &#125;else if(i==0)&#123; opt[i][j] = opt[i][j-1]; &#125;else if(j==0)&#123; opt[i][j] = opt[i-1][j]; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; &#125; return opt[n-1][m-1];&#125;]]></content>
+    <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/unique-paths-ii/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？ 网格中的障碍物和空位置分别用 1 和 0 来表示。 说明：*m 和 n* 的值均不超过 100。 示例 1: 123456789101112输入:[ [0,0,0], [0,1,0], [0,0,0]]输出: 2解释:3x3 网格的正中间有一个障碍物。从左上角到右下角一共有 2 条不同的路径：1. 向右 -&gt; 向右 -&gt; 向下 -&gt; 向下2. 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右 我的思路这道题和uniquePaths-62 类似。但是增加了一个障碍的条件。我的做法其实和之前的差不多，但是增加了一些关于遇到“障碍”时的判断。这道题也是使用动态规划~，有一个问题在于假如传入的是空的数组。获取第二维的长度的时候会报错。 判断二维数组是否位空： if ( array == null || array.length == 0 || ( array.length == 1 &amp;&amp; array[0].length == 0 ) ) 1234567891011121314151617181920212223public int uniquePathsWithObstacles(int[][] obstacleGrid) &#123; int n = obstacleGrid.length; int m = obstacleGrid[0].length; int[][] opt = new int[n][m]; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; if(obstacleGrid[i][j]==1)&#123; opt[i][j] = 0; &#125;else&#123; if(i==0&amp;&amp;j==0)&#123; opt[i][j] =1; &#125;else if(i==0)&#123; opt[i][j] = opt[i][j-1]; &#125;else if(j==0)&#123; opt[i][j] = opt[i-1][j]; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; &#125; return opt[n-1][m-1];&#125;]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
