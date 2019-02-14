@@ -1270,6 +1270,10 @@ pre .javascript .function {
   word-wrap: break-word;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+.post-body a {
+  color: #428bca;
+  font-weight: bold;
+}
 .post-body .exturl .fa {
   font-size: 14px;
   margin-left: 4px;
@@ -1891,7 +1895,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #982aff;
+  background: #ff298f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3173,7 +3177,7 @@ ul.breadcrumb li+li:last-child {
 @media screen and (min-width: 1200px) {
   body {
     background-image: url("/images/background.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
   }

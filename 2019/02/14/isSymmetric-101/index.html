@@ -103,20 +103,18 @@
 
 
 
-  <meta name="description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
-<meta name="keywords" content="leetcode,动态规划">
+  <meta name="description" content="这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
+<meta name="keywords" content="leetcode,树,BFS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="longestPalindrome_5">
-<meta property="og:url" content="http://yoursite.com/2019/01/30/longestPalindrome-5/index.html">
+<meta property="og:title" content="symmetric-tree(对称二叉树)_101">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/isSymmetric-101/index.html">
 <meta property="og:site_name" content="何嘉晨的博客">
-<meta property="og:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
+<meta property="og:description" content="这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/01/30/longestPalindrome-5/img/access.png">
-<meta property="og:updated_time" content="2019-02-11T03:11:34.589Z">
+<meta property="og:updated_time" content="2019-02-14T06:39:18.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="longestPalindrome_5">
-<meta name="twitter:description" content="这是本题的地址：https://leetcode-cn.com/problems/longest-palindromic-substring/ 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/30/longestPalindrome-5/img/access.png">
+<meta name="twitter:title" content="symmetric-tree(对称二叉树)_101">
+<meta name="twitter:description" content="这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
 
 
 
@@ -125,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/30/longestPalindrome-5/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/14/isSymmetric-101/">
 
 
 
@@ -135,7 +133,7 @@
   };
 </script>
 
-  <title>longestPalindrome_5 | 何嘉晨的博客</title>
+  <title>symmetric-tree(对称二叉树)_101 | 何嘉晨的博客</title>
   
 
 
@@ -380,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/longestPalindrome-5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/isSymmetric-101/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="何嘉晨">
@@ -397,7 +395,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">longestPalindrome_5
+          <h1 class="post-title" itemprop="name headline">symmetric-tree(对称二叉树)_101
 
               
             
@@ -423,24 +421,12 @@
                 
               
 
-              <time title="创建时间：2019-01-30 14:35:54" itemprop="dateCreated datePublished" datetime="2019-01-30T14:35:54+08:00">2019-01-30</time>
+              <time title="创建时间：2019-02-14 11:37:21 / 修改时间：14:39:18" itemprop="dateCreated datePublished" datetime="2019-02-14T11:37:21+08:00">2019-02-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-11 11:11:34" itemprop="dateModified" datetime="2019-02-11T11:11:34+08:00">2019-02-11</time>
               
             
           </span>
@@ -499,21 +485,23 @@
       
 
       
-        <p>这是本题的地址：<a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></p>
-<p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p>
+        <p>这是本题的地址：<a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/symmetric-tree/</a></p>
+<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"> / \ / \</span><br><span class="line">3  4 4  3</span><br></pre></td></tr></table></figure>
+<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
 <a id="more"></a>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"babad"</span></span><br><span class="line">输出: <span class="string">"bab"</span></span><br><span class="line">注意: <span class="string">"aba"</span> 也是一个有效答案。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"cbbd"</span></span><br><span class="line">输出: <span class="string">"bb"</span></span><br></pre></td></tr></table></figure>
-<h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>有一个String sum =”” 来保存最大的回文。</p>
-<p>有第一个for(int i=0)循环遍历整个字符串。然后第二个字符串由j=i 开始，判断这i j之间是否是回文。如果是，那么j-i+1(加1是因为j和i相同时，也是有一个字符的)是否大于sum的长度。如果大于，那么他们就是最大的回文。</p>
-<p>那么用于判断ij之间是否为回文的方法我是这样做的：先判断当前i j的字符是否相同，如果相同则判断 i j 是否相等或相邻，如果是那么就返回true。如果不是那么进行 i+1 和 j-1的递归。若果i j的字符不相同，则返回false；这样是暴力解法。时间复杂度 n3次方。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String sum = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;s.length();j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Panduan(i,j,s))&#123;</span><br><span class="line">                <span class="keyword">if</span>(j-i+<span class="number">1</span>&gt;sum.length())&#123;</span><br><span class="line">                    sum = s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">Panduan</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s.charAt(a)==s.charAt(b))&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==b||a==b-<span class="number">1</span>||a-<span class="number">1</span>==b)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Panduan(++a,--b,s);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="我的结果："><a href="#我的结果：" class="headerlink" title="我的结果："></a>我的结果：</h2><p><img src="/2019/01/30/longestPalindrome-5/img/access.png" alt=""></p>
-<p>特别的慢：这也是暴力解法的问题所在！</p>
-<p>在官方的解答中：有动态规划和中心扩展算法这两个。等我看懂了再补充上来！~</p>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">1</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">2</span>   <span class="number">2</span></span><br><span class="line"> \   \</span><br><span class="line"> <span class="number">3</span>    <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>题目给出的树的结构：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> val;</span><br><span class="line">      TreeNode left;</span><br><span class="line">      TreeNode right;</span><br><span class="line">      TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题让我思路头大，因为之前还没有做过树的题目，深搜广搜虽然了解大概是怎么样的做法却没有实际使用上。</p>
+<p>这道题一开始我是想着如果要证明它们是镜像对称的，那么树的left的left节点 应该和right的right节点相同，left的right节点应该和right的left节点相同。</p>
+<p>那么每当 left.val 和 right.val 的值相等的时候。</p>
+<p>就进行递归digui(left.left,right.right) 和 digui(left.right,right.left) 这两个递归。这里要注意的就是一开始是使用两个root进入从而避免了一开始就要写left和right。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> digui(root,root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">digui</span><span class="params">(TreeNode t1,TreeNode t2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;&amp;t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>||t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>(t1.val==t2.val) &amp;&amp; digui(t1.left,t2.right) &amp;&amp; digui(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="官方思路"><a href="#官方思路" class="headerlink" title="官方思路"></a>官方思路</h2><p>除了第一个递归之外，官方还写出了迭代的思路，我来试一试。既然这里的代码用到了Queue(队列)，我就去对自己科普了一下java的<a href="">Queue</a></p>
+<p>代码可以忽略，列一下里面觉得有用的几个点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric2</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    Queue&lt;TreeNode&gt; ls = <span class="keyword">new</span> &lt;TreeNode&gt;LinkedList();</span><br><span class="line">    ls.add(root);</span><br><span class="line">    ls.add(root);</span><br><span class="line">    <span class="keyword">while</span>(ls.size()!=<span class="number">0</span>)&#123;</span><br><span class="line">         <span class="comment">//poll函数 这个函数我很少用，用处是将队列里第一个元素取出，如果没有则返回null。</span></span><br><span class="line">        TreeNode t1 = ls.poll(); </span><br><span class="line">        <span class="comment">// 每次取出头两个来对比是否相同</span></span><br><span class="line">        TreeNode t2 = ls.poll();</span><br><span class="line">        <span class="comment">// 判断是和上面的代码是一样的</span></span><br><span class="line">        <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;&amp;t2==<span class="keyword">null</span>)&#123; </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>||t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t1.val!=t2.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 往队列里添加新的节点，t1 t2的顺序相反 因为它们是镜像。</span></span><br><span class="line">            ls.add(t1.left);</span><br><span class="line">            ls.add(t2.right);</span><br><span class="line">            ls.add(t1.right);</span><br><span class="line">            ls.add(t2.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -549,7 +537,9 @@
           
             <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+            <a href="/tags/树/" rel="tag"># 树</a>
+          
+            <a href="/tags/BFS/" rel="tag"># BFS</a>
           
         </div>
       
@@ -562,8 +552,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/29/清理：终结处理和垃圾回收/" rel="next" title="清理：终结处理和垃圾回收">
-                <i class="fa fa-chevron-left"></i> 清理：终结处理和垃圾回收
+              <a href="/2019/02/13/numDecodings-91/" rel="next" title="numDecodings_91">
+                <i class="fa fa-chevron-left"></i> numDecodings_91
               </a>
             
           </div>
@@ -571,10 +561,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/01/maxSubArray-53/" rel="prev" title="maxSubArray-53">
-                maxSubArray-53 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -766,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路："><span class="nav-number">1.</span> <span class="nav-text">我的思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的结果："><span class="nav-number">2.</span> <span class="nav-text">我的结果：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路"><span class="nav-number">1.</span> <span class="nav-text">我的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方思路"><span class="nav-number">2.</span> <span class="nav-text">官方思路</span></a></li></ol></div>
             
 
           </div>
