@@ -111,12 +111,12 @@
 <meta property="og:site_name" content="何嘉晨的博客">
 <meta property="og:description" content="这是本题的地址https://leetcode-cn.com/problems/climbing-stairs/ 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/02/01/climbStairs-70/access.png">
-<meta property="og:updated_time" content="2019-02-11T03:12:19.670Z">
+<meta property="og:image" content="http://yoursite.com/posts/climbStairs-70/access.png">
+<meta property="og:updated_time" content="2019-02-17T08:36:24.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="climbStairs-70(java)">
 <meta name="twitter:description" content="这是本题的地址https://leetcode-cn.com/problems/climbing-stairs/ 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/01/climbStairs-70/access.png">
+<meta name="twitter:image" content="http://yoursite.com/posts/climbStairs-70/access.png">
 
 
 
@@ -440,7 +440,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-11 11:12:19" itemprop="dateModified" datetime="2019-02-11T11:12:19+08:00">2019-02-11</time>
+                <time title="修改时间：2019-02-17 16:36:24" itemprop="dateModified" datetime="2019-02-17T16:36:24+08:00">2019-02-17</time>
               
             
           </span>
@@ -512,7 +512,7 @@
 <h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>其实这个仔细的看一下就会发现和哪个斐波那契数列第n项问题很像。主要的递归式就是 f[n] = f[n-1]+f[n-2]。</p>
 <p>通过这个式子我们就可以得出第n个梯子有多少种变化啦~最后返回数组的n-1即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span>[] foot = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    foot[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    foot[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123;</span><br><span class="line">        foot[i] = foot[i-<span class="number">1</span>]+foot[i-<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> foot[n-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="我的结果"><a href="#我的结果" class="headerlink" title="我的结果"></a>我的结果</h2><p><img src="/2019/02/01/climbStairs-70/access.png" alt=""></p>
+<h2 id="我的结果"><a href="#我的结果" class="headerlink" title="我的结果"></a>我的结果</h2><p><img src="/posts/climbStairs-70/access.png" alt=""></p>
 
       
     </div>
@@ -646,7 +646,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -677,8 +677,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
