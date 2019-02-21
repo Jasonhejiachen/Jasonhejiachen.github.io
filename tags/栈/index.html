@@ -103,18 +103,16 @@
 
 
 
-  <meta name="description" content="难度：简单 这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
-<meta name="keywords" content="leetcode,树,BFS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="symmetric-tree(对称二叉树)_101">
-<meta property="og:url" content="http://yoursite.com/posts/isSymmetric-101/index.html">
+  <meta name="description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="何嘉晨的个人博客">
+<meta property="og:url" content="http://yoursite.com/tags/栈/index.html">
 <meta property="og:site_name" content="何嘉晨的个人博客">
-<meta property="og:description" content="难度：简单 这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
+<meta property="og:description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-20T07:20:40.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="symmetric-tree(对称二叉树)_101">
-<meta name="twitter:description" content="难度：简单 这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
+<meta name="twitter:title" content="何嘉晨的个人博客">
+<meta name="twitter:description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
 
 
 
@@ -123,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/isSymmetric-101/">
+  <link rel="canonical" href="http://yoursite.com/tags/栈/">
 
 
 
@@ -133,7 +131,7 @@
   };
 </script>
 
-  <title>symmetric-tree(对称二叉树)_101 | 何嘉晨的个人博客</title>
+  <title>标签: 栈 | 何嘉晨的个人博客</title>
   
 
 
@@ -181,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
     <!-- <a href="https://github.com/Jasonhejiachen" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -257,7 +255,7 @@
         
         
           
-          <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags menu-item-active">
 
     
     
@@ -362,251 +360,82 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>栈<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
-
-  
+      
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/isSymmetric-101/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何嘉晨">
-      <meta itemprop="description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
-      <meta itemprop="image" content="/images/pigpig.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="何嘉晨的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+          <a class="post-title-link" href="/posts/longest-valid-parentheses-32/" itemprop="url">
+            
+              <span itemprop="name">longest_valid_parentheses（最长有效括号）_32</span>
+            
+          </a>
         
-          <h1 class="post-title" itemprop="name headline">symmetric-tree(对称二叉树)_101
+      </h2>
 
-              
-            
-          </h1>
-        
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-02-19T17:05:37+08:00" content="2019-02-19">
+          02-19
+        </time>
+      </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-14 11:37:21" itemprop="dateCreated datePublished" datetime="2019-02-14T11:37:21+08:00">2019-02-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-20 15:20:40" itemprop="dateModified" datetime="2019-02-20T15:20:40+08:00">2019-02-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-            <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 588</span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><strong>难度：</strong><font color="green">简单</font></p>
-<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/symmetric-tree/</a></p>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"> / \ / \</span><br><span class="line">3  4 4  3</span><br></pre></td></tr></table></figure>
-<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">1</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">2</span>   <span class="number">2</span></span><br><span class="line"> \   \</span><br><span class="line"> <span class="number">3</span>    <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>题目给出的树的结构：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> val;</span><br><span class="line">      TreeNode left;</span><br><span class="line">      TreeNode right;</span><br><span class="line">      TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题让我思路头大，因为之前还没有做过树的题目，深搜广搜虽然了解大概是怎么样的做法却没有实际使用上。</p>
-<p>这道题一开始我是想着如果要证明它们是镜像对称的，那么树的left的left节点 应该和right的right节点相同，left的right节点应该和right的left节点相同。</p>
-<p>那么每当 left.val 和 right.val 的值相等的时候。</p>
-<p>就进行递归digui(left.left,right.right) 和 digui(left.right,right.left) 这两个递归。这里要注意的就是一开始是使用两个root进入从而避免了一开始就要写left和right。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> digui(root,root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">digui</span><span class="params">(TreeNode t1,TreeNode t2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;&amp;t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>||t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>(t1.val==t2.val) &amp;&amp; digui(t1.left,t2.right) &amp;&amp; digui(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="官方思路"><a href="#官方思路" class="headerlink" title="官方思路"></a>官方思路</h2><p>除了第一个递归之外，官方还写出了迭代的思路，我来试一试。既然这里的代码用到了Queue(队列)，我就去对自己科普了一下java的<a href="https://jasonhejiachen.github.io/2019/02/14/Queue%E9%98%9F%E5%88%97-java/" target="_blank" rel="noopener">Queue</a></p>
-<p>代码可以忽略，列一下里面觉得有用的几个点。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric2</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    Queue&lt;TreeNode&gt; ls = <span class="keyword">new</span> &lt;TreeNode&gt;LinkedList();</span><br><span class="line">    ls.add(root);</span><br><span class="line">    ls.add(root);</span><br><span class="line">    <span class="keyword">while</span>(ls.size()!=<span class="number">0</span>)&#123;</span><br><span class="line">         <span class="comment">//poll函数 这个函数我很少用，用处是将队列里第一个元素取出，如果没有则返回null。</span></span><br><span class="line">        TreeNode t1 = ls.poll(); </span><br><span class="line">        <span class="comment">// 每次取出头两个来对比是否相同</span></span><br><span class="line">        TreeNode t2 = ls.poll();</span><br><span class="line">        <span class="comment">// 判断是和上面的代码是一样的</span></span><br><span class="line">        <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;&amp;t2==<span class="keyword">null</span>)&#123; </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>||t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t1.val!=t2.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 往队列里添加新的节点，t1 t2的顺序相反 因为它们是镜像。</span></span><br><span class="line">            ls.add(t1.left);</span><br><span class="line">            ls.add(t2.right);</span><br><span class="line">            ls.add(t1.right);</span><br><span class="line">            ls.add(t2.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-        <div>
-    
-        <div style="text-align:center;color: black;font-size:14px;">-------------　　本文已结束，谢谢您的观看！　　-------------</div>
-    
-</div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
-          
-            <a href="/tags/树/" rel="tag"><i class="fa fa-tag"></i> 树</a>
-          
-            <a href="/tags/BFS/" rel="tag"><i class="fa fa-tag"></i> BFS</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/posts/numDecodings-91/" rel="next" title="numDecodings_91">
-                <i class="fa fa-chevron-left"></i> numDecodings_91
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/Queue队列-java/" rel="prev" title="Queue队列-java源码了解">
-                Queue队列-java源码了解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+    </div>
+
   </div>
-
-
-          </div>
-          
+  
+  
+  
 
   
 
 
+          </div>
+          
 
         </div>
         
@@ -627,17 +456,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -771,23 +591,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路"><span class="nav-number">1.</span> <span class="nav-text">我的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方思路"><span class="nav-number">2.</span> <span class="nav-text">官方思路</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -931,10 +734,6 @@
 
 
   
-  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/js/src/post-details.js?v=6.7.0"></script>
-
-
 
   
 
@@ -945,8 +744,6 @@
 
   
 
-
-  
 
 
   

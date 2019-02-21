@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="难度：简单 这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
-<meta name="keywords" content="leetcode,树,BFS">
+  <meta name="description" content="难度：中等 这是本题的地址：https://leetcode-cn.com/problems/triangle/ 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。 例如，给定三角形： 123456[     [2],    [3,4],   [6,5,7],  [4,1,8,3]] 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。">
+<meta name="keywords" content="leetcode,动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="symmetric-tree(对称二叉树)_101">
-<meta property="og:url" content="http://yoursite.com/posts/isSymmetric-101/index.html">
+<meta property="og:title" content="triangle(三角形最小路径和)_120">
+<meta property="og:url" content="http://yoursite.com/posts/triangle-120/index.html">
 <meta property="og:site_name" content="何嘉晨的个人博客">
-<meta property="og:description" content="难度：简单 这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
+<meta property="og:description" content="难度：中等 这是本题的地址：https://leetcode-cn.com/problems/triangle/ 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。 例如，给定三角形： 123456[     [2],    [3,4],   [6,5,7],  [4,1,8,3]] 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-20T07:20:40.267Z">
+<meta property="og:updated_time" content="2019-02-20T07:13:17.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="symmetric-tree(对称二叉树)_101">
-<meta name="twitter:description" content="难度：简单 这是本题的地址：https://leetcode-cn.com/problems/symmetric-tree/ 给定一个二叉树，检查它是否是镜像对称的。 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 12345    1   / \  2   2 / \ / \3  4 4  3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:">
+<meta name="twitter:title" content="triangle(三角形最小路径和)_120">
+<meta name="twitter:description" content="难度：中等 这是本题的地址：https://leetcode-cn.com/problems/triangle/ 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。 例如，给定三角形： 123456[     [2],    [3,4],   [6,5,7],  [4,1,8,3]] 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/posts/isSymmetric-101/">
+  <link rel="canonical" href="http://yoursite.com/posts/triangle-120/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>symmetric-tree(对称二叉树)_101 | 何嘉晨的个人博客</title>
+  <title>triangle(三角形最小路径和)_120 | 何嘉晨的个人博客</title>
   
 
 
@@ -382,7 +382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/isSymmetric-101/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/triangle-120/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="何嘉晨">
@@ -399,7 +399,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">symmetric-tree(对称二叉树)_101
+          <h1 class="post-title" itemprop="name headline">triangle(三角形最小路径和)_120
 
               
             
@@ -425,24 +425,12 @@
                 
               
 
-              <time title="创建时间：2019-02-14 11:37:21" itemprop="dateCreated datePublished" datetime="2019-02-14T11:37:21+08:00">2019-02-14</time>
+              <time title="创建时间：2019-02-20 14:10:55 / 修改时间：15:13:17" itemprop="dateCreated datePublished" datetime="2019-02-20T14:10:55+08:00">2019-02-20</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-20 15:20:40" itemprop="dateModified" datetime="2019-02-20T15:20:40+08:00">2019-02-20</time>
               
             
           </span>
@@ -482,7 +470,7 @@
              阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
-            <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 588</span>
+            <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 1k</span>
           
 
           
@@ -502,24 +490,27 @@
       
 
       
-        <p><strong>难度：</strong><font color="green">简单</font></p>
-<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/symmetric-tree/</a></p>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"> / \ / \</span><br><span class="line">3  4 4  3</span><br></pre></td></tr></table></figure>
-<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
+        <p><strong>难度：</strong><font color="C4C400">中等</font></p>
+<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/triangle/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/triangle/</a></p>
+<p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
+<p>例如，给定三角形：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">     [2],</span><br><span class="line">    [3,4],</span><br><span class="line">   [6,5,7],</span><br><span class="line">  [4,1,8,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>自顶向下的最小路径和为 <code>11</code>（即，<strong>2</strong> + <strong>3</strong> + <strong>5</strong> + <strong>1</strong> = 11）。</p>
 <a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">1</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">2</span>   <span class="number">2</span></span><br><span class="line"> \   \</span><br><span class="line"> <span class="number">3</span>    <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>题目给出的树的结构：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> val;</span><br><span class="line">      TreeNode left;</span><br><span class="line">      TreeNode right;</span><br><span class="line">      TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题让我思路头大，因为之前还没有做过树的题目，深搜广搜虽然了解大概是怎么样的做法却没有实际使用上。</p>
-<p>这道题一开始我是想着如果要证明它们是镜像对称的，那么树的left的left节点 应该和right的right节点相同，left的right节点应该和right的left节点相同。</p>
-<p>那么每当 left.val 和 right.val 的值相等的时候。</p>
-<p>就进行递归digui(left.left,right.right) 和 digui(left.right,right.left) 这两个递归。这里要注意的就是一开始是使用两个root进入从而避免了一开始就要写left和right。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> digui(root,root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">digui</span><span class="params">(TreeNode t1,TreeNode t2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;&amp;t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>||t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>(t1.val==t2.val) &amp;&amp; digui(t1.left,t2.right) &amp;&amp; digui(t1.right,t2.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="官方思路"><a href="#官方思路" class="headerlink" title="官方思路"></a>官方思路</h2><p>除了第一个递归之外，官方还写出了迭代的思路，我来试一试。既然这里的代码用到了Queue(队列)，我就去对自己科普了一下java的<a href="https://jasonhejiachen.github.io/2019/02/14/Queue%E9%98%9F%E5%88%97-java/" target="_blank" rel="noopener">Queue</a></p>
-<p>代码可以忽略，列一下里面觉得有用的几个点。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric2</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    Queue&lt;TreeNode&gt; ls = <span class="keyword">new</span> &lt;TreeNode&gt;LinkedList();</span><br><span class="line">    ls.add(root);</span><br><span class="line">    ls.add(root);</span><br><span class="line">    <span class="keyword">while</span>(ls.size()!=<span class="number">0</span>)&#123;</span><br><span class="line">         <span class="comment">//poll函数 这个函数我很少用，用处是将队列里第一个元素取出，如果没有则返回null。</span></span><br><span class="line">        TreeNode t1 = ls.poll(); </span><br><span class="line">        <span class="comment">// 每次取出头两个来对比是否相同</span></span><br><span class="line">        TreeNode t2 = ls.poll();</span><br><span class="line">        <span class="comment">// 判断是和上面的代码是一样的</span></span><br><span class="line">        <span class="keyword">if</span>(t1==<span class="keyword">null</span>&amp;&amp;t2==<span class="keyword">null</span>)&#123; </span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t1==<span class="keyword">null</span>||t2==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t1.val!=t2.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 往队列里添加新的节点，t1 t2的顺序相反 因为它们是镜像。</span></span><br><span class="line">            ls.add(t1.left);</span><br><span class="line">            ls.add(t2.right);</span><br><span class="line">            ls.add(t1.right);</span><br><span class="line">            ls.add(t2.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<p>如果你可以只使用 <em>O</em>(<em>n</em>) 的额外空间（<em>n</em> 为三角形的总行数）来解决这个问题，那么你的算法会很<font color="red">加分</font>。</p>
+<h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>该题应该使用动态规划求解的。但是一开始我写了一段应该是深搜遍历所有子节点的方案，最后超时了。这也证明了动态规划在解决这类重复子问题有很好的效果。</p>
+<p>那么我们从题目中可以得知：自顶而下最小路径和无非就是最上层的结点无非就是 选则自己下面结点的值更小的那一个，然后再加上自己的值 就是最小路径和。</p>
+<h3 id="一、深搜遍历"><a href="#一、深搜遍历" class="headerlink" title="一、深搜遍历"></a>一、深搜遍历</h3><p>深搜的想法就是找到每一个最小的结点，然后再一层一层的慢慢往回加，得出的顶部元素就是最优解。这样的做法的问题就在于，每一次深搜都有相同的节点被搜索过了，在这些地方浪费了相当多的时间。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span>(triangle.size()==<span class="number">0</span>||triangle==<span class="keyword">null</span>||(triangle.size()==<span class="number">1</span>&amp;&amp;triangle.get(<span class="number">0</span>).size()==<span class="number">0</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> getmini(<span class="number">0</span>,<span class="number">0</span>,triangle);</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//这里没有用上动态规划 很尴尬 只用上了递归去深搜。。。。。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getmini</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,List&lt;List&lt;Integer&gt;&gt; triangle)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((i==triangle.size()-<span class="number">1</span>)||(j==triangle.size()))&#123;</span><br><span class="line">        <span class="keyword">return</span> triangle.get(i).get(j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取两个子节点中小的一个</span></span><br><span class="line">    <span class="keyword">int</span> key = Math.min(getmini(i+<span class="number">1</span>,j,triangle),getmini(i+<span class="number">1</span>,j+<span class="number">1</span>,triangle));</span><br><span class="line">    <span class="keyword">return</span> key+triangle.get(i).get(j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、动态规划"><a href="#二、动态规划" class="headerlink" title="二、动态规划"></a>二、动态规划</h3><p>动态规划就在于 用一个最优解数组 opt[i] [j] 来保存当前节点的最优解。我们可以将获得最优解的递归式写成这样： opt[i-1] [j] =  opt[i-1] [j] = Math.min(opt[i] [j],opt[i] [j+1]) + triangle.get(i-1).get(j);  这样就可以得到上一层节点的最优解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(triangle.size()==<span class="number">0</span>||triangle==<span class="keyword">null</span>||(triangle.size()==<span class="number">1</span>&amp;&amp;triangle.get(<span class="number">0</span>).size()==<span class="number">0</span>))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span>[][] opt = <span class="keyword">new</span> <span class="keyword">int</span>[triangle.size()][triangle.size()];</span><br><span class="line">    <span class="comment">//初始化opt最下面一层的值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;triangle.size();j++)&#123;</span><br><span class="line">        opt[triangle.size()-<span class="number">1</span>][j] = triangle.get(triangle.size()-<span class="number">1</span>).get(j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从最底层开始</span></span><br><span class="line">    <span class="keyword">int</span> i = triangle.size()-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i!=<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">            <span class="comment">//上一层节点的值等于这一层两个节点的值小的哪个加上上一层的值。</span></span><br><span class="line">            opt[i-<span class="number">1</span>][j] = Math.min(opt[i][j],opt[i][j+<span class="number">1</span>]) + triangle.get(i-<span class="number">1</span>).get(j);</span><br><span class="line">        &#125;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> opt[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三、让我们的算法更加分"><a href="#三、让我们的算法更加分" class="headerlink" title="三、让我们的算法更加分"></a>三、让我们的算法更加分</h3><p>题目说了如果我们能只用额外的O(n)空间解决这个问题就更好了。</p>
+<p>那么n的空间就代表原来的List的空间。那么我们刚刚使用了二维数组opt[] [] 肯定是不能加分啦。通过分析别的的答案，我发现了加分解法是使用一维数组 opt[triangle.size()] 这样空间的问题解决了。但是如何获取解的呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(triangle.size()==<span class="number">0</span>||triangle==<span class="keyword">null</span>||(triangle.size()==<span class="number">1</span>&amp;&amp;triangle.get(<span class="number">0</span>).size()==<span class="number">0</span>))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[triangle.size()];</span><br><span class="line">    <span class="comment">//从最底层往上遍历</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=triangle.size()-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i++)&#123;</span><br><span class="line">        <span class="comment">//当前层的结点和当前层的层数是一样的</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">            <span class="comment">//原来的dp[j]和dp[j+1]是下一层的，那么重新赋值现在这一层的dp[j]是不冲突的~</span></span><br><span class="line">            dp[j] = Math.min(dp[j],dp[j+<span class="number">1</span>]) + triangle.get(i).get(j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="我的反思"><a href="#我的反思" class="headerlink" title="我的反思"></a>我的反思</h2><p>以后要向着做出最优解的方式来做！</p>
+<p>相似题目 967.连续相同数字  303.区域和检索 - 数组不可变</p>
+
       
     </div>
 
@@ -555,9 +546,7 @@
           
             <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
-            <a href="/tags/树/" rel="tag"><i class="fa fa-tag"></i> 树</a>
-          
-            <a href="/tags/BFS/" rel="tag"><i class="fa fa-tag"></i> BFS</a>
+            <a href="/tags/动态规划/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
           
         </div>
       
@@ -570,8 +559,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/numDecodings-91/" rel="next" title="numDecodings_91">
-                <i class="fa fa-chevron-left"></i> numDecodings_91
+              <a href="/posts/longest-valid-parentheses-32/" rel="next" title="longest_valid_parentheses（最长有效括号）_32">
+                <i class="fa fa-chevron-left"></i> longest_valid_parentheses（最长有效括号）_32
               </a>
             
           </div>
@@ -579,10 +568,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/Queue队列-java/" rel="prev" title="Queue队列-java源码了解">
-                Queue队列-java源码了解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -782,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路"><span class="nav-number">1.</span> <span class="nav-text">我的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方思路"><span class="nav-number">2.</span> <span class="nav-text">官方思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路"><span class="nav-number">1.</span> <span class="nav-text">我的思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、深搜遍历"><span class="nav-number">1.1.</span> <span class="nav-text">一、深搜遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、动态规划"><span class="nav-number">1.2.</span> <span class="nav-text">二、动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、让我们的算法更加分"><span class="nav-number">1.3.</span> <span class="nav-text">三、让我们的算法更加分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的反思"><span class="nav-number">2.</span> <span class="nav-text">我的反思</span></a></li></ol></div>
             
 
           </div>
