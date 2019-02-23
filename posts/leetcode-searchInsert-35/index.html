@@ -103,19 +103,19 @@
 
 
 
-  <meta name="description" content="这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
+  <meta name="description" content="难度：简单 这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-searchInsert-35(java)">
 <meta property="og:url" content="http://yoursite.com/posts/leetcode-searchInsert-35/index.html">
 <meta property="og:site_name" content="何嘉晨的个人博客">
-<meta property="og:description" content="这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
+<meta property="og:description" content="难度：简单 这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/posts/leetcode-searchInsert-35/img/access.png">
-<meta property="og:updated_time" content="2019-02-17T08:36:24.038Z">
+<meta property="og:updated_time" content="2019-02-22T06:21:11.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-searchInsert-35(java)">
-<meta name="twitter:description" content="这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
+<meta name="twitter:description" content="难度：简单 这是该题的地址：https://leetcode-cn.com/problems/search-insert-position/ 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。">
 <meta name="twitter:image" content="http://yoursite.com/posts/leetcode-searchInsert-35/img/access.png">
 
 
@@ -444,7 +444,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-17 16:36:24" itemprop="dateModified" datetime="2019-02-17T16:36:24+08:00">2019-02-17</time>
+                <time title="修改时间：2019-02-22 14:21:11" itemprop="dateModified" datetime="2019-02-22T14:21:11+08:00">2019-02-22</time>
               
             
           </span>
@@ -484,7 +484,7 @@
              阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
-            <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 233</span>
+            <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 434</span>
           
 
           
@@ -504,25 +504,21 @@
       
 
       
-        <p>这是该题的地址：<a href="#https://leetcode-cn.com/problems/search-insert-position/">https://leetcode-cn.com/problems/search-insert-position/</a></p>
+        <p><strong>难度：</strong><font color="green">简单</font></p>
+<p>这是该题的地址：<a href="#https://leetcode-cn.com/problems/search-insert-position/">https://leetcode-cn.com/problems/search-insert-position/</a></p>
 <p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。<a id="more"></a></p>
 <p>示例 1:</p>
 <p>输入: [1,3,5,6], 5<br>输出: 2<br>示例 2:</p>
 <p>输入: [1,3,5,6], 2<br>输出: 1<br>示例 3:</p>
 <p>输入: [1,3,5,6], 7<br>输出: 4<br>示例 4:</p>
 <p>输入: [1,3,5,6], 0<br>输出: 0</p>
-<p>我的思路：</p>
-<p>从数组第一个数i=0开始遍历。将val和nums[]的值进行比较。假如值超过了或者相等了。那么就将i返回。如果遍历完了都没有返回 就将数组的长度返回</p>
-<pre><code>public int searchInsert(int[] nums, int target) {
-       for(int i=0;i&lt;nums.length;i++){
-           if(target==nums[i] || target&lt;nums[i]){
-               return i;
-           }
-       }
-       return nums.length;
-   }
-</code></pre><p>最终的速度：</p>
+<h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><h3 id="一、暴力"><a href="#一、暴力" class="headerlink" title="一、暴力"></a>一、暴力</h3><p>从数组第一个数i=0开始遍历。将val和nums[]的值进行比较。假如值超过了或者相等了。那么就将i返回。如果遍历完了都没有返回 就将数组的长度返回</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(target==nums[i] || target&lt;nums[i])&#123;</span><br><span class="line">               <span class="keyword">return</span> i;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> nums.length;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>最终的速度：</p>
 <p><img src="/posts/leetcode-searchInsert-35/img/access.png" alt=""></p>
+<h3 id="二、二分查找"><a href="#二、二分查找" class="headerlink" title="二、二分查找"></a>二、二分查找</h3><p>因为数组是有序的，我们可以使用二分查找来搞定这个问题。二分查找就是将数组对半分开，每次和中间的点进行比较，这样第一遍循环的时候就减少了一半的长度，以此类推~。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分查找</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert2</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">0</span>,max = nums.length;</span><br><span class="line">    <span class="keyword">while</span>(min&lt;max)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (max + min)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid]&lt;target)&#123;</span><br><span class="line">            min = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&gt;target)&#123;</span><br><span class="line">            max = mid;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h2><p>当数组短target的值比较小的时候，可能暴力的方法会快一些。但假如数组变长了，target的值大了，二分查找的速度就会快很多。</p>
 
       
     </div>
@@ -627,8 +623,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -645,7 +650,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -701,7 +706,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -762,6 +769,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路："><span class="nav-number">1.</span> <span class="nav-text">我的思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、暴力"><span class="nav-number">1.1.</span> <span class="nav-text">一、暴力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、二分查找"><span class="nav-number">1.2.</span> <span class="nav-text">二、二分查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目总结"><span class="nav-number">2.</span> <span class="nav-text">题目总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

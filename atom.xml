@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-20T07:13:17.271Z</updated>
+  <updated>2019-02-23T16:21:47.903Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两数之和 II - 输入有序数组_167</title>
+    <link href="http://yoursite.com/posts/two-sum-ii-input-array-is-sorted-167/"/>
+    <id>http://yoursite.com/posts/two-sum-ii-input-array-is-sorted-167/</id>
+    <published>2019-02-23T15:25:37.000Z</published>
+    <updated>2019-02-23T16:21:47.903Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="green">简单</font></p><p>这是该题的地址：<a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/</a></p><p>给定一个已按照<strong>升序排列</strong> 的有序数组，找到两个数使得它们相加之和等于目标数。</p><p>函数应该返回这两个下标值 index1 和 index2，其中 index1 必须小于 index2<em>。</em></p><p><strong>说明:</strong></p><ul><li>返回的下标值（index1 和 index2）不是从零开始的。</li><li>你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。</li></ul><p><strong>示例:</strong></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: numbers = [2, 7, 11, 15], target = 9</span><br><span class="line">输出: [1,2]</span><br><span class="line">解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><h3 id="一、暴力破解"><a href="#一、暴力破解" class="headerlink" title="一、暴力破解"></a>一、暴力破解</h3><p>暴力破解的代码好像和我们原来的 两数之和 的暴力是一样的。。。</p><p>这题其实大家一看到就知道如果暴力破解的话，代码写的应该是很简单的。时间复杂度应该是O(n^2)，但是很显然这样的做法是非常的低效的。。。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum3(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numbers.length;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;numbers.length;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[i]+numbers[j]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i+<span class="number">1</span>,j+<span class="number">1</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="二、二分查找"><a href="#二、二分查找" class="headerlink" title="二、二分查找"></a>二、二分查找</h3><p>本题的题目就有二分搜索，其实一开始我是有点懵的，因为他有两个 index1和index2 两个点要确定，二分搜索好像不能一次性确定两个点呀。。。做法是用：一个index用for循环遍历所有点来确定第一个点，另一个 index 用二分查找来确定。时间复杂度为 O(nlongn)</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//二分查找 O(nlogn) 比暴力快</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers.length&lt;<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> index1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> index2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numbers.length;i++)&#123;</span><br><span class="line">            index1 = i;</span><br><span class="line">            <span class="keyword">int</span> left = i+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = numbers.length;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="keyword">int</span> mid = (left+right)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(numbers[mid]+numbers[index1]&lt;target)&#123;</span><br><span class="line">                    left = mid+<span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[mid]+numbers[index1]&gt;target)&#123;</span><br><span class="line">                    right = mid;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;index1+<span class="number">1</span>,mid+<span class="number">1</span>&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>ps:虽然用上了二分查找，但是因为外面有一层for循环遍历，时间复杂度仍然很高，感觉没必要为了使用二分查找而强行这么写。</p><h3 id="三、双指针法"><a href="#三、双指针法" class="headerlink" title="三、双指针法"></a>三、双指针法</h3><p>定义两个指针分别从数组的头部和尾部开始遍历，假如头尾之和大于target，那么尾指针就向前移一位。假如头尾之和小于target，那么头指针就向后移一位，如果头尾指针大于了尾指针，则说明数组中没有这个数。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum2(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="keyword">int</span> index1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> index2 = numbers.length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(index1&lt;index2)&#123;</span><br><span class="line">        <span class="keyword">if</span>(numbers[index1]+numbers[index2]&gt;target)&#123;</span><br><span class="line">            index2--;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[index1]+numbers[index2]&lt;target)&#123;</span><br><span class="line">            index1++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;index1+<span class="number">1</span>,index2+<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一个题目的做法有很多，没必要说我一定要用这种做法做出来才行。当然既然是练习，肯定就是抓住某一点来练啦哈哈。既然我们做到了两数之和II，那我觉得我们可以回顾一下leetcode的第一题 两数之和~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;green&quot;&gt;简单&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;这是该题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给定一个已按照&lt;strong&gt;升序排列&lt;/strong&gt; 的有序数组，找到两个数使得它们相加之和等于目标数。&lt;/p&gt;
+&lt;p&gt;函数应该返回这两个下标值 index1 和 index2，其中 index1 必须小于 index2&lt;em&gt;。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;说明:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;返回的下标值（index1 和 index2）不是从零开始的。&lt;/li&gt;
+&lt;li&gt;你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;示例:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: numbers = [2, 7, 11, 15], target = 9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: [1,2]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="二分查找" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>triangle(三角形最小路径和)_120</title>
@@ -527,28 +561,6 @@
     
       &lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Weekly_competition_121(java)</title>
-    <link href="http://yoursite.com/posts/weekgame-121/"/>
-    <id>http://yoursite.com/posts/weekgame-121/</id>
-    <published>2019-01-27T15:14:00.000Z</published>
-    <updated>2019-01-28T14:43:48.258Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是我第一次参加周竞赛，只做对了一题。好垃圾。。。<br><a id="more"></a></p><p>第一题：</p><p>这是原题的地址：<a href="https://leetcode-cn.com/contest/weekly-contest-121/problems/string-without-aaa-or-bbb/" target="_blank" rel="noopener">https://leetcode-cn.com/contest/weekly-contest-121/problems/string-without-aaa-or-bbb/</a></p><h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>用一个flaga flagb 判断a b 是否已经到了2个。然后再通过循环遍历将每一个字符输入进去。最后返回string</p><pre><code>public String strWithout3a3b(int A, int B) {    int longa =0;    int longb =0;    StringBuffer sb = new StringBuffer();    while(A&gt;0||B&gt;0){        if(A&gt;B){            if(longa&lt;2){                longa++;                longb=0;                sb.append(&apos;a&apos;);                A--;            }else{                longa=0;                sb.append(&apos;b&apos;);                B--;            }        }else if(B&gt;A){            if(longb&lt;2){                longb++;                longa=0;                sb.append(&apos;b&apos;);                B--;            }else{                longb=0;                sb.append(&apos;a&apos;);                A--;            }        }else if(A==B){            if(longa&lt;2){                sb.append(&apos;a&apos;);                sb.append(&apos;b&apos;);            }else{                sb.append(&apos;b&apos;);                sb.append(&apos;a&apos;);            }            A--;B--;        }    }    return sb.toString();}</code></pre><h2 id="官方解答："><a href="#官方解答：" class="headerlink" title="官方解答："></a>官方解答：</h2><p>用贪心，先选择当前较多得字母写入字符串中。如果前面两个字符是一样的，下一个写入的字符就不应该相同。地址：<a href="https://leetcode-cn.com/articles/string-without-aaa-or-bbb/" target="_blank" rel="noopener">https://leetcode-cn.com/articles/string-without-aaa-or-bbb/</a></p><h2 id="我的反思："><a href="#我的反思：" class="headerlink" title="我的反思："></a>我的反思：</h2><p>官方比我的代码减少了很多代码量，也不用新建对象。so 要向着简洁前进！！！！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是我第一次参加周竞赛，只做对了一题。好垃圾。。。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
