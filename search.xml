@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[环形链表_141]]></title>
+    <url>%2Fposts%2FhasCycle-141%2F</url>
+    <content type="text"><![CDATA[难度：简单 这是本题的地址：https://leetcode-cn.com/problems/linked-list-cycle/ 给定一个链表，判断链表中是否有环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。 示例 1： 123输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。 示例 2：** 123输入：head = [1,2], pos = 0输出：true解释：链表中有一个环，其尾部连接到第一个节点。 示例 3： 123输入：head = [1], pos = -1输出：false解释：链表中没有环。 进阶： 你能用 O(1)（即，常量）内存解决此问题吗？ 我的思路这题一开始觉得有点无从入手，而且题目给的测试数据和输入数据也有一些不同。不过在细细的看一遍，我们可以发现其中的诀窍。 因为题目的输入是一个ListNode 结点。我们可以通过这个发现，当没有“园”（循环）的时候，肯定有一个结点的next为空。所以我们可以以这个next为空作为我们遍历结点的终点。 因为可能有出现园的情况，我们可以用一个集合装下我们已遍历过的结点，然后每当到下一个结点的时候判断这个结点是否已经出现过了，如果没有则将这个结点放入集合中，如果有则返回true 通过这两点我们就可以得到一个正确的题解 12345678910111213public boolean hasCycle(ListNode head) &#123;// ArrayList&lt;ListNode&gt; ar = new ArrayList&lt;&gt;(); 一开始我是用的是arraylist也可以实现 Set&lt;ListNode&gt; ar = new HashSet&lt;&gt;(); while(head!=null)&#123; if(ar.contains(head))&#123; return true; &#125;else&#123; ar.add(head); &#125; head = head.next; &#125; return false;&#125; 进阶题目有进阶解法，使用O(1)的内存解决此问题。 根据官方的题解：可以使用快慢指针这种形式。快指针移动两步慢指针就只移动一步。 假如有一个圈的话，无论是跑得快还是跑的慢，他们都会在某个点相遇，这时候我们就可以返回false了。 快指针移动两步可以更快到达next=null的点，从而return false。 12345678910111213141516public boolean hasCycle2(ListNode head) &#123; ListNode fast = head; ListNode slow = head; while(fast!=null&amp;&amp;slow!=null)&#123; fast = fast.next; if(fast==null)&#123; return false; &#125; fast = fast.next; slow = slow.next; if(fast==slow)&#123; return true; &#125; &#125; return false;&#125; 总结这题做出第一个解并不难，进阶做法让我们更理解快慢指针的应用！]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在排序数组中查找元素的第一个和最后一个位置_34]]></title>
     <url>%2Fposts%2FsearchRange-34%2F</url>
     <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/ 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 你的算法时间复杂度必须是 O(log n) 级别。 如果数组中不存在目标值，返回 [-1, -1]。 示例 1: 12输入: nums = [5,7,7,8,8,10], target = 8输出: [3,4] 示例 2: 12输入: nums = [5,7,7,8,8,10], target = 6输出: [-1,-1] 我的思路因为题干中说了复杂度必须是O(logN)级别，所以我们可以联想到使用二分查找来做这道题目。 一、二分查找通过题目我们可以发现，二分查找可以很快的确定target所在的区间。但是这里有一个小问题，当 mid 中间点和target相等时，你不仅要往左搜索 还要往右搜索。解决了这个就相当于解决了这个问题。 第一种写法（我的写法）： 1234567891011121314151617181920212223242526272829private int start=-1,end=-1;//定义类变量public int[] searchRange(int[] nums, int target) &#123; int left = 0,right = nums.length; digui(left,right,nums,target); return new int[]&#123;start,end&#125;;&#125;void digui(int left,int right,int[] nums,int target)&#123; int mid = (left+right)/2; if(left&gt;=right)&#123; return; &#125; if(nums[mid]==target)&#123; if(start ==-1)&#123; start = mid; &#125;else if(start&gt;mid)&#123; start = mid; &#125; if(mid&gt;end)&#123; end = mid; &#125; //如果是相同，则双方向都进行二分查找 digui(left,mid,nums,target); digui(mid+1,right,nums,target); &#125;else if(nums[mid]&lt;target)&#123; digui(mid+1,right,nums,target); &#125;else&#123; digui(left,mid,nums,target); &#125;&#125; 第二种写法：不使用类变量 它是先定位第一个target的位置，然后再散发查找。可能是测试用例的问题，这段代码跑的比我的快，但是后面的散发查找肯定也使用二分查找是更快的。代码的时间复杂度也是O(logN) 12345678910111213141516171819202122232425262728293031323334public int[] searchRange3(int[] nums, int target) &#123; int left =0,right = nums.length,mid = (left+right)/2; boolean flag = false; while(left&lt;right)&#123; mid = (left+right)/2; if(nums[mid]==target)&#123; flag = true; break; &#125;else if(nums[mid]&lt;target)&#123; left = mid+1; &#125;else&#123; right = mid; &#125; &#125; if(flag)&#123; int i = mid; while(i&gt;=0)&#123; if(nums[i]!=target)&#123; break; &#125; i--; &#125; int j = mid; while(j&lt;nums.length)&#123; if(nums[j]!=target)&#123; break; &#125; j++; &#125; return new int[]&#123;i+1,j-1&#125;; &#125;else &#123; return new int[]&#123;-1,-1&#125;; &#125;&#125; 二、双指针看到题目的评论中有人说使用双指针。 很显然，在这道题中双指针并不会让你更快，时间复杂度是O(N/2)，不符合题目要求。 123456789101112131415public int[] searchRange2(int[] nums, int target) &#123; int left =0,right = nums.length-1; while(left&lt;=right)&#123; if(nums[left]!=target&amp;&amp;nums[right]!=target)&#123; left++;right--; &#125;else if(nums[left]==target&amp;&amp;nums[right]==target)&#123; return new int[]&#123;left,right&#125;; &#125;else if(nums[left]==target)&#123; right--; &#125;else if(nums[right]==target)&#123; left++; &#125; &#125; return new int[]&#123;-1,-1&#125;;&#125; 总结二分搜索不是只有说使用模板的 while() 这样递归才行。使用递归函数递归也是一个好方法！做法有千万种，理解了思想最重要]]></content>
@@ -129,6 +141,18 @@
     <title><![CDATA[不同路径II_63]]></title>
     <url>%2Fposts%2FuniquePathsWithObstacles-63%2F</url>
     <content type="text"><![CDATA[这是本题的地址：https://leetcode-cn.com/problems/unique-paths-ii/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？ 网格中的障碍物和空位置分别用 1 和 0 来表示。 说明：*m 和 n* 的值均不超过 100。 示例 1: 123456789101112输入:[ [0,0,0], [0,1,0], [0,0,0]]输出: 2解释:3x3 网格的正中间有一个障碍物。从左上角到右下角一共有 2 条不同的路径：1. 向右 -&gt; 向右 -&gt; 向下 -&gt; 向下2. 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右 我的思路这道题和uniquePaths-62 类似。但是增加了一个障碍的条件。我的做法其实和之前的差不多，但是增加了一些关于遇到“障碍”时的判断。这道题也是使用动态规划~，有一个问题在于假如传入的是空的数组。获取第二维的长度的时候会报错。 判断二维数组是否位空： if ( array == null || array.length == 0 || ( array.length == 1 &amp;&amp; array[0].length == 0 ) ) 1234567891011121314151617181920212223public int uniquePathsWithObstacles(int[][] obstacleGrid) &#123; int n = obstacleGrid.length; int m = obstacleGrid[0].length; int[][] opt = new int[n][m]; for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;m;j++)&#123; if(obstacleGrid[i][j]==1)&#123; opt[i][j] = 0; &#125;else&#123; if(i==0&amp;&amp;j==0)&#123; opt[i][j] =1; &#125;else if(i==0)&#123; opt[i][j] = opt[i][j-1]; &#125;else if(j==0)&#123; opt[i][j] = opt[i-1][j]; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; &#125; return opt[n-1][m-1];&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[不同路径_62(java)]]></title>
+    <url>%2Fposts%2FuniquePaths-62%2F</url>
+    <content type="text"><![CDATA[这是本题的地址:https://leetcode-cn.com/problems/unique-paths/ 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 问总共有多少条不同的路径？ 例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：*m 和 n* 的值均不超过 100。 示例 1: 1234567输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右 示例 2: 12输入: m = 7, n = 3输出: 28 我的思路这题我是想着使用动态规划来做的，这个与之前动态规划不同的是 他是一个二维数组。这样的话最优解opt的数组也是一个二维数组。且题目中说明每次只能向下或向右移动一步。这样的话，递归式应该是这样：opt [n] [m] = opt[n-1] [m] + opt[n] [m-1]。得到了递归式，我们就可以开始进行操作了。 12345678910111213141516public int uniquePaths(int m, int n) &#123; if(m==0||n==0)&#123; return 0; &#125; int[][] opt = new int[m][n]; for(int i=0;i&lt;m;i++)&#123; for(int j=0;j&lt;n;j++)&#123; if(i==0||j==0)&#123; opt[i][j]=1; &#125;else&#123; opt[i][j] = opt[i][j-1]+opt[i-1][j]; &#125; &#125; &#125; return opt[m-1][n-1];&#125; 我感觉不太好，因为要使用两个for 但是好像必须这样，因为是一个二维数组。时间复杂度：O(n^2)。]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
