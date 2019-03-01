@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-28T14:41:26.224Z</updated>
+  <updated>2019-03-01T06:52:35.436Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>买卖股票的最佳时机 II_122</title>
+    <link href="http://yoursite.com/posts/maxProfit-122/"/>
+    <id>http://yoursite.com/posts/maxProfit-122/</id>
+    <published>2019-03-01T05:48:53.000Z</published>
+    <updated>2019-03-01T06:52:35.436Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="green">简单</font></p><p>该题的地址：<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/</a></p><p>给定一个数组，它的第 <em>i</em> 个元素是一支给定股票第 <em>i</em> 天的价格。</p><p>设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。</p><p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p><p><strong>示例 1:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: [7,1,5,3,6,4]</span><br><span class="line">输出: 7</span><br><span class="line">解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。</span><br><span class="line">     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。</span><br></pre></td></tr></table></figure><a id="more"></a><p><strong>示例 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,3,4,5]</span><br><span class="line">输出: 4</span><br><span class="line">解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。</span><br><span class="line">     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。</span><br><span class="line">     因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。</span><br></pre></td></tr></table></figure><p><strong>示例 3:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [7,6,4,3,1]</span><br><span class="line">输出: 0</span><br><span class="line">解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</span><br></pre></td></tr></table></figure><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题与 买股票的 最佳时机 这题是类似的，不过这题有一个不同就在于 尽可能完成更多交易来获取最多利润，而不是只卖一次获取最大利润了。</p><ul><li>我们可以使用 三个int 代表最低值价钱(min)、最高值价钱(max)和利润(value)，每当过了一天，如果当天的价格比最大价格大，那么最大价格就变为当天的价格。如果比最大价格小，那么就说明在上次最大价格的时候就可以卖了，利润=最高价格-最小价格。然后再把最小价格和最高价格定为当天的价格。</li><li>上述又会出现一个问题，假如是一直升的话，岂不是永远都不会判断了？，这时候我们需要在遍历完之后加一个判断，当max大于min的时候，value要加上（max-min）。</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(prices.length&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> min = prices[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> max = prices[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;prices.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(max&gt;prices[i])&#123;</span><br><span class="line">            value+=(max-min);</span><br><span class="line">            min = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        max = prices[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(max &gt; min)&#123;</span><br><span class="line">         value+=(max-min);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实还有另一种思路，就是每当当天价格比最大价格大的时候，就增加利润，当小的时候，就不增加，并且重新定义最大最小价格。最后也能得出最大的利润。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;green&quot;&gt;简单&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;该题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给定一个数组，它的第 &lt;em&gt;i&lt;/em&gt; 个元素是一支给定股票第 &lt;em&gt;i&lt;/em&gt; 天的价格。&lt;/p&gt;
+&lt;p&gt;设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: [7,1,5,3,6,4]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: 7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="贪心算法" scheme="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>买卖股票的最佳时机_121</title>
@@ -558,31 +588,6 @@
     
       &lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/maximum-subarray/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/maximum-subarray/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;给定一个整数数组 &lt;code&gt;nums&lt;/code&gt; ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最长回文子串_5</title>
-    <link href="http://yoursite.com/posts/longestPalindrome-5/"/>
-    <id>http://yoursite.com/posts/longestPalindrome-5/</id>
-    <published>2019-01-30T06:35:54.000Z</published>
-    <updated>2019-02-24T14:43:57.557Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></p><p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设 <code>s</code> 的最大长度为 1000。</p><a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"babad"</span></span><br><span class="line">输出: <span class="string">"bab"</span></span><br><span class="line">注意: <span class="string">"aba"</span> 也是一个有效答案。</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"cbbd"</span></span><br><span class="line">输出: <span class="string">"bb"</span></span><br></pre></td></tr></table></figure><h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>有一个String sum =”” 来保存最大的回文。</p><p>有第一个for(int i=0)循环遍历整个字符串。然后第二个字符串由j=i 开始，判断这i j之间是否是回文。如果是，那么j-i+1(加1是因为j和i相同时，也是有一个字符的)是否大于sum的长度。如果大于，那么他们就是最大的回文。</p><p>那么用于判断ij之间是否为回文的方法我是这样做的：先判断当前i j的字符是否相同，如果相同则判断 i j 是否相等或相邻，如果是那么就返回true。如果不是那么进行 i+1 和 j-1的递归。若果i j的字符不相同，则返回false；这样是暴力解法。时间复杂度 n3次方。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    String sum = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;s.length();j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Panduan(i,j,s))&#123;</span><br><span class="line">                <span class="keyword">if</span>(j-i+<span class="number">1</span>&gt;sum.length())&#123;</span><br><span class="line">                    sum = s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">Panduan</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s.charAt(a)==s.charAt(b))&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==b||a==b-<span class="number">1</span>||a-<span class="number">1</span>==b)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Panduan(++a,--b,s);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="我的结果："><a href="#我的结果：" class="headerlink" title="我的结果："></a>我的结果：</h2><p><img src="/posts/longestPalindrome-5/img/access.png" alt=""></p><p>特别的慢：这也是暴力解法的问题所在！</p><p>在官方的解答中：有动态规划和中心扩展算法这两个。等我看懂了再补充上来！~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/longest-palindromic-substring/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/longest-palindromic-substring/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给定一个字符串 &lt;code&gt;s&lt;/code&gt;，找到 &lt;code&gt;s&lt;/code&gt; 中最长的回文子串。你可以假设 &lt;code&gt;s&lt;/code&gt; 的最大长度为 1000。&lt;/p&gt;
     
     </summary>
     
