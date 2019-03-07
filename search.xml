@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[括号生成_22]]></title>
+    <url>%2Fposts%2FgenerateParenthesis-22%2F</url>
+    <content type="text"><![CDATA[难度：中等 这是该题的地址：https://leetcode-cn.com/problems/generate-parentheses/ 给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 例如，给出 n = 3，生成结果为： 1234567[ "((()))", "(()())", "(())()", "()(())", "()()()"] 我的思路这题是我做回溯法的第一题，还是蛮有回溯的意思的 我觉得。 首先回溯法我觉得第一个特点就是将解答视为一个树，然后对它进行深度优先搜索。 然后通过剪枝，当违反条件的时候，该结点的子结点下的树都不进行考虑。来减少时间复杂度。 请看图！： 根据题干，第一个必须是左括号才能满足有效的括号组合。那么它的下一位就有两种选择方案，分别是左括号或者是右括号，这样进行深度优先搜索。如图：当进行到不符合条件的结点 ”（）） “ 这样是不符合的，那么就可以减掉该结点及其子节点，并返回上一层继续进行深度优先搜索。直到获取到所有答案。 123456789101112131415161718192021public List&lt;String&gt; generateParenthesis(int n) &#123; List list = new LinkedList(); backtarcking(list,"",n,n); return list;&#125;void backtarcking(List list,String s,int left,int right)&#123; if(left&gt;right)&#123; return; &#125; if(left==0&amp;&amp;right==0)&#123; list.add(s); return; &#125; if(left!=0)&#123; backtarcking(list,s+"(",left-1,right); &#125; if(right!=0)&#123; backtarcking(list,s+")",left,right-1); &#125;&#125; 总结做了这道题之后对回溯法有了更加深刻的理解，继续加油！]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>回溯法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[环形链表 II_142]]></title>
     <url>%2Fposts%2FdetectCycle-142%2F</url>
     <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/linked-list-cycle-ii/ 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。 说明：不允许修改给定的链表。 示例 1： 123输入：head = [3,2,0,-4], pos = 1输出：tail connects to node index 1解释：链表中有一个环，其尾部连接到第二个节点。 示例 2： 123输入：head = [1,2], pos = 0输出：tail connects to node index 0解释：链表中有一个环，其尾部连接到第一个节点。 示例 3： 123输入：head = [1], pos = -1输出：no cycle解释：链表中没有环。 进阶：你是否可以不用额外空间解决此题？ 我的思路这题是环形链表_141的加强版，他在找到循环的基础上增加了找到循环的入口。看似不难，其实是需要掌握一个诀窍的，通过网上查看别人的思路，大部分人的思路都是和下图一般。 x 是快指针和慢指针出发的位置，假设 y点是入口点，z点是快慢指针的相遇点。我们可以得出下面三个条件。 那么从初始点到入口点的距离假设为a，b为慢指针在循环中走的距离，那么我们可以假设出出b走的路程为a+b。 那么因为在z点进行相遇，所以快指针走的距离我们可以假设为 a+b+c+b（绕了一圈又走了b距离到z点相遇）。 还有最后一个条件，就是快指针走的速度是慢指针的2倍，也就是说 (a+b)*2 == a+b+c+b。 根据这三个条件，我们可以得出一个结论就是 a == c。 那么 a == c有什么用呢，我们可以从图上发现，a的距离是 x 点到 y 点，而c是z点到y点的距离。z点又是快慢指针相遇的点。那么这时候我们可以发现，从z点往y点走的指针和从x点往y点走的指针最终会在y点相遇。而y点就是我们题目所需要的答案。 1234567891011121314151617public ListNode detectCycle(ListNode head) &#123; ListNode fast = head; ListNode slow = head; while (fast != null &amp;&amp; fast.next!=null) &#123; fast = fast.next.next; slow = slow.next; if(fast==slow)&#123; ListNode newNode = head; while(slow!=newNode)&#123; newNode = newNode.next; slow = slow.next; &#125; return newNode; &#125; &#125; return null;&#125;]]></content>

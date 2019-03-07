@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-04T15:02:23.345Z</updated>
+  <updated>2019-03-07T14:10:46.921Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>括号生成_22</title>
+    <link href="http://yoursite.com/posts/generateParenthesis-22/"/>
+    <id>http://yoursite.com/posts/generateParenthesis-22/</id>
+    <published>2019-03-07T13:22:33.000Z</published>
+    <updated>2019-03-07T14:10:46.921Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="e1e1">中等</font></p><p>这是该题的地址：<a href="https://leetcode-cn.com/problems/generate-parentheses/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/generate-parentheses/</a></p><p>给出 <em>n</em> 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且<strong>有效的</strong>括号组合。</p><p>例如，给出 <em>n</em> = 3，生成结果为：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  "((()))",</span><br><span class="line">  "(()())",</span><br><span class="line">  "(())()",</span><br><span class="line">  "()(())",</span><br><span class="line">  "()()()"</span><br><span class="line">]</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题是我做回溯法的第一题，还是蛮有回溯的意思的 我觉得。</p><p>首先回溯法我觉得第一个特点就是将解答视为一个树，然后对它进行深度优先搜索。</p><p>然后通过剪枝，当违反条件的时候，该结点的子结点下的树都不进行考虑。来减少时间复杂度。</p><p>请看图！：</p><p><img src="/posts/generateParenthesis-22/picture.png" alt="1551965583784"></p><p>根据题干，第一个必须是左括号才能满足有效的括号组合。那么它的下一位就有两种选择方案，分别是左括号或者是右括号，这样进行深度优先搜索。如图：当进行到不符合条件的结点 ”（）） “ 这样是不符合的，那么就可以减掉该结点及其子节点，并返回上一层继续进行深度优先搜索。直到获取到所有答案。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List list = <span class="keyword">new</span> LinkedList();</span><br><span class="line">    backtarcking(list,<span class="string">""</span>,n,n);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">backtarcking</span><span class="params">(List list,String s,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left&gt;right)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(left==<span class="number">0</span>&amp;&amp;right==<span class="number">0</span>)&#123;</span><br><span class="line">        list.add(s);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(left!=<span class="number">0</span>)&#123;</span><br><span class="line">        backtarcking(list,s+<span class="string">"("</span>,left-<span class="number">1</span>,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(right!=<span class="number">0</span>)&#123;</span><br><span class="line">        backtarcking(list,s+<span class="string">")"</span>,left,right-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>做了这道题之后对回溯法有了更加深刻的理解，继续加油！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;e1e1&quot;&gt;中等&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;这是该题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/generate-parentheses/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/generate-parentheses/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给出 &lt;em&gt;n&lt;/em&gt; 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且&lt;strong&gt;有效的&lt;/strong&gt;括号组合。&lt;/p&gt;
+&lt;p&gt;例如，给出 &lt;em&gt;n&lt;/em&gt; = 3，生成结果为：&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &quot;((()))&quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &quot;(()())&quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &quot;(())()&quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &quot;()(())&quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &quot;()()()&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="回溯法" scheme="http://yoursite.com/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>环形链表 II_142</title>
@@ -577,32 +605,6 @@
     
     
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>爬楼梯-70(java)</title>
-    <link href="http://yoursite.com/posts/climbStairs-70/"/>
-    <id>http://yoursite.com/posts/climbStairs-70/</id>
-    <published>2019-02-01T07:29:31.000Z</published>
-    <updated>2019-02-24T14:32:38.375Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是本题的地址<a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/climbing-stairs/</a></p><p>假设你正在爬楼梯。需要 <em>n</em> 阶你才能到达楼顶。</p><p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p><a id="more"></a><p><strong>注意：</strong>给定 <em>n</em> 是一个正整数。</p><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入： 2</span><br><span class="line">输出： 2</span><br><span class="line">解释： 有两种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶</span><br><span class="line">2.  2 阶</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入： <span class="number">3</span></span><br><span class="line">输出： <span class="number">3</span></span><br><span class="line">解释： 有三种方法可以爬到楼顶。</span><br><span class="line"><span class="number">1</span>.  <span class="number">1</span> 阶 + <span class="number">1</span> 阶 + <span class="number">1</span> 阶</span><br><span class="line"><span class="number">2</span>.  <span class="number">1</span> 阶 + <span class="number">2</span> 阶</span><br><span class="line"><span class="number">3</span>.  <span class="number">2</span> 阶 + <span class="number">1</span> 阶</span><br></pre></td></tr></table></figure><h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>其实这个仔细的看一下就会发现和哪个斐波那契数列第n项问题很像。主要的递归式就是 f[n] = f[n-1]+f[n-2]。</p><p>通过这个式子我们就可以得出第n个梯子有多少种变化啦~最后返回数组的n-1即可。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span>[] foot = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    foot[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    foot[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123;</span><br><span class="line">        foot[i] = foot[i-<span class="number">1</span>]+foot[i-<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> foot[n-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="我的结果"><a href="#我的结果" class="headerlink" title="我的结果"></a>我的结果</h2><p><img src="/posts/climbStairs-70/access.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是本题的地址&lt;a href=&quot;https://leetcode-cn.com/problems/climbing-stairs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/climbing-stairs/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;假设你正在爬楼梯。需要 &lt;em&gt;n&lt;/em&gt; 阶你才能到达楼顶。&lt;/p&gt;
-&lt;p&gt;每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
