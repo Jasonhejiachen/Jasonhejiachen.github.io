@@ -112,7 +112,7 @@
 <meta property="og:description" content="难度：中等（感觉没有中等难度啊） 这是该题的地址：https://leetcode-cn.com/problems/container-with-most-water/ 给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/posts/solution-11/question_11.jpg">
-<meta property="og:updated_time" content="2019-03-18T13:10:48.036Z">
+<meta property="og:updated_time" content="2019-03-18T13:13:11.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="盛最多水的容器_11">
 <meta name="twitter:description" content="难度：中等（感觉没有中等难度啊） 这是该题的地址：https://leetcode-cn.com/problems/container-with-most-water/ 给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可">
@@ -427,7 +427,7 @@
                 
               
 
-              <time title="创建时间：2019-03-18 21:02:28 / 修改时间：21:10:48" itemprop="dateCreated datePublished" datetime="2019-03-18T21:02:28+08:00">2019-03-18</time>
+              <time title="创建时间：2019-03-18 21:02:28 / 修改时间：21:13:11" itemprop="dateCreated datePublished" datetime="2019-03-18T21:02:28+08:00">2019-03-18</time>
             
 
             
@@ -498,6 +498,7 @@
 <p><strong>说明：</strong>你不能倾斜容器，且 <em>n</em> 的值至少为 2。</p>
 <p><img src="/posts/solution-11/question_11.jpg" alt=""></p>
 <p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+ <a id="more"></a>
 <p><strong>示例:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>]</span><br><span class="line">输出: <span class="number">49</span></span><br></pre></td></tr></table></figure>
 <h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这个感觉没有中等难度呀。使用双指针的做法，头尾两个指针，得出当前的区域大小，因为区域的大小取决于更小的那一个指针，这时候就要把我们的底线抬高。所以当左指针比右指针小的时候，左指针往右移，右指针同理。相遇的时候就跳出循环。</p>
