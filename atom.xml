@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-07T14:10:46.921Z</updated>
+  <updated>2019-03-18T13:10:48.036Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>盛最多水的容器_11</title>
+    <link href="http://yoursite.com/posts/solution-11/"/>
+    <id>http://yoursite.com/posts/solution-11/</id>
+    <published>2019-03-18T13:02:28.000Z</published>
+    <updated>2019-03-18T13:10:48.036Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="e1e1">中等</font>（感觉没有中等难度啊）</p><p>这是该题的地址：<a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/container-with-most-water/</a></p><p>给定 <em>n</em> 个非负整数 <em>a</em>1，<em>a</em>2，…，<em>a</em>n，每个数代表坐标中的一个点 (<em>i</em>, <em>ai</em>) 。在坐标内画 <em>n</em> 条垂直线，垂直线 <em>i</em> 的两个端点分别为 (<em>i</em>, <em>ai</em>) 和 (<em>i</em>, 0)。找出其中的两条线，使得它们与 <em>x</em> 轴共同构成的容器可以容纳最多的水。</p><p><strong>说明：</strong>你不能倾斜容器，且 <em>n</em> 的值至少为 2。</p><p><img src="/posts/solution-11/question_11.jpg" alt=""></p><p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p><p><strong>示例:</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>]</span><br><span class="line">输出: <span class="number">49</span></span><br></pre></td></tr></table></figure><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这个感觉没有中等难度呀。使用双指针的做法，头尾两个指针，得出当前的区域大小，因为区域的大小取决于更小的那一个指针，这时候就要把我们的底线抬高。所以当左指针比右指针小的时候，左指针往右移，右指针同理。相遇的时候就跳出循环。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left =<span class="number">0</span>,right =height.length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> max =<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="keyword">int</span> min = height[right]&gt;height[left]?height[left]:height[right];</span><br><span class="line">        <span class="keyword">int</span> area = (right-left) * min;</span><br><span class="line">        max = max&gt;area?max:area;</span><br><span class="line">        <span class="keyword">if</span>(height[left]==min)&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;e1e1&quot;&gt;中等&lt;/font&gt;（感觉没有中等难度啊）&lt;/p&gt;
+&lt;p&gt;这是该题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/container-with-most-
+      
+    
+    </summary>
+    
+      <category term="-leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="双指针" scheme="http://yoursite.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>letterCasePermutation_784</title>
+    <link href="http://yoursite.com/posts/letterCasePermutation-784/"/>
+    <id>http://yoursite.com/posts/letterCasePermutation-784/</id>
+    <published>2019-03-15T09:44:53.000Z</published>
+    <updated>2019-03-15T10:02:46.946Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="green">简单</font></p><p>给定一个字符串<code>S</code>，通过将字符串<code>S</code>中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">示例:</span><br><span class="line">输入: S = &quot;a1b2&quot;</span><br><span class="line">输出: [&quot;a1b2&quot;, &quot;a1B2&quot;, &quot;A1b2&quot;, &quot;A1B2&quot;]</span><br><span class="line"></span><br><span class="line">输入: S = &quot;3z4&quot;</span><br><span class="line">输出: [&quot;3z4&quot;, &quot;3Z4&quot;]</span><br><span class="line"></span><br><span class="line">输入: S = &quot;12345&quot;</span><br><span class="line">输出: [&quot;12345&quot;]</span><br></pre></td></tr></table></figure><p><strong>注意：</strong></p><ul><li><code>S</code> 的长度不超过<code>12</code>。</li><li><code>S</code> 仅由数字和字母组成。</li></ul><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题其实不难，将他想象成一颗树，每当是字母的时候分叉，不是字母的时候就不分叉。把所有子树列出来就是每个的字符串了。下面是通过深搜来实现。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCasePermutation</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; list = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    list.add(S);</span><br><span class="line">    tolist(list, <span class="number">0</span>, S);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tolist</span><span class="params">(List&lt;String&gt; list, <span class="keyword">int</span> i, String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == s.length()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Boolean isTrue = (s.charAt(i) &gt;= <span class="string">'a'</span> &amp;&amp; s.charAt(i) &lt;= <span class="string">'z'</span>) || (s.charAt(i) &gt;= <span class="string">'A'</span> &amp;&amp; s.charAt(i) &lt;= <span class="string">'Z'</span>);</span><br><span class="line">    <span class="keyword">if</span> (isTrue) &#123;</span><br><span class="line">        String s1;</span><br><span class="line">        <span class="keyword">if</span> (Character.isLowerCase(s.charAt(i))) &#123;</span><br><span class="line">            s1 = s.substring(<span class="number">0</span>, i) + Character.toUpperCase(s.charAt(i)) + s.substring(i + <span class="number">1</span>, s.length());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            s1 = s.substring(<span class="number">0</span>, i) + Character.toLowerCase(s.charAt(i)) + s.substring(i + <span class="number">1</span>, s.length());</span><br><span class="line">        &#125;</span><br><span class="line">        list.add(s1);</span><br><span class="line">        tolist(list, i + <span class="number">1</span>, s);</span><br><span class="line">        tolist(list, i + <span class="number">1</span>, s1);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        tolist(list, i + <span class="number">1</span>, s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;green&quot;&gt;简单&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;给定一个字符串&lt;code&gt;S&lt;/code&gt;，通过将字符串&lt;code&gt;S&lt;/code&gt;中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="回溯算法" scheme="http://yoursite.com/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>括号生成_22</title>
@@ -547,57 +605,6 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: [1,2,3]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: [1,2,4]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释: 输入数组表示数字 123。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;示例 2:&lt;/strong&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: [&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: [&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释: 输入数组表示数字 &lt;span class=&quot;number&quot;&gt;4321&lt;/span&gt;。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最后一个单词长度_58(java)</title>
-    <link href="http://yoursite.com/posts/lengthOfLastWord-58/"/>
-    <id>http://yoursite.com/posts/lengthOfLastWord-58/</id>
-    <published>2019-02-07T02:47:38.000Z</published>
-    <updated>2019-02-24T14:34:33.024Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是本题的地址：<a href="https://leetcode-cn.com/problems/length-of-last-word/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/length-of-last-word/</a></p><p>给定一个仅包含大小写字母和空格 <code>&#39; &#39;</code> 的字符串，返回其最后一个单词的长度。</p><p>如果不存在最后一个单词，请返回 0 。</p><p><strong>说明：</strong>一个单词是指由字母组成，但不包含任何空格的字符串。</p><a id="more"></a><p><strong>示例:</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"Hello World"</span></span><br><span class="line">输出: <span class="number">5</span></span><br></pre></td></tr></table></figure><h2 id="我的思路："><a href="#我的思路：" class="headerlink" title="我的思路："></a>我的思路：</h2><p>一开始想着用lastindexof来做，但是不行。因为假如是”a   b    “ 这样的字符串。用lastindexof是行不通的。那么我们就用for循环开始遍历整个字符串。获取字符的长度。每当是’ ‘的时候，就将长度值设为0。lastlength用于记录上个字符的长度。length记录当前字符的长度。当length为0时 说明 ‘ ’符后面没有字符了。这时候就需要返回lastlength</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> lastlength=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.charAt(i)==<span class="string">' '</span>)&#123;</span><br><span class="line">            lastlength = length==<span class="number">0</span>?lastlength:length;</span><br><span class="line">            length = <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            length++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length==<span class="number">0</span>?lastlength:length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="官方思路"><a href="#官方思路" class="headerlink" title="官方思路"></a>官方思路</h2><p>没有，让我们来看看别人的做法是怎么样的</p><p>看了一下范例，发现其实大多数都是用for循环的。它们从最后开始往回找，这样循环的遍历就少多了。但既然都是用for循环。就不列出来了。有一个蛮有意思的：</p><p>他的做法是用trim去掉首尾的 “ “空格符，通过寻找剩下的” “空格符。如果没有就返回整体的长度。如果有就判断是否有字符串，没有就返回0。最后再返回原长度-i-1。 i就是倒数的” “空格符的位置。那么减去它就相当于减掉了前面的长度。再-1就是把” “空格符所占的1个位置给减掉了~。 </p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord2</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    s = s.trim();</span><br><span class="line">    <span class="keyword">int</span> i = s.lastIndexOf(<span class="string">" "</span>);</span><br><span class="line">    <span class="keyword">if</span> (i == -<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> s.length();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i == s.length()-<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length()-i-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/length-of-last-word/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/length-of-last-word/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给定一个仅包含大小写字母和空格 &lt;code&gt;&amp;#39; &amp;#39;&lt;/code&gt; 的字符串，返回其最后一个单词的长度。&lt;/p&gt;
-&lt;p&gt;如果不存在最后一个单词，请返回 0 。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;一个单词是指由字母组成，但不包含任何空格的字符串。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>weekgame_122</title>
-    <link href="http://yoursite.com/posts/weekgame-122/"/>
-    <id>http://yoursite.com/posts/weekgame-122/</id>
-    <published>2019-02-03T14:19:34.000Z</published>
-    <updated>2019-02-03T15:07:27.923Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是该题的地址：<a href="https://leetcode-cn.com/contest/weekly-contest-122/problems/sum-of-even-numbers-after-queries/" target="_blank" rel="noopener">https://leetcode-cn.com/contest/weekly-contest-122/problems/sum-of-even-numbers-after-queries/</a></p><p>给出一个整数数组 <code>A</code> 和一个查询数组 <code>queries</code>。</p><p>对于第 <code>i</code> 次查询，有 <code>val = queries[i][0], index = queries[i][1]</code>，我们会把 <code>val</code> 加到 <code>A[index]</code> 上。然后，第 <code>i</code> 次查询的答案是 <code>A</code>中偶数值的和。</p><p><em>（此处给定的 index = queries[i][1] 是从 0 开始的索引，每次查询都会永久修改数组 A。）</em></p><p>返回所有查询的答案。你的答案应当以数组 <code>answer</code> 给出，<code>answer[i]</code> 为第 <code>i</code> 次查询的答案。</p> <a id="more"></a><p><strong>示例：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], queries = [[<span class="number">1</span>,<span class="number">0</span>],[-<span class="number">3</span>,<span class="number">1</span>],[-<span class="number">4</span>,<span class="number">0</span>],[<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">输出：[<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">4</span>]</span><br><span class="line">解释：</span><br><span class="line">开始时，数组为 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]。</span><br><span class="line">将 <span class="number">1</span> 加到 A[<span class="number">0</span>] 上之后，数组为 [<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]，偶数值之和为 <span class="number">2</span> + <span class="number">2</span> + <span class="number">4</span> = <span class="number">8</span>。</span><br><span class="line">将 -<span class="number">3</span> 加到 A[<span class="number">1</span>] 上之后，数组为 [<span class="number">2</span>,-<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]，偶数值之和为 <span class="number">2</span> + <span class="number">4</span> = <span class="number">6</span>。</span><br><span class="line">将 -<span class="number">4</span> 加到 A[<span class="number">0</span>] 上之后，数组为 [-<span class="number">2</span>,-<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]，偶数值之和为 -<span class="number">2</span> + <span class="number">4</span> = <span class="number">2</span>。</span><br><span class="line">将 <span class="number">2</span> 加到 A[<span class="number">3</span>] 上之后，数组为 [-<span class="number">2</span>,-<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>]，偶数值之和为 -<span class="number">2</span> + <span class="number">6</span> = <span class="number">4</span>。</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ol><li><code>1 &lt;= A.length &lt;= 10000</code></li><li><code>-10000 &lt;= A[i] &lt;= 10000</code></li><li><code>1 &lt;= queries.length &lt;= 10000</code></li><li><code>-10000 &lt;= queries[i][0] &lt;= 10000</code></li><li><code>0 &lt;= queries[i][1] &lt; A.length</code></li></ol><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>根据题目，我们可以得知，answer的长度为i 而i的值则是queries的长度。那么我们可以通过遍历queries数组。然后对数组A进行操作。之后通过遍历数组A 找出偶数，并相加求出和。然后得出一个值，放进anwser数组里。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] sumEvenAfterQueries(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[][] queries) &#123;</span><br><span class="line">    <span class="keyword">int</span> [] answer = <span class="keyword">new</span> <span class="keyword">int</span>[queries.length];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;queries.length;i++)&#123;</span><br><span class="line">        A[queries[i][<span class="number">1</span>]] += queries[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> sum =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;A.length;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[j]%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                sum+=A[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        answer[i] = sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>缺点：使用了暴力破解。时间复杂度增高。</p><h2 id="官方思路"><a href="#官方思路" class="headerlink" title="官方思路"></a>官方思路</h2><p>感觉官方的思路比较聪明，通过先找出A数组中的偶数和。然后再通过添加的操作判断当前数是否还是偶数。这样的话只需要通过单个循环就可以实现了。</p><p><a href="https://leetcode-cn.com/articles/sum-of-even-numbers-after-queries/" target="_blank" rel="noopener">https://leetcode-cn.com/articles/sum-of-even-numbers-after-queries/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是该题的地址：&lt;a href=&quot;https://leetcode-cn.com/contest/weekly-contest-122/problems/sum-of-even-numbers-after-queries/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/contest/weekly-contest-122/problems/sum-of-even-numbers-after-queries/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给出一个整数数组 &lt;code&gt;A&lt;/code&gt; 和一个查询数组 &lt;code&gt;queries&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;对于第 &lt;code&gt;i&lt;/code&gt; 次查询，有 &lt;code&gt;val = queries[i][0], index = queries[i][1]&lt;/code&gt;，我们会把 &lt;code&gt;val&lt;/code&gt; 加到 &lt;code&gt;A[index]&lt;/code&gt; 上。然后，第 &lt;code&gt;i&lt;/code&gt; 次查询的答案是 &lt;code&gt;A&lt;/code&gt;中偶数值的和。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;（此处给定的 index = queries[i][1] 是从 0 开始的索引，每次查询都会永久修改数组 A。）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;返回所有查询的答案。你的答案应当以数组 &lt;code&gt;answer&lt;/code&gt; 给出，&lt;code&gt;answer[i]&lt;/code&gt; 为第 &lt;code&gt;i&lt;/code&gt; 次查询的答案。&lt;/p&gt;
     
     </summary>
     

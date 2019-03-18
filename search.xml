@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[盛最多水的容器_11]]></title>
+    <url>%2Fposts%2Fsolution-11%2F</url>
+    <content type="text"><![CDATA[难度：中等（感觉没有中等难度啊） 这是该题的地址：https://leetcode-cn.com/problems/container-with-most-water/ 给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 说明：你不能倾斜容器，且 n 的值至少为 2。 图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。 示例: 12输入: [1,8,6,2,5,4,8,3,7]输出: 49 我的思路这个感觉没有中等难度呀。使用双指针的做法，头尾两个指针，得出当前的区域大小，因为区域的大小取决于更小的那一个指针，这时候就要把我们的底线抬高。所以当左指针比右指针小的时候，左指针往右移，右指针同理。相遇的时候就跳出循环。 123456789101112131415public int maxArea(int[] height) &#123; int left =0,right =height.length-1; int max =0; while(left&lt;right)&#123; int min = height[right]&gt;height[left]?height[left]:height[right]; int area = (right-left) * min; max = max&gt;area?max:area; if(height[left]==min)&#123; left++; &#125;else &#123; right--; &#125; &#125; return max;&#125;]]></content>
+      <categories>
+        <category>-leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[letterCasePermutation_784]]></title>
+    <url>%2Fposts%2FletterCasePermutation-784%2F</url>
+    <content type="text"><![CDATA[难度：简单 给定一个字符串S，通过将字符串S中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。 123456789示例:输入: S = &quot;a1b2&quot;输出: [&quot;a1b2&quot;, &quot;a1B2&quot;, &quot;A1b2&quot;, &quot;A1B2&quot;]输入: S = &quot;3z4&quot;输出: [&quot;3z4&quot;, &quot;3Z4&quot;]输入: S = &quot;12345&quot;输出: [&quot;12345&quot;] 注意： S 的长度不超过12。 S 仅由数字和字母组成。 我的思路这题其实不难，将他想象成一颗树，每当是字母的时候分叉，不是字母的时候就不分叉。把所有子树列出来就是每个的字符串了。下面是通过深搜来实现。 1234567891011121314151617181920212223242526public List&lt;String&gt; letterCasePermutation(String S) &#123; List&lt;String&gt; list = new LinkedList&lt;&gt;(); list.add(S); tolist(list, 0, S); return list;&#125;public void tolist(List&lt;String&gt; list, int i, String s) &#123; if (i == s.length()) &#123; return; &#125; Boolean isTrue = (s.charAt(i) &gt;= 'a' &amp;&amp; s.charAt(i) &lt;= 'z') || (s.charAt(i) &gt;= 'A' &amp;&amp; s.charAt(i) &lt;= 'Z'); if (isTrue) &#123; String s1; if (Character.isLowerCase(s.charAt(i))) &#123; s1 = s.substring(0, i) + Character.toUpperCase(s.charAt(i)) + s.substring(i + 1, s.length()); &#125; else &#123; s1 = s.substring(0, i) + Character.toLowerCase(s.charAt(i)) + s.substring(i + 1, s.length()); &#125; list.add(s1); tolist(list, i + 1, s); tolist(list, i + 1, s1); &#125; else &#123; tolist(list, i + 1, s); &#125;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>DFS</tag>
+        <tag>回溯算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[括号生成_22]]></title>
     <url>%2Fposts%2FgenerateParenthesis-22%2F</url>
     <content type="text"><![CDATA[难度：中等 这是该题的地址：https://leetcode-cn.com/problems/generate-parentheses/ 给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。 例如，给出 n = 3，生成结果为： 1234567[ "((()))", "(()())", "(())()", "()(())", "()()()"] 我的思路这题是我做回溯法的第一题，还是蛮有回溯的意思的 我觉得。 首先回溯法我觉得第一个特点就是将解答视为一个树，然后对它进行深度优先搜索。 然后通过剪枝，当违反条件的时候，该结点的子结点下的树都不进行考虑。来减少时间复杂度。 请看图！： 根据题干，第一个必须是左括号才能满足有效的括号组合。那么它的下一位就有两种选择方案，分别是左括号或者是右括号，这样进行深度优先搜索。如图：当进行到不符合条件的结点 ”（）） “ 这样是不符合的，那么就可以减掉该结点及其子节点，并返回上一层继续进行深度优先搜索。直到获取到所有答案。 123456789101112131415161718192021public List&lt;String&gt; generateParenthesis(int n) &#123; List list = new LinkedList(); backtarcking(list,"",n,n); return list;&#125;void backtarcking(List list,String s,int left,int right)&#123; if(left&gt;right)&#123; return; &#125; if(left==0&amp;&amp;right==0)&#123; list.add(s); return; &#125; if(left!=0)&#123; backtarcking(list,s+"(",left-1,right); &#125; if(right!=0)&#123; backtarcking(list,s+")",left,right-1); &#125;&#125; 总结做了这道题之后对回溯法有了更加深刻的理解，继续加油！]]></content>
