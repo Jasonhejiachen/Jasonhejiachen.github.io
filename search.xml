@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[单词接龙_127]]></title>
+    <url>%2Fposts%2FSolution-127%2F</url>
+    <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/word-ladder/ 给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则： 每次转换只能改变一个字母。 转换过程中的中间单词必须是字典中的单词。 说明: 如果不存在这样的转换序列，返回 0。 所有单词具有相同的长度。 所有单词只由小写字母组成。 字典中不存在重复的单词。 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。 示例 1: 123456789输入:beginWord = &quot;hit&quot;,endWord = &quot;cog&quot;,wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]输出: 5解释: 一个最短转换序列是 &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;, 返回它的长度 5。 示例 2: 12345678输入:beginWord = &quot;hit&quot;endWord = &quot;cog&quot;wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]输出: 0解释: endWord &quot;cog&quot; 不在字典中，所以无法进行转换。 我的思路1、BFS这题我本来的思路是这样的，使用BFS广度优先搜索，通过一个队列先保存beginword值，然后通过单个字母变化26次，遍历当前的字符串，匹配到wordlist中相应的项，然后把这些项加入队列，并将它们从list中remove。最终找到endword，通过这样广搜肯定能搜索到最短的路径。但值得一提的是，我超时了。 1234567891011121314151617181920212223242526272829303132public int ladderLength(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; //用一个hashSet代替list进行遍历，这样就不会超时了，真坑。 HashSet hashSet = new HashSet&lt;&gt;(wordList); if(!hashSet.contains(endWord))&#123; return 0; &#125; Queue&lt;String&gt; queue = new LinkedList(); ((LinkedList) queue).add(beginWord); int lengthA =0,lengthB=1; while(queue.size()!=0)&#123; String str = queue.poll(); if(str.equals(endWord))&#123; return lengthA+1; &#125; for(int i=0;i&lt;str.length();i++)&#123; char[] chars = str.toCharArray(); for(char j='a';j&lt;='z';j++)&#123; chars[i] = j; if(hashSet.contains(new String(chars)))&#123; queue.add(new String(chars)); hashSet.remove(new String(chars)); &#125; &#125; &#125; lengthB--; if(lengthB==0)&#123; lengthB=queue.size(); lengthA++; &#125; &#125; return 0;&#125; 时间复杂度：O(n*26^str.length()) 2、双重BFS通过看B站Up主的视频：https://www.bilibili.com/video/av38705526?from=search&amp;seid=16479832968747750696 可以使用双重BFS这种更好的解法，就是通过两个队列，一个从beginword开始广搜，另一个从endword开始广搜，当他们相遇时，就是最短的路径，没有相遇就是0。 12345678910111213141516171819202122232425262728293031323334353637public int ladderLength2(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; HashSet hashSet = new HashSet&lt;&gt;(wordList); if(!hashSet.contains(endWord))&#123; return 0; &#125; Queue&lt;String&gt; queue = new LinkedList(); Queue&lt;String&gt; queue2 = new LinkedList(); queue.add(beginWord); queue2.add(endWord); int step=0; while(queue.size()!=0&amp;&amp;queue2.size()!=0)&#123; step++; if(queue.size()&gt;queue2.size())&#123; Queue q3 = new LinkedList(queue); queue = queue2; queue2 =q3; &#125; Queue queue1 = new LinkedList(); for(String str:queue)&#123; for(int i=0;i&lt;str.length();i++)&#123; char[] chars = str.toCharArray(); for(char j='a';j&lt;='z';j++)&#123; chars[i] = j; if(queue2.contains(new String(chars)))&#123; return step+1; &#125; if(hashSet.contains(new String(chars)))&#123; queue1.add(new String(chars)); hashSet.remove(new String(chars)); &#125; &#125; &#125; &#125; queue = queue1; &#125; return 0;&#125; 时间复杂度：O(n*26^(str.lenght()/2)) 总结虽然因为直接就用list做操作导致了BFS的超时,但是通过这个我回忆了一下，arraylist的remove确实很耗时，每次删除都会把后面的往前复制一遍。 没有想到双BFS的操作，以后要善用这些操作。]]></content>
+      <categories>
+        <category>-leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>BFS</tag>
+        <tag>双向BFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[乘积最大子序列_152]]></title>
+    <url>%2Fposts%2FSolution-152%2F</url>
+    <content type="text"><![CDATA[难度：中等 这是该题的地址：https://leetcode-cn.com/problems/maximum-product-subarray/ 给定一个整数数组 nums ，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。 示例 1: 123输入: [2,3,-2,4]输出: 6解释: 子数组 [2,3] 有最大乘积 6。 示例 2: 123输入: [-2,0,-1]输出: 0解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。 我的思路有想到用动态规划来做，但是没想到使用这种方式。。。保留到前个字符的最大正数和最小负数。这样无论当前数是正数或是负数都能求到最大的乘积。通过动态规划就能得到最大的值了。 1234567891011121314151617public int maxProduct(int[] nums) &#123; int[] dp = new int[nums.length]; dp[0] = nums[0]; int max = nums[0], min = nums[0]; for (int i = 1; i &lt; nums.length; i++) &#123; if (nums[i] &gt;= 0) &#123; max = nums[i] &gt; nums[i] * max ? nums[i] : nums[i] * max; min = nums[i] &lt; nums[i] * min ? nums[i] : nums[i] * min; &#125; else &#123; int temp = max; max = nums[i] &gt; min * nums[i] ? nums[i] : min * nums[i]; min = nums[i] &lt; temp * nums[i] ? nums[i] : temp * nums[i]; &#125; dp[i] = max &gt; dp[i - 1] ? max : dp[i - 1]; &#125; return dp[nums.length-1];&#125;]]></content>
+      <categories>
+        <category>-leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[盛最多水的容器_11]]></title>
     <url>%2Fposts%2Fsolution-11%2F</url>
     <content type="text"><![CDATA[难度：中等（感觉没有中等难度啊） 这是该题的地址：https://leetcode-cn.com/problems/container-with-most-water/ 给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 说明：你不能倾斜容器，且 n 的值至少为 2。 图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。 示例: 12输入: [1,8,6,2,5,4,8,3,7]输出: 49 我的思路这个感觉没有中等难度呀。使用双指针的做法，头尾两个指针，得出当前的区域大小，因为区域的大小取决于更小的那一个指针，这时候就要把我们的底线抬高。所以当左指针比右指针小的时候，左指针往右移，右指针同理。相遇的时候就跳出循环。 123456789101112131415public int maxArea(int[] height) &#123; int left =0,right =height.length-1; int max =0; while(left&lt;right)&#123; int min = height[right]&gt;height[left]?height[left]:height[right]; int area = (right-left) * min; max = max&gt;area?max:area; if(height[left]==min)&#123; left++; &#125;else &#123; right--; &#125; &#125; return max;&#125;]]></content>
