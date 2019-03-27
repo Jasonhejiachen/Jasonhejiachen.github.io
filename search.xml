@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[至少有K个重复字符的最长子串_395]]></title>
+    <url>%2Fposts%2Fsolution-395%2F</url>
+    <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/ 找到给定字符串（由小写字符组成）中的最长子串 T ， 要求 T 中的每一字符出现次数都不少于 k 。输出 T 的长度。 示例 1: 1234567输入:s = &quot;aaabb&quot;, k = 3输出:3最长子串为 &quot;aaa&quot; ，其中 &apos;a&apos; 重复了 3 次。 示例 2: 1234567输入:s = &quot;ababbc&quot;, k = 2输出:5最长子串为 &quot;ababb&quot; ，其中 &apos;a&apos; 重复了 2 次， &apos;b&apos; 重复了 3 次。 我的思路这题有一个思路点，使用长度为26的数组（代表26个小写字母）用于保存每个字符在字符串中出现了几次，如果有出现数小于k的字符，说明这个字符一定不能在字符串里。 这样就会出现就好像图里的这种情况。 12345678910111213141516171819202122public int longestSubstring(String s, int k) &#123; if(s.length()==0)&#123; return 0; &#125; HashMap&lt;Character,Integer&gt; hashMap = new HashMap(26); for(int i=0;i&lt;s.length();i++)&#123; char c = s.charAt(i); if(hashMap.containsKey(c))&#123; hashMap.put(c,hashMap.get(c)+1); &#125;else &#123; hashMap.put(c,1); &#125; &#125; for(int i=0;i&lt;s.length();i++)&#123; char c = s.charAt(i); if(hashMap.get(c)&lt;k)&#123; return Math.max(longestSubstring(s.substring(0,i),k), longestSubstring(s.substring(i+1,s.length()),k)); &#125; &#125; return s.length();&#125; 上面这段代码，第一遍历计算字符串的字符出现了几次，第二遍历计算当出现&lt;k的字符时，将字符串分开并重新计算字符串满足k最长字串，最后返回。看起来好像没什么问题，但是这段代码超时了。。。感觉也符合之前的思想，让我很不解。我感觉可能是出现了重复子问题的原因，如图的示例，找到最长子串aa 反而遍历了3次aa字符串 感觉有点麻烦？ 那么既然超时了，我们就应该优化一下代码。前面的不需要优化，就优化后面字符串的处理把。网上有这样的一种处理方法：通过两个指针begin和 end 来处理结点，每当遇到&lt;k的字符时，计算begin-》end的长度。和当前的长度比大小。但是我觉得和我之前的想法基本没差。。都是一样的想法 12345678910111213141516171819202122232425262728293031323334353637public int longestSubstring2(String s, int k) &#123; if(s.length()==0)&#123; return 0; &#125; HashMap&lt;Character,Integer&gt; hashMap = new HashMap(26); for(int i=0;i&lt;s.length();i++)&#123; char c = s.charAt(i); if(hashMap.containsKey(c))&#123; hashMap.put(c,hashMap.get(c)+1); &#125;else &#123; hashMap.put(c,1); &#125; &#125; boolean fullString = true; for(Integer i:hashMap.values())&#123; if(i&lt;k)&#123; fullString = false; &#125; &#125; if(fullString)&#123; return s.length(); &#125; int result=0,begin=0,end; for(end=0;end&lt;s.length();end++)&#123; char c = s.charAt(end); if(hashMap.get(c)&lt;k)&#123; result = Math.max(result,longestSubstring(s.substring(begin,end),k)); begin = end +1; &#125; &#125; if(begin&lt;end)&#123; result = Math.max(result,longestSubstring(s.substring(begin,end),k)); &#125; return result;&#125; 总结没搞懂为什么这样会快很多，我觉得我们的方式都差不多，是我之前的代码遇到了重复子问题嘛。。。感觉也没有，难道是我的代码subStirng过多耗了性能？这是一个需要记录的问题。。]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[单词接龙_127]]></title>
     <url>%2Fposts%2FSolution-127%2F</url>
     <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/word-ladder/ 给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则： 每次转换只能改变一个字母。 转换过程中的中间单词必须是字典中的单词。 说明: 如果不存在这样的转换序列，返回 0。 所有单词具有相同的长度。 所有单词只由小写字母组成。 字典中不存在重复的单词。 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。 示例 1: 123456789输入:beginWord = &quot;hit&quot;,endWord = &quot;cog&quot;,wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]输出: 5解释: 一个最短转换序列是 &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;, 返回它的长度 5。 示例 2: 12345678输入:beginWord = &quot;hit&quot;endWord = &quot;cog&quot;wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]输出: 0解释: endWord &quot;cog&quot; 不在字典中，所以无法进行转换。 我的思路1、BFS这题我本来的思路是这样的，使用BFS广度优先搜索，通过一个队列先保存beginword值，然后通过单个字母变化26次，遍历当前的字符串，匹配到wordlist中相应的项，然后把这些项加入队列，并将它们从list中remove。最终找到endword，通过这样广搜肯定能搜索到最短的路径。但值得一提的是，我超时了。 1234567891011121314151617181920212223242526272829303132public int ladderLength(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; //用一个hashSet代替list进行遍历，这样就不会超时了，真坑。 HashSet hashSet = new HashSet&lt;&gt;(wordList); if(!hashSet.contains(endWord))&#123; return 0; &#125; Queue&lt;String&gt; queue = new LinkedList(); ((LinkedList) queue).add(beginWord); int lengthA =0,lengthB=1; while(queue.size()!=0)&#123; String str = queue.poll(); if(str.equals(endWord))&#123; return lengthA+1; &#125; for(int i=0;i&lt;str.length();i++)&#123; char[] chars = str.toCharArray(); for(char j='a';j&lt;='z';j++)&#123; chars[i] = j; if(hashSet.contains(new String(chars)))&#123; queue.add(new String(chars)); hashSet.remove(new String(chars)); &#125; &#125; &#125; lengthB--; if(lengthB==0)&#123; lengthB=queue.size(); lengthA++; &#125; &#125; return 0;&#125; 时间复杂度：O(n*26^str.length()) 2、双重BFS通过看B站Up主的视频：https://www.bilibili.com/video/av38705526?from=search&amp;seid=16479832968747750696 可以使用双重BFS这种更好的解法，就是通过两个队列，一个从beginword开始广搜，另一个从endword开始广搜，当他们相遇时，就是最短的路径，没有相遇就是0。 12345678910111213141516171819202122232425262728293031323334353637public int ladderLength2(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; HashSet hashSet = new HashSet&lt;&gt;(wordList); if(!hashSet.contains(endWord))&#123; return 0; &#125; Queue&lt;String&gt; queue = new LinkedList(); Queue&lt;String&gt; queue2 = new LinkedList(); queue.add(beginWord); queue2.add(endWord); int step=0; while(queue.size()!=0&amp;&amp;queue2.size()!=0)&#123; step++; if(queue.size()&gt;queue2.size())&#123; Queue q3 = new LinkedList(queue); queue = queue2; queue2 =q3; &#125; Queue queue1 = new LinkedList(); for(String str:queue)&#123; for(int i=0;i&lt;str.length();i++)&#123; char[] chars = str.toCharArray(); for(char j='a';j&lt;='z';j++)&#123; chars[i] = j; if(queue2.contains(new String(chars)))&#123; return step+1; &#125; if(hashSet.contains(new String(chars)))&#123; queue1.add(new String(chars)); hashSet.remove(new String(chars)); &#125; &#125; &#125; &#125; queue = queue1; &#125; return 0;&#125; 时间复杂度：O(n*26^(str.lenght()/2)) 总结虽然因为直接就用list做操作导致了BFS的超时,但是通过这个我回忆了一下，arraylist的remove确实很耗时，每次删除都会把后面的往前复制一遍。 没有想到双BFS的操作，以后要善用这些操作。]]></content>
@@ -181,8 +193,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>树</tag>
         <tag>BFS</tag>
+        <tag>树</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -207,8 +219,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>树</tag>
         <tag>BFS</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
