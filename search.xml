@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[最长上升子序列_300]]></title>
+    <url>%2Fposts%2Fsolution-300%2F</url>
+    <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/ 给定一个无序的整数数组，找到其中最长上升子序列的长度。 示例: 123输入: [10,9,2,5,3,7,101,18]输出: 4 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。 说明: 可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。 你算法的时间复杂度应该为 O(n2) 。 进阶: 你能将算法的时间复杂度降低到 O(n log n) 吗? 我的思路这题一开始看到觉得 是不是可以用双指针，但是发现好像不是很行，因为这个最长上升子序列的值是可以跳跃的，而不是说都是连续的。这样感觉双指针就不好对长度进行划分，从而不是一个好想法 冒泡遍历然后我就按照题目的特性，速度是O(n^2) 则可以使用冒泡这种简单的双重遍历，从动态规划的角度看这个问题，我的想法如下： 从数组第一个点开始遍历、将当前结点与后续结点进行对比，如果后续结点的值比当前结点的大，则比较后续结点和当前结点的最长子序列哪个更大，保留更大的值。 最长的子序列不一定在数组的尾部。在每个结点遍历完之后和max值比较，获取最长的子序列。 因为数组的值是从0开始 而子序的长度是从1开始 所以在最后返回时 值要加1 如下解例子： 判断子序列的做法 i 结点的值要小于 j 结点 当前点（i）子序列长度+1 和 后续结点（j）子序列长度 进行比较 保留更长的子序列长度 123456789数组：[10,9,2,5,3,7,101,18] 当前结点的子序列长度：[0,0,0,0,0,0,0,0]抛出一个点 10。通过判断子序列的长度 后续的子序列长度为: [0,0,0,0,0,0,1,1]抛出一个点9 [0,0,0,0,0,0,1,1]抛出一个点2 [0,0,0,1,1,1,1,1]抛出一个点5 [0,0,0,1,1,2,2,2] 特殊点：7比5大 但是5的长度是1+1=2 并没有比原本7的值大 所以长度不变抛出一个点3 [0,0,0,1,1,2,2,2]抛出一个点7 [0,0,0,1,1,2,3,3]抛出一个点101 [0,0,0,1,1,2,3,3]那么返回的值就是3+1=4. 下面是代码： 1234567891011121314151617public int lengthOfLIS(int[] nums) &#123; if (nums.length == 0) &#123; return 0; &#125; int[] max = new int[nums.length]; max[0] = 0; int themax = 0; for (int i = 0; i &lt; nums.length; i++) &#123; for (int j = i + 1; j &lt; nums.length; j++) &#123; if (nums[j] &gt; nums[i]) &#123; max[j] = max[j] &gt; max[i] + 1 ? max[j] : max[i] + 1; &#125; &#125; themax = themax&gt;max[i]?themax:max[i]; &#125; return themax + 1;&#125; 进阶解法进阶解法nlogn 感觉一看就要二分呀… 暂时还没想出来，先挖个坑。 这个结束之后则获取最优解：]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[最大值_179]]></title>
     <url>%2Fposts%2Fsolution-179%2F</url>
     <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/largest-number/submissions/ 给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。 示例 1: 12输入: [10,2]输出: 210 示例 2: 12输入: [3,30,34,5,9]输出: 9534330 说明: 输出结果可能非常大，所以你需要返回一个字符串而不是整数。 我的思路根据题目，可以知道 这题大概的做法是： 按照一定的排序规则然后用排序算法进行排序。 首先我们先梳理一下比较规则：先把left right 两个值都转为string（因为题目中提示了字符串，所以用int类型进行比较应该是不合适的） ，这时候两个值的长度可能不相等，这时候我们将他们相加 left+right 和 right+left 这时候两个字符串的长度是相等的，这时候奖left+right 和 right+left 从第一个字符处开始比较，这时候来比较left 和right 哪个值在数组前更好，然后进行位置交换。 那么在有了比较规则之后，我们可以通过排序算法来让这个值和别的值再进行比较，最后就可以得出一个从大到小的数组，将数组转为string 然后判断第一个字符是否为’0’ （因为如果整个数组都是0的话，他的第一个字符肯定是零，那么返回的string就是’0’而不是”000”）最后返回string。 冒泡排序我用的是比较好理解，但是效率不高的冒泡排序。 1234567891011121314151617181920212223242526272829303132333435363738394041424344public String largestNumber(int[] nums) &#123; StringBuilder str = new StringBuilder(); for (int i = 0; i &lt; nums.length - 1; i++) &#123; int left = nums[i], right = nums[i + 1]; if (!BiggerStr("" + left + right, "" + right + left)) &#123; int temp = nums[i]; nums[i] = nums[i + 1]; nums[i + 1] = temp; BubbleSort(nums, i); &#125; &#125; for (int i : nums) &#123; str.append(i); &#125; if (str.charAt(0) == '0') &#123; return "0"; &#125; return str.toString();&#125;//进行冒泡void BubbleSort(int[] nums, int num) &#123; for (int i = num; i &gt; 0; i--) &#123; int left = nums[i], right = nums[i - 1]; if (BiggerStr("" + left + right, "" + right + left)) &#123; int temp = nums[i]; nums[i] = nums[i - 1]; nums[i - 1] = temp; &#125; else &#123; return; &#125; &#125;&#125;//比较规则boolean BiggerStr(String left, String right) &#123; if (left.charAt(0) &gt; right.charAt(0)) &#123; return true; &#125; else if (left.charAt(0) == right.charAt(0) &amp;&amp; left.length() &gt; 1) &#123; return BiggerStr(left.substring(1), right.substring(1)); &#125; else &#123; return false; &#125;&#125;]]></content>
@@ -32,7 +44,9 @@
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>-leetcode -归并排序 -链表</tag>
+        <tag>leetcode</tag>
+        <tag>归并排序</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -43,7 +57,8 @@
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>-leetcode -数组</tag>
+        <tag>leetcode</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -54,7 +69,8 @@
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>-leetcode -DFS</tag>
+        <tag>leetcode</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -86,7 +102,7 @@
     <url>%2Fposts%2FSolution-127%2F</url>
     <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/word-ladder/ 给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则： 每次转换只能改变一个字母。 转换过程中的中间单词必须是字典中的单词。 说明: 如果不存在这样的转换序列，返回 0。 所有单词具有相同的长度。 所有单词只由小写字母组成。 字典中不存在重复的单词。 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。 示例 1: 123456789输入:beginWord = &quot;hit&quot;,endWord = &quot;cog&quot;,wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]输出: 5解释: 一个最短转换序列是 &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;, 返回它的长度 5。 示例 2: 12345678输入:beginWord = &quot;hit&quot;endWord = &quot;cog&quot;wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]输出: 0解释: endWord &quot;cog&quot; 不在字典中，所以无法进行转换。 我的思路1、BFS这题我本来的思路是这样的，使用BFS广度优先搜索，通过一个队列先保存beginword值，然后通过单个字母变化26次，遍历当前的字符串，匹配到wordlist中相应的项，然后把这些项加入队列，并将它们从list中remove。最终找到endword，通过这样广搜肯定能搜索到最短的路径。但值得一提的是，我超时了。 1234567891011121314151617181920212223242526272829303132public int ladderLength(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; //用一个hashSet代替list进行遍历，这样就不会超时了，真坑。 HashSet hashSet = new HashSet&lt;&gt;(wordList); if(!hashSet.contains(endWord))&#123; return 0; &#125; Queue&lt;String&gt; queue = new LinkedList(); ((LinkedList) queue).add(beginWord); int lengthA =0,lengthB=1; while(queue.size()!=0)&#123; String str = queue.poll(); if(str.equals(endWord))&#123; return lengthA+1; &#125; for(int i=0;i&lt;str.length();i++)&#123; char[] chars = str.toCharArray(); for(char j='a';j&lt;='z';j++)&#123; chars[i] = j; if(hashSet.contains(new String(chars)))&#123; queue.add(new String(chars)); hashSet.remove(new String(chars)); &#125; &#125; &#125; lengthB--; if(lengthB==0)&#123; lengthB=queue.size(); lengthA++; &#125; &#125; return 0;&#125; 时间复杂度：O(n*26^str.length()) 2、双重BFS通过看B站Up主的视频：https://www.bilibili.com/video/av38705526?from=search&amp;seid=16479832968747750696 可以使用双重BFS这种更好的解法，就是通过两个队列，一个从beginword开始广搜，另一个从endword开始广搜，当他们相遇时，就是最短的路径，没有相遇就是0。 12345678910111213141516171819202122232425262728293031323334353637public int ladderLength2(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; HashSet hashSet = new HashSet&lt;&gt;(wordList); if(!hashSet.contains(endWord))&#123; return 0; &#125; Queue&lt;String&gt; queue = new LinkedList(); Queue&lt;String&gt; queue2 = new LinkedList(); queue.add(beginWord); queue2.add(endWord); int step=0; while(queue.size()!=0&amp;&amp;queue2.size()!=0)&#123; step++; if(queue.size()&gt;queue2.size())&#123; Queue q3 = new LinkedList(queue); queue = queue2; queue2 =q3; &#125; Queue queue1 = new LinkedList(); for(String str:queue)&#123; for(int i=0;i&lt;str.length();i++)&#123; char[] chars = str.toCharArray(); for(char j='a';j&lt;='z';j++)&#123; chars[i] = j; if(queue2.contains(new String(chars)))&#123; return step+1; &#125; if(hashSet.contains(new String(chars)))&#123; queue1.add(new String(chars)); hashSet.remove(new String(chars)); &#125; &#125; &#125; &#125; queue = queue1; &#125; return 0;&#125; 时间复杂度：O(n*26^(str.lenght()/2)) 总结虽然因为直接就用list做操作导致了BFS的超时,但是通过这个我回忆了一下，arraylist的remove确实很耗时，每次删除都会把后面的往前复制一遍。 没有想到双BFS的操作，以后要善用这些操作。]]></content>
       <categories>
-        <category>-leetcode</category>
+        <category>leetcode</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -99,7 +115,7 @@
     <url>%2Fposts%2FSolution-152%2F</url>
     <content type="text"><![CDATA[难度：中等 这是该题的地址：https://leetcode-cn.com/problems/maximum-product-subarray/ 给定一个整数数组 nums ，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。 示例 1: 123输入: [2,3,-2,4]输出: 6解释: 子数组 [2,3] 有最大乘积 6。 示例 2: 123输入: [-2,0,-1]输出: 0解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。 我的思路有想到用动态规划来做，但是没想到使用这种方式。。。保留到前个字符的最大正数和最小负数。这样无论当前数是正数或是负数都能求到最大的乘积。通过动态规划就能得到最大的值了。 1234567891011121314151617public int maxProduct(int[] nums) &#123; int[] dp = new int[nums.length]; dp[0] = nums[0]; int max = nums[0], min = nums[0]; for (int i = 1; i &lt; nums.length; i++) &#123; if (nums[i] &gt;= 0) &#123; max = nums[i] &gt; nums[i] * max ? nums[i] : nums[i] * max; min = nums[i] &lt; nums[i] * min ? nums[i] : nums[i] * min; &#125; else &#123; int temp = max; max = nums[i] &gt; min * nums[i] ? nums[i] : min * nums[i]; min = nums[i] &lt; temp * nums[i] ? nums[i] : temp * nums[i]; &#125; dp[i] = max &gt; dp[i - 1] ? max : dp[i - 1]; &#125; return dp[nums.length-1];&#125;]]></content>
       <categories>
-        <category>-leetcode</category>
+        <category>leetcode</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -111,7 +127,7 @@
     <url>%2Fposts%2Fsolution-11%2F</url>
     <content type="text"><![CDATA[难度：中等（感觉没有中等难度啊） 这是该题的地址：https://leetcode-cn.com/problems/container-with-most-water/ 给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 说明：你不能倾斜容器，且 n 的值至少为 2。 图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。 示例: 12输入: [1,8,6,2,5,4,8,3,7]输出: 49 我的思路这个感觉没有中等难度呀。使用双指针的做法，头尾两个指针，得出当前的区域大小，因为区域的大小取决于更小的那一个指针，这时候就要把我们的底线抬高。所以当左指针比右指针小的时候，左指针往右移，右指针同理。相遇的时候就跳出循环。 123456789101112131415public int maxArea(int[] height) &#123; int left =0,right =height.length-1; int max =0; while(left&lt;right)&#123; int min = height[right]&gt;height[left]?height[left]:height[right]; int area = (right-left) * min; max = max&gt;area?max:area; if(height[left]==min)&#123; left++; &#125;else &#123; right--; &#125; &#125; return max;&#125;]]></content>
       <categories>
-        <category>-leetcode</category>
+        <category>leetcode</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -262,8 +278,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>树</tag>
         <tag>BFS</tag>
+        <tag>树</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -288,8 +304,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>树</tag>
         <tag>BFS</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
