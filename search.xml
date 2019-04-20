@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[solution_322]]></title>
+    <url>%2Fposts%2Fsolution-322%2F</url>
+    <content type="text"><![CDATA[难度：中等 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。 示例 1: 123输入: coins = [1, 2, 5], amount = 11输出: 3 解释: 11 = 5 + 5 + 1 示例 2: 12输入: coins = [2], amount = 3输出: -1 说明:你可以认为每种硬币的数量是无限的。 我的思路按金额动态规划该题我的思路是这样的，首先遍历到amount金额的每个金钱，然后对每个金钱动态规划求最优金额。时间复杂度应该是O(n*m); 我们可以根据这样得出下列推到式：i是当前的金币额度。 当金钱比硬币大的时候 min[i] = 1+ ｛min[i-coinsA,i-coinsB,i-coinsC…….]｝ 当金钱和硬币相等时 min[i] = 1; 当这个金钱无法被硬币代表时，值是Integer.MAX_VALUE，后续的操作对它进行判断。 例子： 12345678910从1开始 一块钱的最优解是多少 是1。那么min[1] = 1;两块的最优解 min[2] = min[2 - 1] + 1 = 2;三块的最优解 1、min[3 - 1] + 1 = 2 2、min[3] = 1 得出：1&lt;2; ---&gt;min[3] = 1;四块钱的最优解 1、min[4-1] +1 =2 2、min[4-3] + 1 = 2 --—&gt; min[4] = 2;五块钱的最优解 1、min[5-1] + 1 = 3 2、min[5-3] + 1 = 3 得出1&lt;3---&gt;min[5]= 1;以此类推 ...... min[11] 进行三次操作 min[11 - 1]+1 min[11 - 3] + 1 min[11-5] + 1 在三个值之中取最小值。min[11] = 3 代码： 最后假如这个数是没有硬币对应的 要返回-1。 1234567891011121314public int coinChange(int[] coins, int amount) &#123; int[] min = new int[amount+1]; for(int i=1;i&lt;=amount;i++)&#123; min[i] = Integer.MAX_VALUE; for(int j=0;j&lt;coins.length;j++)&#123; if(i-coins[j]&gt;0 &amp;&amp; min[i-coins[j]]!=Integer.MAX_VALUE)&#123; min[i] = min[i-coins[j]] + 1&lt; min[i]?min[i-coins[j]]+1:min[i]; &#125;else if(i-coins[j]==0)&#123; min[i] = 1; &#125; &#125; &#125; return min[amount]==Integer.MAX_VALUE?-1:min[amount];&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[最长上升子序列_300]]></title>
     <url>%2Fposts%2Fsolution-300%2F</url>
     <content type="text"><![CDATA[难度：中等 这是本题的地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/ 给定一个无序的整数数组，找到其中最长上升子序列的长度。 示例: 123输入: [10,9,2,5,3,7,101,18]输出: 4 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。 说明: 可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。 你算法的时间复杂度应该为 O(n2) 。 进阶: 你能将算法的时间复杂度降低到 O(n log n) 吗? 我的思路这题一开始看到觉得 是不是可以用双指针，但是发现好像不是很行，因为这个最长上升子序列的值是可以跳跃的，而不是说都是连续的。这样感觉双指针就不好对长度进行划分，从而不是一个好想法 冒泡遍历然后我就按照题目的特性，速度是O(n^2) 则可以使用冒泡这种简单的双重遍历，从动态规划的角度看这个问题，我的想法如下： 从数组第一个点开始遍历、将当前结点与后续结点进行对比，如果后续结点的值比当前结点的大，则比较后续结点和当前结点的最长子序列哪个更大，保留更大的值。 最长的子序列不一定在数组的尾部。在每个结点遍历完之后和max值比较，获取最长的子序列。 因为数组的值是从0开始 而子序的长度是从1开始 所以在最后返回时 值要加1 如下解例子： 判断子序列的做法 i 结点的值要小于 j 结点 当前点（i）子序列长度+1 和 后续结点（j）子序列长度 进行比较 保留更长的子序列长度 123456789数组：[10,9,2,5,3,7,101,18] 当前结点的子序列长度：[0,0,0,0,0,0,0,0]抛出一个点 10。通过判断子序列的长度 后续的子序列长度为: [0,0,0,0,0,0,1,1]抛出一个点9 [0,0,0,0,0,0,1,1]抛出一个点2 [0,0,0,1,1,1,1,1]抛出一个点5 [0,0,0,1,1,2,2,2] 特殊点：7比5大 但是5的长度是1+1=2 并没有比原本7的值大 所以长度不变抛出一个点3 [0,0,0,1,1,2,2,2]抛出一个点7 [0,0,0,1,1,2,3,3]抛出一个点101 [0,0,0,1,1,2,3,3]那么返回的值就是3+1=4. 下面是代码： 1234567891011121314151617public int lengthOfLIS(int[] nums) &#123; if (nums.length == 0) &#123; return 0; &#125; int[] max = new int[nums.length]; max[0] = 0; int themax = 0; for (int i = 0; i &lt; nums.length; i++) &#123; for (int j = i + 1; j &lt; nums.length; j++) &#123; if (nums[j] &gt; nums[i]) &#123; max[j] = max[j] &gt; max[i] + 1 ? max[j] : max[i] + 1; &#125; &#125; themax = themax&gt;max[i]?themax:max[i]; &#125; return themax + 1;&#125; 进阶解法进阶解法nlogn 感觉一看就要二分呀… 暂时还没想出来，先挖个坑。 这个结束之后则获取最优解：]]></content>
