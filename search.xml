@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[weekgame_137]]></title>
+    <url>%2Fposts%2Fweekgame-137%2F</url>
+    <content type="text"><![CDATA[第137周的周竞赛，这次的周竞赛我做出了2题 分别是《最后一块石头的重量》 和 《删除字符串中的所有相邻重复项》 最后一块石头的重量有一堆石头，每块石头的重量都是正整数。 每一回合，从中选出两块最重的石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x &lt;= y。那么粉碎的可能结果如下： 如果 x == y，那么两块石头都会被完全粉碎； 如果 x != y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。 最后，最多只会剩下一块石头。返回此石头的重量。如果没有石头剩下，就返回 0。 提示： 1 &lt;= stones.length &lt;= 30 1 &lt;= stones[i] &lt;= 1000 我的思路这道题我是这样思考的，升序排序数组，然后将倒数第一数减去倒数第二数，倒数第二数设为0，然后再进行排序，这样如果最后有剩石头，那么它就一定是最后一个数，如果没有剩石头则最后一个数也是0。 12345678910111213141516public int lastStoneWeight(int[] stones) &#123; if (stones.length == 1) &#123; return stones[0]; &#125; else if (stones.length == 0) &#123; return 0; &#125; int i = stones.length - 1; Arrays.sort(stones); while (stones[i] != 0 &amp;&amp; stones[i - 1] != 0) &#123; stones[i] = stones[i] - stones[i - 1]; stones[i - 1] = 0; Arrays.sort(stones); &#125; return stones[stones.length - 1];&#125; 删除字符串中的所有相邻重复项给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。 在 S 上反复执行重复项删除操作，直到无法继续删除。 在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。 示例： 1234输入：&quot;abbaca&quot;输出：&quot;ca&quot;解释：例如，在 &quot;abbaca&quot; 中，我们可以删除 &quot;bb&quot; 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 &quot;aaca&quot;，其中又只有 &quot;aa&quot; 可以执行重复项删除操作，所以最后的字符串为 &quot;ca&quot;。 我的思路这道题我是用的回溯法的思路，当遇到第一个相邻的字符时，将这两个字符删掉，并且向前一位开始回溯。回溯进行匹配，如果相同则删掉并继续回溯，如果不同则不用继续回溯。这样最后剩下的字符串就是删到不能删的字符串了。 关键点：在回溯完之后，遍历的指针需要返回到回溯到的位置。 12345678910111213141516171819202122232425public String removeDuplicates(String S) &#123; StringBuilder sb = new StringBuilder(S); for (int i = 0; i &lt; sb.length() - 1; i++) &#123; if (sb.charAt(i) == sb.charAt(i + 1)) &#123; sb.delete(i, i + 2); //回到回溯的位置 i -= backChecking(sb, i - 1, i, 1); &#125; &#125; return sb.toString();&#125;public int backChecking(StringBuilder s, int i, int j, int num) &#123; if (i &lt; 0 || j &gt;= s.length()) &#123; return num; &#125; if (s.charAt(i) == s.charAt(j)) &#123; s.delete(i, j + 1); num = backChecking(s, i - 1, i, num + 1); &#125; //返回回溯了几次 return num;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>回溯法</tag>
+        <tag>周竞赛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[杨辉三角_118和119]]></title>
+    <url>%2Fposts%2Fsolution-118%2F</url>
+    <content type="text"><![CDATA[这是该题目的地址：https://leetcode-cn.com/problems/pascals-triangle/ 难度：简单 给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。 在杨辉三角中，每个数是它左上方和右上方的数的和。 示例: 123456789输入: 5输出:[ [1], [1,1], [1,2,1], [1,3,3,1], [1,4,6,4,1]] 我的思路简单的思路就是一层层的往下遍历，用图示的计算方式进行计算。 123456789101112131415161718192021public List&lt;List&lt;Integer&gt;&gt; generate(int numRows) &#123; List&lt;List&lt;Integer&gt;&gt; nums = new ArrayList&lt;List&lt;Integer&gt;&gt;(); List&lt;Integer&gt; prior = null; for(int i = 1; i &lt;= numRows; i++) &#123; List&lt;Integer&gt; temp = new ArrayList&lt;&gt;(i); for(int j = 0; j &lt; i; j++) &#123; if(j == 0 || j == i - 1) &#123; temp.add(1); &#125; else &#123; temp.add(prior.get(j - 1) + prior.get(j)); &#125; &#125; nums.add(temp); prior = temp; &#125; return nums;&#125; 杨辉三角2这是该题的地址：https://leetcode-cn.com/problems/pascals-triangle-ii/ 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。 在杨辉三角中，每个数是它左上方和右上方的数的和。 示例: 12输入: 3输出: [1,3,3,1] 进阶： 你可以优化你的算法到 O(k) 空间复杂度吗？ 我的思路这题就是要你减少使用的空间复杂度。那么我们可以这样做。 因为这题只需要返回一层的数据，所以我们也可以用上一题类似的操作，只不过每个层不通过list来区分，而是都放再一起。当新的一层的数据要放入时，旧一层的数据就要逐渐的poll出去。这样整个链表的长度不会超过k。那么空间复杂度应该也是O(k)了吧。 123456789101112131415161718192021222324252627public List&lt;Integer&gt; getRow(int rowIndex) &#123; List&lt;Integer&gt; ls = new LinkedList&lt;&gt;(); ls.add(1); if (rowIndex == 0) &#123; return ls; &#125; else if (rowIndex == 1) &#123; ls.add(1); return ls; &#125; for (int i = 2; i &lt;= rowIndex + 1; i++) &#123; for (int j = 0; j &lt; i; j++) &#123; if (j == 0) &#123; ls.add(1); &#125; else if (j == i - 1) &#123; ((LinkedList&lt;Integer&gt;) ls).poll(); ls.add(1); &#125; else &#123; ls.add(ls.get(1) + ls.get(0)); ((LinkedList&lt;Integer&gt;) ls).poll(); &#125; &#125; &#125; return ls;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>杨辉三角</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[删除排序链表中的重复元素_83]]></title>
     <url>%2Fposts%2FSolution-83%2F</url>
     <content type="text"><![CDATA[难度：简单 这是本题的地址：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/ 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 示例 1: 12输入: 1-&gt;1-&gt;2输出: 1-&gt;2 示例 2: 12输入: 1-&gt;1-&gt;2-&gt;3-&gt;3输出: 1-&gt;2-&gt;3 我的思路1、一般大家可能会想到用的比较低效的思路通过set的特性：set里面不会有重复的参数，来剥离重复元素。然后通过新建节点的方式重新建立一个链表。 下面这个例子：我通过将未出现过的元素放入set，然后新建一条没有重复值的列表。但是显然不需要浪费这么多资源来实现这个功能。 123456789101112131415161718public ListNode deleteDuplicates(ListNode head) &#123; if (head == null) &#123; return null; &#125; HashSet hs = new HashSet(); ListNode thisNode = head; ListNode newhead = new ListNode(0); ListNode markhead = newhead; while (thisNode != null) &#123; if (!hs.contains(thisNode.val)) &#123; hs.add(thisNode.val); newhead.next = new ListNode(thisNode.val); newhead = newhead.next; &#125; thisNode = thisNode.next; &#125; return markhead.next; &#125; 2、双指针利用双指针，因为题目中已经给出了是排序了的列表，所以我们可以知道相同的数字是会在一起的。那么我们通过两个指针 一个left指针代表一个未重复值的点。right指针则寻找下一个与这个值不重复的点。假如找到了，那么将left.next = right。然后将left=right，继续寻找下一个不重复值的点。时间复杂度为O(n); 12345678910111213141516public ListNode deleteDuplicates2(ListNode head) &#123; if (head == null) &#123; return null; &#125; ListNode left = head; ListNode right = head; while (left != null || right != null) &#123; while (right != null &amp;&amp; right.val == left.val) &#123; right = right.next; &#125; left.next = right; left = left.next; &#125; return head;&#125; 总结下面这幅图是leetcode上跑得速度对比，上面的是双指针的~： 以上是我的两种思路，其实这题的做法有挺多的，但是我觉得双指针这种做法的代码逻辑会比较清晰~哈哈]]></content>
