@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2的幂_231]]></title>
+    <url>%2Fposts%2Fsolution-231%2F</url>
+    <content type="text"><![CDATA[难度：简单 这是本题的地址：https://leetcode-cn.com/problems/power-of-two/ 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。 示例 1: 123输入: 1输出: true解释: 20 = 1 示例 2: 123输入: 16输出: true解释: 24 = 16 示例 3: 12输入: 218输出: false 我的思路这题看起来很简单，但是这个需要使用二进制的做法来解题，如果时直接求2的次方来解题的话是会超时的。 重点在于&amp;位运算符的使用。百度百科：按位与运算符”&amp;”是双目运算符。 其功能是参与运算的两数各对应的二进位相与。只有对应的两个二进位均为1时，结果位才为1 ，否则为0。参与运算的数以补码方式出现。 当一个数可以是2的幂次方时，他的二进制数只有一个位是1。例如 8 就是 1000， 那么8-1 就是 0111。使用&amp;运算符，结果：8&amp;（8-1）== 1000 &amp; 0111 = 0。那么我们就可以通过&amp;运算符来判断数字是否是2的幂次方。 123public boolean isPowerOfTwo(int n) &#123; return n&gt;0&amp;&amp;(n&amp;(n-1))==0?true:false;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>二进制</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[weekgame_137]]></title>
     <url>%2Fposts%2Fweekgame-137%2F</url>
     <content type="text"><![CDATA[第137周的周竞赛，这次的周竞赛我做出了2题 分别是《最后一块石头的重量》 和 《删除字符串中的所有相邻重复项》 最后一块石头的重量有一堆石头，每块石头的重量都是正整数。 每一回合，从中选出两块最重的石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x &lt;= y。那么粉碎的可能结果如下： 如果 x == y，那么两块石头都会被完全粉碎； 如果 x != y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。 最后，最多只会剩下一块石头。返回此石头的重量。如果没有石头剩下，就返回 0。 提示： 1 &lt;= stones.length &lt;= 30 1 &lt;= stones[i] &lt;= 1000 我的思路这道题我是这样思考的，升序排序数组，然后将倒数第一数减去倒数第二数，倒数第二数设为0，然后再进行排序，这样如果最后有剩石头，那么它就一定是最后一个数，如果没有剩石头则最后一个数也是0。 12345678910111213141516public int lastStoneWeight(int[] stones) &#123; if (stones.length == 1) &#123; return stones[0]; &#125; else if (stones.length == 0) &#123; return 0; &#125; int i = stones.length - 1; Arrays.sort(stones); while (stones[i] != 0 &amp;&amp; stones[i - 1] != 0) &#123; stones[i] = stones[i] - stones[i - 1]; stones[i - 1] = 0; Arrays.sort(stones); &#125; return stones[stones.length - 1];&#125; 删除字符串中的所有相邻重复项给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。 在 S 上反复执行重复项删除操作，直到无法继续删除。 在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。 示例： 1234输入：&quot;abbaca&quot;输出：&quot;ca&quot;解释：例如，在 &quot;abbaca&quot; 中，我们可以删除 &quot;bb&quot; 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 &quot;aaca&quot;，其中又只有 &quot;aa&quot; 可以执行重复项删除操作，所以最后的字符串为 &quot;ca&quot;。 我的思路这道题我是用的回溯法的思路，当遇到第一个相邻的字符时，将这两个字符删掉，并且向前一位开始回溯。回溯进行匹配，如果相同则删掉并继续回溯，如果不同则不用继续回溯。这样最后剩下的字符串就是删到不能删的字符串了。 关键点：在回溯完之后，遍历的指针需要返回到回溯到的位置。 12345678910111213141516171819202122232425public String removeDuplicates(String S) &#123; StringBuilder sb = new StringBuilder(S); for (int i = 0; i &lt; sb.length() - 1; i++) &#123; if (sb.charAt(i) == sb.charAt(i + 1)) &#123; sb.delete(i, i + 2); //回到回溯的位置 i -= backChecking(sb, i - 1, i, 1); &#125; &#125; return sb.toString();&#125;public int backChecking(StringBuilder s, int i, int j, int num) &#123; if (i &lt; 0 || j &gt;= s.length()) &#123; return num; &#125; if (s.charAt(i) == s.charAt(j)) &#123; s.delete(i, j + 1); num = backChecking(s, i - 1, i, num + 1); &#125; //返回回溯了几次 return num;&#125;]]></content>

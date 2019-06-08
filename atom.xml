@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-19T14:20:46.895Z</updated>
+  <updated>2019-06-08T09:09:37.647Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2的幂_231</title>
+    <link href="http://yoursite.com/posts/solution-231/"/>
+    <id>http://yoursite.com/posts/solution-231/</id>
+    <published>2019-06-08T08:49:50.000Z</published>
+    <updated>2019-06-08T09:09:37.647Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="green">简单</font></p><p>这是本题的地址：<a href="https://leetcode-cn.com/problems/power-of-two/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/power-of-two/</a></p><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p><p><strong>示例 1:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: true</span><br><span class="line">解释: 20 = 1</span><br></pre></td></tr></table></figure><p><strong>示例 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 16</span><br><span class="line">输出: true</span><br><span class="line">解释: 24 = 16</span><br></pre></td></tr></table></figure><p><strong>示例 3:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 218</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题看起来很简单，但是这个需要使用二进制的做法来解题，如果时直接求2的次方来解题的话是会超时的。</p><p>重点在于&amp;位运算符的使用。百度百科：按位与运算符”&amp;”是双目运算符。 其功能是参与运算的两数各对应的二进位相与。只有对应的两个二进位均为1时，结果位才为1 ，否则为0。参与运算的数以补码方式出现。</p><p>当一个数可以是2的幂次方时，他的二进制数只有一个位是1。例如 8 就是 1000， 那么8-1 就是 0111。使用&amp;运算符，结果：8&amp;（8-1）==  1000 &amp; 0111 = 0。那么我们就可以通过&amp;运算符来判断数字是否是2的幂次方。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfTwo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n&gt;<span class="number">0</span>&amp;&amp;(n&amp;(n-<span class="number">1</span>))==<span class="number">0</span>?<span class="keyword">true</span>:<span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;green&quot;&gt;简单&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/power-of-two/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/power-of-two/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给定一个整数，编写一个函数来判断它是否是 2 的幂次方。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释: 20 = 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;示例 2:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: 16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释: 24 = 16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;示例 3:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: 218&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: false&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="二进制" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>weekgame_137</title>
@@ -598,37 +630,6 @@
       <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
     
       <category term="回溯法" scheme="http://yoursite.com/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>环形链表 II_142</title>
-    <link href="http://yoursite.com/posts/detectCycle-142/"/>
-    <id>http://yoursite.com/posts/detectCycle-142/</id>
-    <published>2019-03-04T14:20:04.000Z</published>
-    <updated>2019-03-04T15:02:23.345Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>难度：</strong><font color="e1e1">中等</font></p><p>这是本题的地址：<a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/linked-list-cycle-ii/</a></p><p>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。</p><p>为了表示给定链表中的环，我们使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。</p><p><strong>说明：</strong>不允许修改给定的链表。</p><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：tail connects to node index 1</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure><p><img src="/posts/detectCycle-142/circularlinkedlist.png" alt="img"></p> <a id="more"></a><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：tail connects to node index 0</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure><p><img src="/posts/detectCycle-142/circularlinkedlist_test2.png" alt="img"></p><p><strong>示例 3：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1], pos = -1</span><br><span class="line">输出：no cycle</span><br><span class="line">解释：链表中没有环。</span><br></pre></td></tr></table></figure><p><img src="/posts/detectCycle-142/circularlinkedlist_test3.png" alt="img"></p><p><strong>进阶：</strong><br>你是否可以不用额外空间解决此题？</p><h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这题是<a href="https://jasonhejiachen.github.io/posts/hasCycle-141/" target="_blank" rel="noopener">环形链表_141</a>的加强版，他在找到循环的基础上增加了找到循环的入口。看似不难，其实是需要掌握一个诀窍的，通过网上查看别人的思路，大部分人的思路都是和下图一般。</p><p><img src="/posts/detectCycle-142/picture.png" alt=""></p><p>x 是快指针和慢指针出发的位置，假设 y点是入口点，z点是快慢指针的相遇点。我们可以得出下面三个条件。</p><ul><li><p>那么从初始点到入口点的距离假设为a，b为慢指针在循环中走的距离，那么我们可以假设出出b走的路程为a+b。</p></li><li><p>那么因为在z点进行相遇，所以快指针走的距离我们可以假设为 a+b+c+b（绕了一圈又走了b距离到z点相遇）。</p></li><li>还有最后一个条件，就是快指针走的速度是慢指针的2倍，也就是说 (a+b)*2 == a+b+c+b。</li></ul><p>根据这三个条件，我们可以得出一个结论就是 a == c。</p><p>那么 a == c有什么用呢，我们可以从图上发现，a的距离是 x 点到 y 点，而c是z点到y点的距离。z点又是快慢指针相遇的点。那么这时候我们可以发现，从z点往y点走的指针和从x点往y点走的指针最终会在y点相遇。而y点就是我们题目所需要的答案。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">detectCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode fast = head;</span><br><span class="line">    ListNode slow = head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">        <span class="keyword">if</span>(fast==slow)&#123;</span><br><span class="line">            ListNode newNode = head;</span><br><span class="line">            <span class="keyword">while</span>(slow!=newNode)&#123;</span><br><span class="line">                newNode = newNode.next;</span><br><span class="line">                slow = slow.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;难度：&lt;/strong&gt;&lt;font color=&quot;e1e1&quot;&gt;中等&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;这是本题的地址：&lt;a href=&quot;https://leetcode-cn.com/problems/linked-list-cycle-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode-cn.com/problems/linked-list-cycle-ii/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 &lt;code&gt;null&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;为了表示给定链表中的环，我们使用整数 &lt;code&gt;pos&lt;/code&gt; 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 &lt;code&gt;pos&lt;/code&gt; 是 &lt;code&gt;-1&lt;/code&gt;，则在该链表中没有环。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;不允许修改给定的链表。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入：head = [3,2,0,-4], pos = 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出：tail connects to node index 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解释：链表中有一个环，其尾部连接到第二个节点。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&quot;/posts/detectCycle-142/circularlinkedlist.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yoursite.com/categories/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="双指针" scheme="http://yoursite.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
   </entry>
   
