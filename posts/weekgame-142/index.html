@@ -103,16 +103,18 @@
 
 
 
-  <meta name="description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="何嘉晨的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/leetcode/page/3/index.html">
+  <meta name="description" content="这是第142期leetcode周赛我做的题目的一些思路。《大样本统计》 和 《拼车》。 1093. 大样本统计我们对 0 到 255 之间的整数进行采样，并将结果存储在数组 count 中：count[k] 就是整数 k 的采样个数。 我们以 浮点数 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。 我们先来回顾一下中位数的知识：  如果样本中的元素有序，并">
+<meta name="keywords" content="leetcode,周赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode周赛_142">
+<meta property="og:url" content="http://yoursite.com/posts/weekgame-142/index.html">
 <meta property="og:site_name" content="何嘉晨的个人博客">
-<meta property="og:description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
+<meta property="og:description" content="这是第142期leetcode周赛我做的题目的一些思路。《大样本统计》 和 《拼车》。 1093. 大样本统计我们对 0 到 255 之间的整数进行采样，并将结果存储在数组 count 中：count[k] 就是整数 k 的采样个数。 我们以 浮点数 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。 我们先来回顾一下中位数的知识：  如果样本中的元素有序，并">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-23T14:10:28.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何嘉晨的个人博客">
-<meta name="twitter:description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
+<meta name="twitter:title" content="LeetCode周赛_142">
+<meta name="twitter:description" content="这是第142期leetcode周赛我做的题目的一些思路。《大样本统计》 和 《拼车》。 1093. 大样本统计我们对 0 到 255 之间的整数进行采样，并将结果存储在数组 count 中：count[k] 就是整数 k 的采样个数。 我们以 浮点数 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。 我们先来回顾一下中位数的知识：  如果样本中的元素有序，并">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/leetcode/page/3/">
+  <link rel="canonical" href="http://yoursite.com/posts/weekgame-142/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>标签: leetcode | 何嘉晨的个人博客</title>
+  <title>LeetCode周赛_142 | 何嘉晨的个人博客</title>
   
 
 
@@ -179,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <!-- <a href="https://github.com/Jasonhejiachen" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style> -->
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -255,7 +257,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -360,320 +362,271 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>leetcode<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/weekgame-142/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何嘉晨">
+      <meta itemprop="description" content="这是何嘉晨的个人博客，在这里我会记录我所遇到了java的问题和分享我记录到的知识！大家一起努力前进吧！">
+      <meta itemprop="image" content="/images/pigpig.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="何嘉晨的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/posts/detectCycle-142/" itemprop="url">
-            
-              <span itemprop="name">环形链表 II_142</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">LeetCode周赛_142
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-04T22:20:04+08:00" content="2019-03-04">
-          03-04
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-23 21:44:48 / 修改时间：22:10:28" itemprop="dateCreated datePublished" datetime="2019-06-23T21:44:48+08:00">2019-06-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+            <span title="post.wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span>字数： 1.4k</span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/maxProfit-122/" itemprop="url">
-            
-              <span itemprop="name">买卖股票的最佳时机 II_122</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-01T13:48:53+08:00" content="2019-03-01">
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/maxProfit-121/" itemprop="url">
-            
-              <span itemprop="name">买卖股票的最佳时机_121</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-28T20:22:29+08:00" content="2019-02-28">
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/hasCycle-141/" itemprop="url">
-            
-              <span itemprop="name">环形链表_141</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-27T23:43:36+08:00" content="2019-02-27">
-          02-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/searchRange-34/" itemprop="url">
-            
-              <span itemprop="name">在排序数组中查找元素的第一个和最后一个位置_34</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-24T21:50:43+08:00" content="2019-02-24">
-          02-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/two-sum-ii-input-array-is-sorted-167/" itemprop="url">
-            
-              <span itemprop="name">两数之和 II - 输入有序数组_167</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-23T23:25:37+08:00" content="2019-02-23">
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/triangle-120/" itemprop="url">
-            
-              <span itemprop="name">三角形最小路径和_120</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-20T14:10:55+08:00" content="2019-02-20">
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/longest-valid-parentheses-32/" itemprop="url">
-            
-              <span itemprop="name">最长有效括号_32</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-19T17:05:37+08:00" content="2019-02-19">
-          02-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/maximum-depth-of-binary-tree-104/" itemprop="url">
-            
-              <span itemprop="name">二叉树的最大深度_104</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-17T15:51:35+08:00" content="2019-02-17">
-          02-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/posts/binary-tree-level-order-traversal-102/" itemprop="url">
-            
-              <span itemprop="name">二叉树的层次遍历_102</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-15T11:18:11+08:00" content="2019-02-15">
-          02-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <p>这是第142期leetcode周赛我做的题目的一些思路。《大样本统计》 和 《拼车》。</p>
+<h1 id="1093-大样本统计"><a href="#1093-大样本统计" class="headerlink" title="1093. 大样本统计"></a>1093. 大样本统计</h1><p>我们对 <code>0</code> 到 <code>255</code> 之间的整数进行采样，并将结果存储在数组 <code>count</code> 中：<code>count[k]</code> 就是整数 <code>k</code> 的采样个数。</p>
+<p>我们以 <strong>浮点数</strong> 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。</p>
+<p>我们先来回顾一下中位数的知识：</p>
+<ul>
+<li>如果样本中的元素有序，并且元素数量为奇数时，中位数为最中间的那个元素；</li>
+<li>如果样本中的元素有序，并且元素数量为偶数时，中位数为中间的两个元素的平均值。</li>
+</ul>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：count = [0,1,3,4,0,0,0,0,0]</span><br><span class="line">输出：[1.00000,3.00000,2.37500,2.50000,3.00000]</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：count = [0,4,3,2,2,0,0,0,0,0]</span><br><span class="line">输出：[1.00000,4.00000,2.18182,2.00000,1.00000]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>count.length == 256</code></li>
+<li><code>1 &lt;= sum(count) &lt;= 10^9</code></li>
+<li>计数表示的众数是唯一的</li>
+<li>答案与真实值误差在 <code>10^-5</code> 以内就会被视为正确答案</li>
+</ol>
+<a id="more"></a>
+<h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>我觉得这题有两个比较难的地方。</p>
+<p>一个是读通题目，我觉得这题读一遍我确实没有搞清楚哈哈。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用第一个示例解答，</span><br><span class="line">count[1] = 1,则代表统计了1个1；</span><br><span class="line">count[2] = 3 则代表统计了3个2；</span><br><span class="line">count[3] = 4则代表统计了4个3。</span><br><span class="line">这样我们统计的数据实际就是 12223333 之后就对这个数组进行处理。</span><br></pre></td></tr></table></figure>
+<p>二是处理中位数。题目提示了处理中位数的方法。那么我们怎么处理这个中位数呢？</p>
+<p>首先一个 判断奇偶，我们可以通过位运算 &amp; 符号。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">回顾一下 &amp; 运算符:</span><br><span class="line">0&amp;0=0,0&amp;1=0,1&amp;0=0,1&amp;1=1。</span><br><span class="line">当一个数字用&amp;运算符来 &amp; 1。</span><br><span class="line">就相当于   奇数    偶数</span><br><span class="line">         xxx1    xxx0</span><br><span class="line">        &amp;0001   &amp;0001 </span><br><span class="line">结果必然是0001   结果必然是0</span><br><span class="line">所以通过&amp;1可以判断一个数的奇偶性</span><br></pre></td></tr></table></figure>
+<p>其次就是找到中位数所在的点。很简单 <strong>长度是奇数：中位数的位置=  总数/2</strong> 那么我们这样做，先定义一个now=0，每经过一个数就增加count的值，当now大于 <strong>中位数的位置</strong> 的时候 中位数就是那个点。偶数也是一样一次类推。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">double</span>[] sampleStats(<span class="keyword">int</span>[] count) &#123;</span><br><span class="line">        <span class="keyword">double</span> max = <span class="number">0</span>, min = <span class="number">0</span>, avr, mid = <span class="number">0</span>, most = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                min = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = count.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                max = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> nowMost = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (count[i] &gt; nowMost) &#123;</span><br><span class="line">                    nowMost = count[i];</span><br><span class="line">                    most = i;</span><br><span class="line">                &#125;</span><br><span class="line">                sum += (count[i] * i);</span><br><span class="line">                num += count[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        avr = sum / num;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((num &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">double</span> mid1 = num / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> now = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((now += count[i]) &gt; mid1) &#123;</span><br><span class="line">                    mid = i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">double</span> mid1 = num / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">double</span> mid2 = num / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> now = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((now += count[i]) &gt;= mid1) &#123;</span><br><span class="line">                    mid1 = i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            now = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((now += count[i]) &gt;= mid2) &#123;</span><br><span class="line">                    mid2 = i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            mid = (mid1 + mid2) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">double</span>[]&#123;max, min, avr, mid, most&#125;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="1094-拼车"><a href="#1094-拼车" class="headerlink" title="1094. 拼车"></a>1094. 拼车</h1><p>假设你是一位顺风车司机，车上最初有 <code>capacity</code> 个空座位可以用来载客。由于道路的限制，车 <strong>只能</strong> 向一个方向行驶（也就是说，<strong>不允许掉头或改变方向</strong>，你可以将其想象为一个向量）。</p>
+<p>这儿有一份行程计划表 <code>trips[][]</code>，其中 <code>trips[i] = [num_passengers, start_location, end_location]</code> 包含了你的第 <code>i</code> 次行程信息：</p>
+<ul>
+<li>必须接送的乘客数量；</li>
+<li>乘客的上车地点；</li>
+<li>以及乘客的下车地点。</li>
+</ul>
+<p>这些给出的地点位置是从你的 <strong>初始</strong> 出发位置向前行驶到这些地点所需的距离（它们一定在你的行驶方向上）。</p>
+<p>请你根据给出的行程计划表和车子的座位数，来判断你的车是否可以顺利完成接送所用乘客的任务（当且仅当你可以在所有给定的行程中接送所有乘客时，返回 <code>true</code>，否则请返回 <code>false</code>）。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：trips = [[2,1,5],[3,3,7]], capacity = 4</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：trips = [[2,1,5],[3,3,7]], capacity = 5</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：trips = [[2,1,5],[3,5,7]], capacity = 3</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：trips = [[3,2,7],[3,7,9],[8,3,9]], capacity = 11</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li>你可以假设乘客会自觉遵守 “<strong>先下后上</strong>” 的良好素质</li>
+<li><code>trips.length &lt;= 1000</code></li>
+<li><code>trips[i].length == 3</code></li>
+<li><code>1 &lt;= trips[i][0] &lt;= 100</code></li>
+<li><code>0 &lt;= trips[i][1] &lt; trips[i][2] &lt;= 1000</code></li>
+<li><code>1 &lt;= capacity &lt;= 100000</code></li>
+</ol>
+<h2 id="我的思路-1"><a href="#我的思路-1" class="headerlink" title="我的思路"></a>我的思路</h2><p>我觉得我的读题能力确实需要提高，因为我以为旅程是一个接一个的，假如后面的开始地在前的话就不行，结果不是，后面的旅客的开始地在前的话，也是可以上车的。有一个很简单的做法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">carPooling</span><span class="params">(<span class="keyword">int</span>[][] trips, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; trips.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == trips[j][<span class="number">1</span>]) &#123;</span><br><span class="line">                now += trips[j][<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == trips[j][<span class="number">2</span>]) &#123;</span><br><span class="line">                now -= trips[j][<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (now &gt; capacity) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: black;font-size:14px;">-------------　　本文已结束，谢谢您的观看！　　-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+          
+            <a href="/tags/周赛/" rel="tag"><i class="fa fa-tag"></i> 周赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/solution-231/" rel="next" title="2的幂_231">
+                <i class="fa fa-chevron-left"></i> 2的幂_231
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/leetcode/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/leetcode/">1</a><a class="page-number" href="/tags/leetcode/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/tags/leetcode/page/4/">4</a><a class="page-number" href="/tags/leetcode/page/5/">5</a><a class="extend next" rel="next" href="/tags/leetcode/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -694,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -864,6 +826,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1093-大样本统计"><span class="nav-number">1.</span> <span class="nav-text">1093. 大样本统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路"><span class="nav-number">1.1.</span> <span class="nav-text">我的思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1094-拼车"><span class="nav-number">2.</span> <span class="nav-text">1094. 拼车</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我的思路-1"><span class="nav-number">2.1.</span> <span class="nav-text">我的思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -1006,6 +985,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -1016,6 +999,8 @@
 
   
 
+
+  
 
 
   
