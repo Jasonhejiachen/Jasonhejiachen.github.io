@@ -112,7 +112,7 @@
 <meta property="og:description" content="这是我做第九周双周赛时的一些思路。 仅供参考《最多可以买到的苹果数量》、《找出所有行中最小公共元素》 5072.最多可以买到的苹果数量楼下水果店正在促销，你打算买些苹果，arr[i] 表示第 i 个苹果的单位重量。 你有一个购物袋，最多可以装 5000 单位重量的东西，算一算，最多可以往购物袋里装入多少苹果。 示例 1： 123输入：arr = [100,200,150,1000]输出：4解释：所">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/posts/weekgameNight-9/knight.png">
-<meta property="og:updated_time" content="2019-09-22T12:25:53.774Z">
+<meta property="og:updated_time" content="2019-09-22T12:33:40.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="夜喵双周赛_9">
 <meta name="twitter:description" content="这是我做第九周双周赛时的一些思路。 仅供参考《最多可以买到的苹果数量》、《找出所有行中最小公共元素》 5072.最多可以买到的苹果数量楼下水果店正在促销，你打算买些苹果，arr[i] 表示第 i 个苹果的单位重量。 你有一个购物袋，最多可以装 5000 单位重量的东西，算一算，最多可以往购物袋里装入多少苹果。 示例 1： 123输入：arr = [100,200,150,1000]输出：4解释：所">
@@ -427,7 +427,7 @@
                 
               
 
-              <time title="创建时间：2019-09-22 19:30:11 / 修改时间：20:25:53" itemprop="dateCreated datePublished" datetime="2019-09-22T19:30:11+08:00">2019-09-22</time>
+              <time title="创建时间：2019-09-22 19:30:11 / 修改时间：20:33:40" itemprop="dateCreated datePublished" datetime="2019-09-22T19:30:11+08:00">2019-09-22</time>
             
 
             
@@ -500,6 +500,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [100,200,150,1000]</span><br><span class="line">输出：4</span><br><span class="line">解释：所有 4 个苹果都可以装进去，因为它们的重量之和为 1450。</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [900,950,800,1000,700,800]</span><br><span class="line">输出：5</span><br><span class="line">解释：6 个苹果的总重量超过了 5000，所以我们只能从中任选 5 个。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h2><p>这道题比较容易理解，题目提供了一个数组存放苹果。那么我们可以通过排序算法将数组进行从小到大的排序，然后对数组进行遍历，这样很容易就能求出最多能装进多少个苹果。</p>
 <p>代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxNumberOfApples</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Arrays.sort(arr);</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">5000</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        sum+=arr[i];</span><br><span class="line">        <span class="keyword">if</span>(sum&gt;max)&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -573,8 +574,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/“weekgameNight-9/" rel="next" title="“weekgameNight_9">
-                <i class="fa fa-chevron-left"></i> “weekgameNight_9
+              <a href="/posts/weekgame-142/" rel="next" title="LeetCode周赛_142">
+                <i class="fa fa-chevron-left"></i> LeetCode周赛_142
               </a>
             
           </div>
@@ -653,7 +654,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
